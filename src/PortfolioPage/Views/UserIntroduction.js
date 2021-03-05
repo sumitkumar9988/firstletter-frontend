@@ -8,7 +8,7 @@ const UserIntroduction = () => {
           <div className="mx-auto max-w-7xl">
             <div className="container max-w-lg px-4 py-32 mx-auto text-left md:max-w-none md:text-center">
               <h1 className="text-5xl font-extrabold tracking-tight text-left text-gray-900 leading-tightest md:leading-10 md:text-center sm:leading-none md:text-6xl lg:text-7xl">
-                <span className="inline md:block">Hi I am </span>
+                <span className="inline md:block">Hi 👋 I am </span>
                 <p className="relative mt-2 text-transparent md:inline-block bg-clip-text bg-gradient-to-br from-blue-500 to-purple-500">
                   {' '}
                   Sumit Kumar
