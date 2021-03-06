@@ -1,5 +1,5 @@
-import React from 'react';
-import skillsvg from './../../Asset/Image/skills1.svg'
+import React from "react";
+import skillsvg from "./../../Asset/Image/skills1.svg";
 const Feature = () => {
   return (
     <div id="feature">

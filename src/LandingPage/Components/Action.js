@@ -1,12 +1,14 @@
-import React from 'react';
+import React from "react";
 
 const Action = () => {
   return (
     <div>
       <section className="py-8 leading-7 text-gray-900 bg-white sm:py-12 md:py-16 lg:py-24">
         <div className="max-w-6xl px-4 px-10 mx-auto border-solid lg:px-12">
-          <div className="flex flex-col items-start leading-7 text-gray-900 border-0 border-gray-200
-                      lg:items-center lg:flex-row">
+          <div
+            className="flex flex-col items-start leading-7 text-gray-900 border-0 border-gray-200
+                      lg:items-center lg:flex-row"
+          >
             <div className="box-border flex-1 text-center border-solid sm:text-left">
               <h2
                 className="m-0 leading-tight tracking-tight text-left text-black border-0

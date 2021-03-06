@@ -1,5 +1,5 @@
-import React from 'react';
-import { ReactComponent as ArrowDown } from 'feather-icons/dist/icons/arrow-down.svg';
+import React from "react";
+import { ReactComponent as ArrowDown } from "feather-icons/dist/icons/arrow-down.svg";
 const UserIntroduction = () => {
   return (
     <div>
@@ -10,7 +10,7 @@ const UserIntroduction = () => {
               <h1 className="text-5xl font-extrabold tracking-tight text-left text-gray-900 leading-tightest md:leading-10 md:text-center sm:leading-none md:text-6xl lg:text-7xl">
                 <span className="inline md:block">Hi 👋 I am </span>
                 <p className="relative mt-2 text-transparent md:inline-block bg-clip-text bg-gradient-to-br from-blue-500 to-purple-500">
-                  {' '}
+                  {" "}
                   Sumit Kumar
                 </p>
               </h1>
