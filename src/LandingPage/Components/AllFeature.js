@@ -18,6 +18,7 @@ const AllFeature = () => {
           >
             <img
               src={resumeIllustartor}
+              alt="illustration"
               className="p-2 pl-6 pr-5 xl:pl-16 xl:pr-20 "
             />
           </div>
@@ -115,6 +116,7 @@ const AllFeature = () => {
 
           <div className="box-border relative w-full max-w-md px-4 mt-10 mb-4 text-center bg-no-repeat bg-contain border-solid md:mt-0 md:max-w-none lg:mb-0 md:w-1/2">
             <img
+              alt=""
               src={resume2Illustartor}
               className="pl-4 sm:pr-10 xl:pl-10 lg:pr-32"
             />

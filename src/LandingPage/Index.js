@@ -1,6 +1,6 @@
 import React from "react";
 import Headers from "./Components/Headers";
-import Introduction from "./Components/Introduction";
+// import Introduction from "./Components/Introduction";
 import Hero from "./Components/Hero";
 import Feature from "./Components/Feature";
 import AllFeature from "./Components/AllFeature";

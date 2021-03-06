@@ -17,6 +17,7 @@ const Feature = () => {
             </div>
             <div className="relative top-0 right-0 h-64 mt-12 md:-mt-16 md:absolute md:h-96">
               <img
+                alt=""
                 src={skillsvg}
                 className="object-cover mt-3 mr-5 h-80 lg:h-96"
               />

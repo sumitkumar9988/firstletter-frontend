@@ -2,7 +2,7 @@ import React from "react";
 
 const Project = () => {
   return (
-    <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+    <div id="project" className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
       <h2 className="text-5xl text-center mb-10 text-gray-900 font-semibold font-heading">
         My Project
       </h2>
@@ -15,25 +15,23 @@ const Project = () => {
           />
           <div className="p-5 border border-t-0">
             <p className="mb-3 text-xs font-semibold tracking-wide uppercase"></p>
-            <a
-              href="/"
+            <p
               aria-label="Category"
               title="Visit the East"
               className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
             >
               Project 1
-            </a>
+            </p>
             <p className="mb-2 text-gray-700">
               Sed ut perspiciatis unde omnis iste natus error sit sed qui
               consequuntur magni voluptatem doloremque.
             </p>
-            <a
-              href="/"
+            <p
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more about Project
-            </a>
+            </p>
           </div>
         </div>
 
@@ -45,25 +43,23 @@ const Project = () => {
           />
           <div className="p-5 border border-t-0">
             <p className="mb-3 text-xs font-semibold tracking-wide uppercase"></p>
-            <a
-              href="/"
+            <p
               aria-label="Category"
               title="Visit the East"
               className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
             >
               Project 1
-            </a>
+            </p>
             <p className="mb-2 text-gray-700">
               Sed ut perspiciatis unde omnis iste natus error sit sed qui
               consequuntur magni voluptatem doloremque.
             </p>
-            <a
-              href="/"
+            <p
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more about Project
-            </a>
+            </p>
           </div>
         </div>
 
@@ -75,25 +71,23 @@ const Project = () => {
           />
           <div className="p-5 border border-t-0">
             <p className="mb-3 text-xs font-semibold tracking-wide uppercase"></p>
-            <a
-              href="/"
+            <p
               aria-label="Category"
               title="Visit the East"
               className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
             >
               Project 1
-            </a>
+            </p>
             <p className="mb-2 text-gray-700">
               Sed ut perspiciatis unde omnis iste natus error sit sed qui
               consequuntur magni voluptatem doloremque.
             </p>
-            <a
-              href="/"
+            <p
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more about Project
-            </a>
+            </p>
           </div>
         </div>
 
@@ -105,25 +99,23 @@ const Project = () => {
           />
           <div className="p-5 border border-t-0">
             <p className="mb-3 text-xs font-semibold tracking-wide uppercase"></p>
-            <a
-              href="/"
+            <p
               aria-label="Category"
               title="Visit the East"
               className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
             >
               Project 1
-            </a>
+            </p>
             <p className="mb-2 text-gray-700">
               Sed ut perspiciatis unde omnis iste natus error sit sed qui
               consequuntur magni voluptatem doloremque.
             </p>
-            <a
-              href="/"
+            <p
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more about Project
-            </a>
+            </p>
           </div>
         </div>
 
@@ -135,25 +127,23 @@ const Project = () => {
           />
           <div className="p-5 border border-t-0">
             <p className="mb-3 text-xs font-semibold tracking-wide uppercase"></p>
-            <a
-              href="/"
+            <p
               aria-label="Category"
               title="Visit the East"
               className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
             >
               Project 1
-            </a>
+            </p>
             <p className="mb-2 text-gray-700">
               Sed ut perspiciatis unde omnis iste natus error sit sed qui
               consequuntur magni voluptatem doloremque.
             </p>
-            <a
-              href="/"
+            <p
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more about Project
-            </a>
+            </p>
           </div>
         </div>
 
@@ -165,25 +155,23 @@ const Project = () => {
           />
           <div className="p-5 border border-t-0">
             <p className="mb-3 text-xs font-semibold tracking-wide uppercase"></p>
-            <a
-              href="/"
+            <p
               aria-label="Category"
               title="Visit the East"
               className="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-deep-purple-accent-700"
             >
               Project 1
-            </a>
+            </p>
             <p className="mb-2 text-gray-700">
               Sed ut perspiciatis unde omnis iste natus error sit sed qui
               consequuntur magni voluptatem doloremque.
             </p>
-            <a
-              href="/"
+            <p
               aria-label=""
               className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
             >
               Learn more about Project
-            </a>
+            </p>
           </div>
         </div>
       </div>
@@ -195,7 +183,7 @@ export default Project;
 
 // Card component
 
-{
+// {
   /* <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
 <img
   src="https://images.pexels.com/photos/447592/pexels-photo-447592.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
@@ -235,4 +223,4 @@ export default Project;
   </a>
 </div>
 </div> */
-}
+// }

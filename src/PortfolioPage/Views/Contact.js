@@ -2,7 +2,7 @@ import React from "react";
 
 export const Contact = () => {
   return (
-    <div>
+    <div id="contact">
       <section className="py-12 px-4">
         <h2 className="text-4xl mb-10 text-center font-semibold font-heading">
           Contact me
@@ -41,9 +41,9 @@ export const Contact = () => {
         </div>
         <div className="text-center">
           <p className="mb-2">Or just email us on</p>
-          <a className="text-indigo-600 hover:underline" href="#">
-            scranton@dundermifflin.com
-          </a>
+          <p className="text-indigo-600 hover:underline" href="#">
+            sumit.firstletter@gmail.com
+          </p>
         </div>
       </section>
     </div>

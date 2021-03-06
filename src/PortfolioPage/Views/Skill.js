@@ -31,7 +31,7 @@ export default class Skill extends Component {
             },
           },
         },
-        labels: ["Apples", "Oranges", "Bananas", "Berries"],
+        labels: ["Solve", "UnSolve", "partially solve", "compiler error"],
       },
     };
   }

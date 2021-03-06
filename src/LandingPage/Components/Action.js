@@ -21,8 +21,7 @@ const Action = () => {
                 Our service will help you maximize and boost your productivity.
               </p> */}
             </div>
-            <a
-              href="#_"
+            <p
               className="inline-flex items-center justify-center w-full px-5 py-4 mt-6 ml-0
                      font-sans text-base leading-none text-white no-underline bg-purple-500
                      border bg-purple-500 border-solid rounded cursor-pointer md:w-auto lg:mt-0
@@ -43,7 +42,7 @@ const Action = () => {
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
-            </a>
+            </p>
           </div>
         </div>
       </section>

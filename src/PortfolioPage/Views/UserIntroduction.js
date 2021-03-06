@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactComponent as ArrowDown } from "feather-icons/dist/icons/arrow-down.svg";
 const UserIntroduction = () => {
   return (
     <div>
