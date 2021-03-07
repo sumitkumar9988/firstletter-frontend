@@ -6,24 +6,24 @@ const NavItemDestop = () => {
         <div>
         <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">
-            <Link to="/">
-              <p href="#" class="text-white hover:text-white
+            <Link to="/home/">
+              <p href="#" class="text-white hover:bg-gray-700  hover:text-white
               px-3 py-2 rounded-md text-sm font-medium">Dashboard</p>
             </Link>
-            <Link to="/">
-              <p  class="text-gray-300  hover:text-white
+            <Link to="/home/education">
+              <p  class="text-gray-300 hover:bg-gray-700  hover:text-white
              px-3 py-2 rounded-md text-sm font-medium">Education</p>
             </Link>
-            <Link to="/">
-              <p  class="text-gray-300  hover:text-white
+            <Link to="/home/experience">
+              <p  class="text-gray-300 hover:bg-gray-700  hover:text-white
              px-3 py-2 rounded-md text-sm font-medium">Experience</p>
             </Link>
-            <Link to="/">
-              <p  class="text-gray-300  hover:text-white
+            <Link to="/home/projects">
+              <p  class="text-gray-300 hover:bg-gray-700  hover:text-white
              px-3 py-2 rounded-md text-sm font-medium">Projects</p>
             </Link>
-            <Link to="/">
-              <p class="text-gray-300  hover:text-white
+            <Link to="/home/social">
+              <p class="text-gray-300 hover:bg-gray-700  hover:text-white
              px-3 py-2 rounded-md text-sm font-medium">Social Links</p>
             </Link>
           </div>

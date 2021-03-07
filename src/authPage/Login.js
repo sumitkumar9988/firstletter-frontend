@@ -45,7 +45,7 @@ const Login = () => {
         </div>
       </div>
       <div>
-        <Link to="/home">
+        <Link to="/basic">
             <button type="submit" class="group relative w-full
              flex justify-center px-3 py-2 border border-transparent 
              text-sm font-medium rounded-md text-white
