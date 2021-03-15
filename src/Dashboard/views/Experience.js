@@ -17,8 +17,6 @@ const Experience = () => {
                         <ExperienceCard/>
                         <ExperienceCard/>
                         <ExperienceCard/>
-                        
-
                     </div>
                 </div>
             </div>

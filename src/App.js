@@ -7,7 +7,6 @@ import Register from './authPage/Register'
 import BasicInfo from './authPage/BasicInfo'
 import FourOFour from './extraPage/FourOFour'
 import ProfilePhoto from './authPage/ProfilePhoto'
-import "./styles/index.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 function App() {
   return (
