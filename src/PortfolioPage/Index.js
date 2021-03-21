@@ -4,7 +4,7 @@ import React from "react";
 import PortfolioHeader from "./Views/Header";
 import UserIntroduction from "./Views/UserIntroduction";
 import Project from "./Views/Project";
-// import Education from "./Views/Education";
+import Education from "./Views/Education";
 import Contact from "./Views/Contact";
 import Footer from "./Views/Footer";
 import Skill from "./Views/Skill";
@@ -14,7 +14,7 @@ const Index = () => {
       <PortfolioHeader />
       <UserIntroduction />
       <Project />
-      {/* <Education/> */}
+      <Education />
       <Skill />
       <Contact />
       <Footer />
