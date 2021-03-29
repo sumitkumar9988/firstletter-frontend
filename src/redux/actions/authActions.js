@@ -52,7 +52,7 @@ export const login =(email,password)=>async (dispatch)=>{
         }
     
         const { data } = await axios.post(
-          '/api/users/login',
+          'xxxxxxxxxxxxxxxxx',
           { email, password },
           config
         )
@@ -85,7 +85,7 @@ export const signup=(username,email,password,history)=>async (dispatch)=>{
           }
       
           const { data } = await axios.post(
-            '/api/users/login',
+            'xxxxxxxxxxxxxxxx',
             {username, email, password },
             config
           )
@@ -121,7 +121,7 @@ export const changePassword=(currentPassword,newPassword,history)=>async (dispat
           }
       
           const { data } = await axios.post(
-            '/api/users/login',
+            'xxxxxxxxxxxxxxxx',
             {username, email, password },
             config
           )
@@ -140,6 +140,72 @@ export const changePassword=(currentPassword,newPassword,history)=>async (dispat
         dispatch({
             type:CHANGE_PASSWORD_FAILURE,
             payload:error.message
+        })
+    }
+}
+
+export const resetPasswords =(history,token,password)=async(dispatch)=>{
+    dispatch({
+        type:RESET_PASSWORD_REQUEST
+    })
+    try{
+        const config = {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+      
+          const { data } = await axios.post(
+            'xxxxxxxxxxxxxxxxx',
+            {username, email, password },
+            config
+          )
+      
+          dispatch({
+            type: RESET_PASSWORD_SUCCESS,
+            payload: data,
+          })
+      
+          localStorage.setItem('userInfo', JSON.stringify(data))
+          history.push('/home');
+
+    }catch(error){
+        dispatch({
+            type:RESET_PASSWORD_FAILURE,
+            payload:error.message
+
+        })
+    }
+}
+
+export const forgetPassword =(history,data)=>async (dispatch)=>{
+    dispatch({
+        type:FORGET_PASSWORD_REQUEST
+    })
+    try{
+            const config = {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+      
+          const { data } = await axios.post(
+            'xxxxxxxxxxxxxxxxx',
+            data,
+            config
+          )
+      
+          dispatch({
+            type: RESET_PASSWORD_SUCCESS,
+            payload: data,
+          })
+      
+          localStorage.setItem('userInfo', JSON.stringify(data))
+          history.push('/home');
+
+    } catch(error){
+        dispatch({
+            type:FORGET_PASSWORD_FAILURE
         })
     }
 }
