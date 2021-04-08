@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* [
+  {
+    "paletteName": "New Palette",
+    "swatches": [
+      {
+        "name": "dark",
+        "color": "000000"
+      },
+      {
+        "name": "dark-3",
+        "color": "1F1F1F"
+      },
+      {
+        "name": "blue",
+        "color": "2D6DFF"
+      },
+      {
+        "name": "green",
+        "color": "29A779"
+      },
+      {
+        "name": "orange",
+        "color": "FF8096"
+      }
+    ]
+  }
+] */
+
+/* [
+  {
+    "paletteName": "New Palette",
+    "swatches": [
+      {
+        "name": "dark",
+        "color": "000000"
+      },
+      {
+        "name": "dark-3",
+        "color": "1F1F1F"
+      },
+      {
+        "name": "blue",
+        "color": "2D6DFF"
+      },
+      {
+        "name": "green",
+        "color": "9849D7"
+      },
+      {
+        "name": "orange",
+        "color": "FF8096"
+      }
+    ]
+  }
+] */
