@@ -12,6 +12,7 @@
     "apexcharts": "^3.25.0",
     "autoprefixer": "^9.8.6",
     "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
     "feather-icons": "^4.28.0",
     "postcss": "^7.0.35",
     "react": "^17.0.1",
@@ -51,7 +52,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "prettier": "2.2.1"
-  }
+  "devDependencies": {}
 }

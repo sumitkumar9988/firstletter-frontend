@@ -1,84 +1,133 @@
-import React from 'react'
-import {Link} from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import Alert from '../extraPage/Alert';
+import Loader from '../extraPage/Loader';
+import { signup } from '../redux/actions/authActions.js';
+
+const Register = ({ history, location }) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
+  const [message, setMessage] = useState(null);
+
+  const dispatch = useDispatch();
+
+  const userSignup = useSelector((state) => state.userSignup);
+  const { loading, error, user } = userSignup;
+
+//   console.log(loading);
+//   console.log(error);
+//   console.log(user);
+
+  const data = { name, username, email, password };
 
 
-const Register = () => {
-    return (
-        <div class="min-h-screen flex items-center justify-center border-gray-400 py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-md w-full space-y-8">
-          <div>
-            {/* <img class="mx-auto h-12 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="Workflow"/> */}
-            <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
-              Create Your Account
-            </h2>
+  const redirect = location.search ? location.search.split('=')[1] : '/';
+
+        //   useEffect(() => {
+        //     if (userInfo) {
+        //       history.push(redirect);
+        //     }
+        //   }, [history, userInfo, redirect]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(signup(data, history));
+  };
+
+  return (
+    <div className="bg-gray-800 h-screen ">
+      <Alert message="You Have Wrong Password" type="Fail" color="green" />
+
+      <div className="flex items-center justify-center  sm:px-6">
+        <div className="w-full max-w-sm p-4 bg-gray-900 rounded-md shadow-md sm:p-6">
+          <div className="flex items-center justify-center">
+            <span className="text-xl font-medium text-white">Create Your Account</span>
           </div>
-          <form class="mt-8 space-y-6" >  
-            <div class=" shadow-sm -space-y-px">
+          <form className="mt-4">
+            <label for="Name" className="block">
+              <span className="text-sm text-white">Full Name</span>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                onChange={(e) => setName(e.target.value)}
+                className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
+                required
+              />
+            </label>
 
-            <div  className="px-3 py-2">
-                <label for="email-address" class="sr-only">Enter Name</label>
-                <input id="email-address" name="name"
-                  type="text"  required class="appearance-none block
-                  w-full bg-white text-gray-700 border
-                border-gray-400 shadow-inner 
-                  rounded-md py-3 px-4 leading-tight focus:outline-none
-                 focus:border-gray-500" placeholder="Full Name"/>
-              </div>
+            <label for="username" className="block mt-3">
+              <span className="text-sm text-white">Username</span>
+              <input
+                type="text"
+                id="username"
+                onChange={(e) => setUsername(e.target.value)}
+                name="username"
+                className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
+                required
+              />
+            </label>
 
-              <div  className="px-3 py-2">
-                <label for="email-address" class="sr-only">Email address</label>
-                <input id="email-address" name="email"
-                  type="email" autocomplete="email"
-                  required class="appearance-none block
-                  w-full bg-white text-gray-700 border
-                   border-gray-400 shadow-inner 
-                   rounded-md py-3 px-4 leading-tight focus:outline-none
-                     focus:border-gray-500" placeholder="Email address"/>
-              </div>
+            <label for="email" className="block mt-3">
+              <span className="text-sm text-white">Email</span>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                onChange={(e) => setEmail(e.target.value)}
+                className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
+                required
+              />
+            </label>
 
-              <div className="px-3 py-2">
-                <label for="password" class="sr-only">Password</label>
-                <input id="password" name="password"  type="password"
-                 autocomplete="current-password" required class="appearance-none block
-                 w-full bg-white text-gray-700 border
-                  border-gray-400 shadow-inner 
-                  rounded-md py-3 px-4 leading-tight focus:outline-none
-                    focus:border-gray-500" placeholder="Password"/>
+            <label for="password" className="block mt-3">
+              <span className="text-sm text-white">Password</span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+                className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
+                required
+              />
+            </label>
+
+            <div className="flex items-center justify-between mt-4">
+              <div>
+                <label className="inline-flex items-center">
+                  <input
+                    type="checkbox"
+                    className="text-indigo-600 border form-checkbox focus:outline-none focus:shadow-outline"
+                  />
+                  <span className="mx-2 text-sm text-white">Remember me</span>
+                </label>
+              </div>
+              <div>
+                <a
+                  className="block text-sm text-indigo-200 hover:underline focus:outline-none focus:underline"
+                  href="#"
+                >
+                  Already Have Account?
+                </a>
               </div>
             </div>
-      
-            <div class="flex items-center justify-between">
-              <div class="text-sm">
-                <p  class="font-medium text-indigo-600 hover:text-indigo-500">
-                  Forgot your password?
-                </p>
-              </div>
+            <div className="mt-6">
+              <button
+                type="submit"
+                onClick={submitHandler}
+                className="w-full px-4 py-2 text-sm text-center text-white bg-indigo-500 rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700 "
+              >
+                Register
+              </button>
             </div>
-            <div>
-              <Link to="/home">
-                  <button type="submit" class="group relative w-full
-                   flex justify-center px-3 py-2 border border-transparent 
-                   text-sm font-medium rounded-md text-white
-                 bg-indigo-600 hover:bg-indigo-700 focus:outline-none
-                   focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Sign in
-                  </button>
-              </Link>
-            </div>
-              {/* <h4 className="text-center font-medium ">Or</h4> */}
-            <div>
-              <Link to="/home">
-                  <h3  class="font-medium  text-center text-indigo-600
-                   hover:text-indigo-500">
-                  Create Your Account
-                </h3>
-              </Link>
-            </div>
-      
           </form>
         </div>
       </div>
-    )
-}
+    </div>
+  );
+};
 
-export default Register
+export default Register;

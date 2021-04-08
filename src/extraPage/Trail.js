@@ -1,13 +1,11 @@
-import React from 'react'
-import { SiReact, SiTailwindcss, SiNextDotJs } from "react-icons/si";
-import { BsLightningFill } from "react-icons/bs";
+import React from 'react';
 
-const Trail = () => {
-    return (
-    <div>
-        trail
-    </div>
-    )
-}
+const Loader = () => {
+  return (
+   <div>
+     
+   </div>
+  );
+};
 
-export default Trail
+export default Loader;
