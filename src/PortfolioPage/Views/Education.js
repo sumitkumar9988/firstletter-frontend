@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Education = () => {
   return (
@@ -27,12 +27,10 @@ const Education = () => {
                 </svg>
               </div>
               <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
-                  Shooting Stars
-                </h2>
+                <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">Shooting Stars</h2>
                 <p class="leading-relaxed">
-                  VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk
-                  bespoke try-hard cliche palo santo offal.
+                  VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo
+                  offal.
                 </p>
               </div>
             </div>
@@ -59,12 +57,10 @@ const Education = () => {
                 </svg>
               </div>
               <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
-                  The Catalyzer
-                </h2>
+                <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">The Catalyzer</h2>
                 <p class="leading-relaxed">
-                  VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk
-                  bespoke try-hard cliche palo santo offal.
+                  VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo
+                  offal.
                 </p>
               </div>
             </div>
@@ -92,12 +88,10 @@ const Education = () => {
                 </svg>
               </div>
               <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
-                  The 400 Blows
-                </h2>
+                <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">The 400 Blows</h2>
                 <p class="leading-relaxed">
-                  VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk
-                  bespoke try-hard cliche palo santo offal.
+                  VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo
+                  offal.
                 </p>
               </div>
             </div>
@@ -125,12 +119,10 @@ const Education = () => {
                 </svg>
               </div>
               <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">
-                  Neptune
-                </h2>
+                <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">Neptune</h2>
                 <p class="leading-relaxed">
-                  VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk
-                  bespoke try-hard cliche palo santo offal.
+                  VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo
+                  offal.
                 </p>
               </div>
             </div>

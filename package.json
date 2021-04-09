@@ -1,6 +1,7 @@
 {
   "name": "firstletter-frontend",
   "version": "0.1.0",
+  "proxy": "http://firstletterbackend-env.eba-prw6hafg.ap-south-1.elasticbeanstalk.com/api/v1/user",
   "homepage": ".",
   "private": true,
   "dependencies": {
@@ -52,5 +53,7 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "prettier": "2.2.1"
+  }
 }

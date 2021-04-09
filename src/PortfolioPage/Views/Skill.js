@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import Chart from "react-apexcharts";
+import React, { Component } from 'react';
+import Chart from 'react-apexcharts';
 export default class Skill extends Component {
   constructor(props) {
     super(props);
@@ -9,20 +9,20 @@ export default class Skill extends Component {
       options: {
         chart: {
           height: 350,
-          type: "radialBar",
+          type: 'radialBar',
         },
         plotOptions: {
           radialBar: {
             dataLabels: {
               name: {
-                fontSize: "22px",
+                fontSize: '22px',
               },
               value: {
-                fontSize: "16px",
+                fontSize: '16px',
               },
               total: {
                 show: true,
-                label: "Total",
+                label: 'Total',
                 formatter: function (w) {
                   // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
                   return 249;
@@ -31,7 +31,7 @@ export default class Skill extends Component {
             },
           },
         },
-        labels: ["Solve", "UnSolve", "partially solve", "compiler error"],
+        labels: ['Solve', 'UnSolve', 'partially solve', 'compiler error'],
       },
     };
   }
@@ -40,12 +40,7 @@ export default class Skill extends Component {
     return (
       <div>
         <div id="chart">
-          <Chart
-            options={this.state.options}
-            series={this.state.series}
-            type="radialBar"
-            height={350}
-          />
+          <Chart options={this.state.options} series={this.state.series} type="radialBar" height={350} />
         </div>
       </div>
     );

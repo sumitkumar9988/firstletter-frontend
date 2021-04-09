@@ -1,15 +1,16 @@
-import React from "react";
-import LandingPage from "./LandingPage/Index";
-import PortfolioPage from "./PortfolioPage/Index";
-import Dashboard from './Dashboard/Index'
-import Login from './authPage/Login'
-import Register from './authPage/Register'
-import ForgetPassword from './authPage/ForgetPassword'
-import FourOFour from './extraPage/FourOFour'
-import Trail from './extraPage/Trail'
-import ResumeUpload from './authPage/resumeUpload'
-import ProfilePhoto from './authPage/ProfilePhoto'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React from 'react';
+import LandingPage from './LandingPage/Index';
+import PortfolioPage from './PortfolioPage/Index';
+import Dashboard from './Dashboard/Index';
+import Login from './authPage/Login';
+import Register from './authPage/Register';
+import EmailSent from './authPage/EmailSent';
+import ForgetPassword from './authPage/ForgetPassword';
+import FourOFour from './extraPage/FourOFour';
+import Trail from './extraPage/Trail';
+import ResumeUpload from './authPage/resumeUpload';
+import ProfilePhoto from './authPage/ProfilePhoto';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
@@ -20,12 +21,13 @@ function App() {
           <Route path="/sumit" component={PortfolioPage} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/resume" component={ResumeUpload}/>
-          <Route path="/forgetpassword" component={ForgetPassword}/>
-          <Route path="/photo" component={ProfilePhoto}/>
-          <Route path="/home" component={Dashboard}/>
+          <Route path="/emailsent" component={EmailSent} />
+          <Route path="/resume" component={ResumeUpload} />
+          <Route path="/forgetpassword" component={ForgetPassword} />
+          <Route path="/photo" component={ProfilePhoto} />
+          <Route path="/home" component={Dashboard} />
           <Route exact path="/" component={LandingPage} />
-          <Route  component={FourOFour}/>
+          <Route component={FourOFour} />
         </Switch>
       </Router>
     </div>

@@ -1,12 +1,10 @@
-import React from "react";
+import React from 'react';
 
 export const Contact = () => {
   return (
     <div id="contact">
       <section className="py-12 px-4">
-        <h2 className="text-4xl mb-10 text-center font-semibold font-heading">
-          Contact me
-        </h2>
+        <h2 className="text-4xl mb-10 text-center font-semibold font-heading">Contact me</h2>
         <div className="w-full max-w-2xl mx-auto mb-8">
           <form>
             <div className="flex mb-4 -mx-2">

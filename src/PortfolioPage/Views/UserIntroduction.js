@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 const UserIntroduction = () => {
   return (
     <div>
@@ -9,15 +9,14 @@ const UserIntroduction = () => {
               <h1 className="text-5xl font-extrabold tracking-tight text-left text-gray-900 leading-tightest md:leading-10 md:text-center sm:leading-none md:text-6xl lg:text-7xl">
                 <span className="inline md:block">Hi 👋 I am </span>
                 <p className="relative mt-2 text-transparent md:inline-block bg-clip-text bg-gradient-to-br from-blue-500 to-purple-500">
-                  {" "}
+                  {' '}
                   Sumit Kumar
                 </p>
               </h1>
               <div class="mx-auto mt-5 text-gray-500 md:mt-12 md:max-w-lg md:text-center lg:text-lg">
-                Enim est nisi mollit Lorem excepteur amet do sunt. Enim est nisi
-                mollit Lorem excepteur amet do sunt. Enim est nisi mollit Lorem
-                excepteur amet do sunt. Enim est nisi mollit Lorem excepteur
-                amet do sunt. Enim est nisi mollit Lorem excepteur amet do sunt.
+                Enim est nisi mollit Lorem excepteur amet do sunt. Enim est nisi mollit Lorem excepteur amet do sunt.
+                Enim est nisi mollit Lorem excepteur amet do sunt. Enim est nisi mollit Lorem excepteur amet do sunt.
+                Enim est nisi mollit Lorem excepteur amet do sunt.
               </div>
 
               <div className="flex flex-col items-center mt-12 text-center">

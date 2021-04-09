@@ -42,10 +42,7 @@ const Login = () => {
               </label>
             </div>
             <div>
-              <a
-                class="block text-sm text-indigo-200 hover:underline focus:outline-none focus:underline"
-                href="#"
-              >
+              <a class="block text-sm text-indigo-200 hover:underline focus:outline-none focus:underline" href="#">
                 Forgot your password?
               </a>
             </div>

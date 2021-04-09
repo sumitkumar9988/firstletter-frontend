@@ -1,4 +1,5 @@
-import axios from './../../utils/axios';
+import axios from 'axios';
+import { baseURL } from './../../utils/url';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -15,6 +16,9 @@ import {
   FORGET_PASSWORD_REQUEST,
   FORGET_PASSWORD_SUCCESS,
   FORGET_PASSWORD_FAILURE,
+  GET_ALL_USER_DETAILS_REQUEST,
+  GET_ALL_USER_DETAILS_SUCCESS,
+  GET_ALL_USER_DETAILS_FAILURE,
   FILL_BASIC_DETAILS_REQUEST,
   FILL_BASIC_DETAILS_SUCCESS,
   FILL_BASIC_DETAILS_FAILURE,
@@ -29,107 +33,70 @@ import {
   UPDATE_SOCIAL_ACCOUNT_FAIL,
 } from './../constant/authConstants';
 
-export const login = (email, password) => async (dispatch) => {
+export const login = (input) => async (dispatch) => {
   try {
+    dispatch({ type: LOGIN_REQUEST });
+    console.log(input);
+    let { data } = await axios.post(`${baseURL}/login`, input);
+    dispatch({ type: LOGIN_SUCCESS, payload: data });
+    localStorage.setItem('userInfo', JSON.stringify(data));
+    console.log(data);
+  } catch (error) {
     dispatch({
-      type: LOGIN_REQUEST,
+      type: LOGIN_FAILURE,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
     });
+  }
+};
 
+export const signup = (input) => async (dispatch) => {
+  dispatch({ type: SIGNUP_REQUEST });
+  try {
+    let { data } = await axios.post(`${baseURL}/signup`, input);
+    dispatch({ type: SIGNUP_SUCCESS, payload: data });
+    localStorage.setItem('userInfo', JSON.stringify(data));
+  } catch (error) {
+    dispatch({
+      type: SIGNUP_FAILURE,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+    });
+  }
+};
+
+export const changePassword = (input) => async (dispatch, getState) => {
+  dispatch({ type: CHANGE_PASSWORD_REQUEST });
+  try {
+    const {
+      userLogin: { userInfo },
+    } = getState();
     const config = {
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
       },
     };
 
-    const { data } = await axios.post(
-      'xxxxxxxxxxxxxxxxx',
-      {
-        email,
-        password,
-      },
-      config,
-    );
+    const { data } = await axios.post(`${baseURL}/changepassword`, input, config);
 
+    dispatch({
+      type: CHANGE_PASSWORD_SUCCESS,
+      payload: data,
+    });
     dispatch({
       type: LOGIN_SUCCESS,
       payload: data,
     });
-
     localStorage.setItem('userInfo', JSON.stringify(data));
-  } catch (error) {
-    dispatch({
-      type: LOGIN_FAILURE,
-      payload: error.message,
-    });
-  }
-};
-
-export const signup = (info, history) => async (dispatch) => {
-  dispatch({
-    type: SIGNUP_REQUEST,
-  });
-  try {
-    console.log(info);
-    let {data} = await axios.post('/signup',     info);
-    data=JSON.parse(data);
-    console.log(data.token)
-    dispatch({
-      type: SIGNUP_SUCCESS,
-      payload: data,
-    });
-
-    localStorage.setItem('authtoken', JSON.stringify(data.token));
-  
-  } catch (error) {
-    dispatch({
-      type: SIGNUP_FAILURE,
-      payload: error.message,
-    });
-  }
-};
-
-export const changePassword = (currentPassword, newPassword, history) => async (dispatch) => {
-  dispatch({
-    type: CHANGE_PASSWORD_REQUEST,
-  });
-  try {
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
-
-    // const { data } = await axios.post(
-    //   'xxxxxxxxxxxxxxxx',
-    //   {
-    //     username,
-    //     email,
-    //     password,
-    //   },
-    //   config,
-    // );
-
-    // dispatch({
-    //   type: CHANGE_PASSWORD_SUCCESS,
-    //   payload: data,
-    // });
-
-    // localStorage.setItem('userInfo', JSON.stringify(data));
-    // history.push('/home');
   } catch (error) {
     dispatch({
       type: CHANGE_PASSWORD_FAILURE,
-      payload: error.message,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
     });
   }
 };
 
-export const resetPasswords = () => async (dispatch) => {};
-
-export const forgetPassword = (history, data) => async (dispatch) => {
-  dispatch({
-    type: FORGET_PASSWORD_REQUEST,
-  });
+export const resetPasswords = (input, key) => async (dispatch) => {
+  dispatch({ type: RESET_PASSWORD_REQUEST });
   try {
     const config = {
       headers: {
@@ -137,46 +104,71 @@ export const forgetPassword = (history, data) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post('xxxxxxxxxxxxxxxxx', data, config);
+    const { data } = await axios.post(`${baseURL}/resetPassword/${key}`, input, config);
 
     dispatch({
       type: RESET_PASSWORD_SUCCESS,
       payload: data,
     });
-
+    dispatch({
+      type: LOGIN_SUCCESS,
+      payload: data,
+    });
     localStorage.setItem('userInfo', JSON.stringify(data));
-    history.push('/home');
+  } catch (error) {
+    dispatch({
+      type: RESET_PASSWORD_FAILURE,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+    });
+  }
+};
+
+export const forgetPassword = (input) => async (dispatch) => {
+  dispatch({ type: FORGET_PASSWORD_REQUEST });
+  try {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+
+    const { data } = await axios.post(`${baseURL}/forgetpassword`, input, config);
+
+    dispatch({
+      type: FORGET_PASSWORD_SUCCESS,
+      payload: data,
+    });
   } catch (error) {
     dispatch({
       type: FORGET_PASSWORD_FAILURE,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
     });
   }
 };
 
-export const setBasicDetails = (history, data) => async (dispatch) => {
-  dispatch({
-    type: FILL_BASIC_DETAILS_REQUEST,
-  });
+export const getAllUser = () => async (dispatch, getState) => {
+  dispatch({ type: GET_ALL_USER_DETAILS_REQUEST });
   try {
+    const {
+      userLogin: { userInfo },
+    } = getState();
     const config = {
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
       },
     };
 
-    const { data } = await axios.post('xxxxxxxxxxxxxxxxx', data, config);
+    const { data } = await axios.get(`${baseURL}/`, config);
 
     dispatch({
-      type: RESET_PASSWORD_SUCCESS,
+      type: GET_ALL_USER_DETAILS_SUCCESS,
       payload: data,
     });
-
-    localStorage.setItem('userInfo', JSON.stringify(data));
-    history.push('/home');
   } catch (error) {
     dispatch({
-      type: FILL_BASIC_DETAILS_FAILURE,
-      payload: error.message,
+      type: GET_ALL_USER_DETAILS_FAILURE,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
     });
   }
 };
