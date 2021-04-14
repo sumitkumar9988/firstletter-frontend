@@ -37,3 +37,8 @@ const MobileItem = () => {
 };
 
 export default MobileItem;
+
+
+
+
+// provide a resume builder, people can create a nice resume by filling in some information, this could help developers to find jobs with their skills.

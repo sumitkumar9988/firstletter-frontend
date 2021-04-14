@@ -5,7 +5,9 @@ import Dashboard from './Dashboard/Index';
 import Login from './authPage/Login';
 import Register from './authPage/Register';
 import EmailSent from './authPage/EmailSent';
+import ChangePassword from './authPage/ChangePassword';
 import ForgetPassword from './authPage/ForgetPassword';
+import ResetPassword from './authPage/ResetPassword';
 import FourOFour from './extraPage/FourOFour';
 import Trail from './extraPage/Trail';
 import ResumeUpload from './authPage/resumeUpload';
@@ -19,6 +21,8 @@ function App() {
         <Switch>
           <Route path="/trail" component={Trail} />
           <Route path="/sumit" component={PortfolioPage} />
+          <Route path="/changepassword" component={ChangePassword} />
+          <Route path="/resetpassword" component={ResetPassword} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/emailsent" component={EmailSent} />

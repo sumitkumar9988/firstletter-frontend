@@ -1,22 +1,18 @@
 import React from 'react';
-import Headers from './Components/Headers';
-// import Introduction from "./Components/Introduction";
-import Hero from './Components/Hero';
-import Feature from './Components/Feature';
-import AllFeature from './Components/AllFeature';
-import Action from './Components/Action';
-import Footer from './Components/Footer';
-// eslint-disable-next-line import/no-anonymous-default-export
+import Hero from './View/Hero';
+import Features from './View/Features';
+import Footer from './Components/components/Footer'
+import Client from './Components/components/Client'
 export default () => {
   return (
     <div>
-      <Headers />
-      {/* <Introduction/> */}
       <Hero />
-      <Feature />
-      <AllFeature />
-      <Action />
-      <Footer />
+      <Features  />
+      <Features  />
+      <Features  />
+      <Client image="https://images.unsplash.com/photo-1559726950-9bae0f643f86?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+       description="Excepteur irure nostrud magna eu commodo commodo Lorem ullamco cillum ex nulla cupidatat.Ullamco enim quis occaecat commodo consectetur enim proident nulla do laborum amet aliqua labore.Ad ipsum quis ipsum commodo esse."/>
+      <Footer/>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import React from 'react';
 const Education = () => {
   return (
     <>
-      <section class="text-gray-600 body-font">
+      <section class="text-gray-50 bg-black body-font">
         <div class="container px-5 py-24 mx-auto flex flex-wrap">
           <div class="flex relative pt-10 pb-20 sm:items-center md:w-2/3 mx-auto">
             <div class="h-full w-6 absolute inset-0 flex items-center justify-center">
@@ -27,7 +27,7 @@ const Education = () => {
                 </svg>
               </div>
               <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">Shooting Stars</h2>
+                <h2 class="font-medium title-font text-gray-50 mb-1 text-xl">Shooting Stars</h2>
                 <p class="leading-relaxed">
                   VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo
                   offal.
@@ -57,7 +57,7 @@ const Education = () => {
                 </svg>
               </div>
               <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">The Catalyzer</h2>
+                <h2 class="font-medium title-font text-gray-50 mb-1 text-xl">The Catalyzer</h2>
                 <p class="leading-relaxed">
                   VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo
                   offal.
@@ -88,7 +88,7 @@ const Education = () => {
                 </svg>
               </div>
               <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">The 400 Blows</h2>
+                <h2 class="font-medium title-font text-gray-50 mb-1 text-xl">The 400 Blows</h2>
                 <p class="leading-relaxed">
                   VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo
                   offal.
@@ -119,7 +119,7 @@ const Education = () => {
                 </svg>
               </div>
               <div class="flex-grow sm:pl-6 mt-6 sm:mt-0">
-                <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">Neptune</h2>
+                <h2 class="font-medium title-font text-gray-50 mb-1 text-xl">Neptune</h2>
                 <p class="leading-relaxed">
                   VHS cornhole pop-up, try-hard 8-bit iceland helvetica. Kinfolk bespoke try-hard cliche palo santo
                   offal.

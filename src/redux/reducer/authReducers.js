@@ -9,22 +9,16 @@ import {
   GET_ALL_USER_DETAILS_REQUEST,
   GET_ALL_USER_DETAILS_SUCCESS,
   GET_ALL_USER_DETAILS_FAILURE,
+
   CHANGE_PASSWORD_REQUEST,
   CHANGE_PASSWORD_SUCCESS,
   CHANGE_PASSWORD_FAILURE,
-  FORGET_PASSWORD_REQUEST,
   RESET_PASSWORD_REQUEST,
   RESET_PASSWORD_SUCCESS,
   RESET_PASSWORD_FAILURE,
-  // CHANGE_PASSWORD_REQUEST,
-  // CHANGE_PASSWORD_SUCCESS,
-  // CHANGE_PASSWORD_FAILURE,
-  // RESET_PASSWORD_REQUEST,
-  // RESET_PASSWORD_SUCCESS,
-  // RESET_PASSWORD_FAILURE,
-  // FORGET_PASSWORD_REQUEST,
-  // FORGET_PASSWORD_SUCCESS,
-  // FORGET_PASSWORD_FAILURE,
+  FORGET_PASSWORD_REQUEST,
+  FORGET_PASSWORD_SUCCESS,
+  FORGET_PASSWORD_FAILURE,
   // FILL_BASIC_DETAILS_REQUEST,
   // FILL_BASIC_DETAILS_SUCCESS,
   // FILL_BASIC_DETAILS_FAILURE,
@@ -84,9 +78,9 @@ export const forgetPasswordReducer = (state = {}, action) => {
   switch (action.type) {
     case FORGET_PASSWORD_REQUEST:
       return { loading: true };
-    case SIGNUP_SUCCESS:
+    case FORGET_PASSWORD_SUCCESS:
       return { loading: false, success: true };
-    case SIGNUP_FAILURE:
+    case FORGET_PASSWORD_FAILURE:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -118,3 +112,4 @@ export const getUserDetailsReducer = (state = { user: {} }, action) => {
       return state;
   }
 };
+
