@@ -2,35 +2,37 @@ import React from 'react';
 
 const demo2 = () => {
   return (
-    <div className="bg-black">
-      <div class="fixed top-0 left-0 z-40  items-center hidden w-full h-full p-3 text-xl bg-gray-900 ">
-        <div class="flex-col w-full h-auto h-full overflow-hidden bg-black rounded-lg select-none      ">
-          <div class="flex flex-col items-center justify-center w-full h-full mt-12 text-center text-indigo-700     ">
-            <a href="#" class="inline-block px-4 py-2 mx-2 font-medium text-left text-indigo-700    ">
-              Home
-            </a>
-            <a
-              href="#"
-              class="inline-block px-0 px-4 py-2 mx-2 font-medium text-left  hover:text-indigo-800 :text-white  "
-            >
-              Features
-            </a>
-            <a
-              href="#"
-              class="inline-block px-0 px-4 py-2 mx-2 font-medium text-left  hover:text-indigo-800 :text-white  "
-            >
-              Blog
-            </a>
-            <a
-              href="#"
-              class="inline-block px-0 px-4 py-2 mx-2 font-medium text-left  hover:text-indigo-800 :text-white  "
-            >
-              Contact
-            </a>
-          </div>
+   <div>
+        <div class="flex flex-col w-full bg-black md:flex-row">
+        <div class="flex flex-col items-center justify-center w-full p-5 md:w-1/2 lg:p-16 xl:p-24">
+          <h2 class="max-w-lg text-4xl font-bold leading-tight text-blue-500 md:text-3xl lg:text-4xl">{title}</h2>
+          <p class="mt-4 mb-10 text-white">{description}</p>
+        </div>
+        <div class=" w-full overflow-hidden md:w-1/2  ">
+          <img
+            src={image}
+            class="hover:overflow-x-hidden  duration-500 ease-in-out transform hover:scale-110 inset-0 object-cover "
+          />
         </div>
       </div>
-    </div>
+
+
+      <div class="flex flex-col  -reverse w-full bg-black md:flex-row">
+        <div class="w-full overflow-hidden md:w-1/2">
+          <img
+            src={image}
+            class=" hover:overflow-x-hidden  duration-500 ease-in-out transform hover:scale-110 inset-0 object-cover"
+            alt="left image"
+          />
+        </div>
+        <div class="flex flex-col items-start justify-center w-full p-5 md:w-1/2 lg:p-16 xl:p-24">
+          <h2 class="max-w-lg text-4xl font-bold leading-tight text-blue-500 md:text-3xl lg:text-4xl">{title}</h2>
+          <p class="mt-4 mb-10 text-white">{description}</p>
+        </div>
+      </div>
+ 
+
+   </div>
   );
 };
 

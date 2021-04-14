@@ -3,7 +3,7 @@ import React from 'react';
 const LeftImageItem = ({ image, title, description }) => {
   return (
     <div>
-      <div class="flex flex-col  -reverse w-full bg-black md:flex-row">
+      <div class="flex flex-col  flex-col-reverse w-full bg-black md:flex-row">
         <div class="w-full overflow-hidden md:w-1/2">
           <img
             src={image}
