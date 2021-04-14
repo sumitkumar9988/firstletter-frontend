@@ -23,17 +23,7 @@ const Footer = () => {
             </div>
             <div class="px-5 py-2">
               <a href="#" class="text-base leading-6 text-gray-50 hover:text-gray-500">
-                Pricing
-              </a>
-            </div>
-            <div class="px-5 py-2">
-              <a href="#" class="text-base leading-6 text-gray-50 hover:text-gray-500">
                 Contact
-              </a>
-            </div>
-            <div class="px-5 py-2">
-              <a href="#" class="text-base leading-6 text-gray-50 hover:text-gray-500">
-                Terms
               </a>
             </div>
           </nav>
@@ -85,7 +75,7 @@ const Footer = () => {
               </svg>
             </a>
           </div>
-          <p class="mt-8 text-base leading-6 text-center text-gray-50">© 2021 SomeCompany, Inc. All rights reserved.</p>
+          <p class="mt-8 text-base leading-6 text-center text-gray-50">© 2021 firstletter, Inc. All rights reserved.</p>
         </div>
       </section>
     </div>
