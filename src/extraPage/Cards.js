@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const Cards = () => {
   return (
@@ -10,9 +10,8 @@ const Cards = () => {
             <span class="inline-block text-indigo-500">Features</span>
           </h2>
           <p class="mt-5 text-xl text-left opacity-75 sm:text-center">
-            Here are some awesome features that we really think you'll like.
-            With features like this you'll want to punch yourself in the face
-            for not signing up sooner.
+            Here are some awesome features that we really think you'll like. With features like this you'll want to
+            punch yourself in the face for not signing up sooner.
           </p>
         </div>
         <div class="my-8">
@@ -36,12 +35,9 @@ const Cards = () => {
                   </svg>
                 </div>
                 <div class="mt-3 mb-6">
-                  <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">
-                    Bookmarks
-                  </h5>
+                  <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">Bookmarks</h5>
                   <p class="mt-1 text-base leading-6 text-gray-500">
-                    Bookmarking feature allows you to bookmark and save any
-                    content.
+                    Bookmarking feature allows you to bookmark and save any content.
                   </p>
                 </div>
               </div>
@@ -63,12 +59,9 @@ const Cards = () => {
                   </svg>
                 </div>
                 <div class="mt-3 mb-6">
-                  <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">
-                    Notifications
-                  </h5>
+                  <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">Notifications</h5>
                   <p class="mt-1 text-base leading-6 text-gray-500">
-                    Automated notifications that will keep your team in the
-                    know.
+                    Automated notifications that will keep your team in the know.
                   </p>
                 </div>
               </div>
@@ -88,9 +81,7 @@ const Cards = () => {
                   </svg>
                 </div>
                 <div class="mt-3 mb-6">
-                  <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">
-                    Messages
-                  </h5>
+                  <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">Messages</h5>
                   <p class="mt-1 text-base leading-6 text-gray-500">
                     A built-in message system to help your team communicate.
                   </p>
@@ -121,9 +112,7 @@ const Cards = () => {
                   </svg>
                 </div>
                 <div class="mt-3 mb-6">
-                  <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">
-                    Integrations
-                  </h5>
+                  <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">Integrations</h5>
                   <p class="mt-1 text-base leading-6 text-gray-500">
                     Drop-in code that you can use in any of your products.
                   </p>
@@ -153,9 +142,7 @@ const Cards = () => {
                   </svg>
                 </div>
                 <div class="mt-3 mb-6">
-                  <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">
-                    Settings
-                  </h5>
+                  <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">Settings</h5>
                   <p class="mt-1 text-base leading-6 text-gray-500">
                     Settings and configurations that will simplify your life.
                   </p>
@@ -177,9 +164,7 @@ const Cards = () => {
                   </svg>
                 </div>
                 <div class="mt-3 mb-6">
-                  <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">
-                    Monetized
-                  </h5>
+                  <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">Monetized</h5>
                   <p class="mt-1 text-base leading-6 text-gray-500">
                     Our system will help you gain the highest possible revenue.
                   </p>

@@ -15,32 +15,34 @@ const Register = ({ history, location }) => {
   const dispatch = useDispatch();
 
   const userSignup = useSelector((state) => state.userSignup);
-  const { loading, error, user } = userSignup;
+  const { loading, error, userInfo } = userSignup;
 
-//   console.log(loading);
-//   console.log(error);
-//   console.log(user);
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo: user } = userLogin;
 
-  const data = { name, username, email, password };
+  console.log('user', userInfo);
+  useEffect(() => {
+    if (user) {
+      history.push('/home');
+    }
+  }, [history, userInfo]);
 
-
-  const redirect = location.search ? location.search.split('=')[1] : '/';
-
-        //   useEffect(() => {
-        //     if (userInfo) {
-        //       history.push(redirect);
-        //     }
-        //   }, [history, userInfo, redirect]);
+  const data = {
+    name,
+    username,
+    email,
+    password,
+  };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signup(data, history));
+    dispatch(signup(data));
   };
 
   return (
-    <div className="bg-gray-800 h-screen ">
-      <Alert message="You Have Wrong Password" type="Fail" color="green" />
-
+    <div className="bg-gray-800 pt-9 h-screen ">
+      {error && <Alert message={error} type="error" color="red" />}
+      {loading && <Loader />}
       <div className="flex items-center justify-center  sm:px-6">
         <div className="w-full max-w-sm p-4 bg-gray-900 rounded-md shadow-md sm:p-6">
           <div className="flex items-center justify-center">

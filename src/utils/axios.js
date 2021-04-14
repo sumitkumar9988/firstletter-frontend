@@ -4,7 +4,9 @@ const axiosInstance = axios.create({
   baseURL: 'http://firstletterbackend-env.eba-prw6hafg.ap-south-1.elasticbeanstalk.com/api/v1/user',
   transformResponse: [
     function (data) {
-      console.log(data);
+      if (data.status !== 'success') {
+        throw data;
+      }
       return data;
     },
   ],
@@ -42,9 +44,12 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   function (error) {
+    console.log('error001', error);
     // Any status codes that falls outside the range of 2xx cause this function to trigger
     // Do something with response error
-
+    let err = JSON.parse(error);
+    console.log('error handling');
+    console.log('error handing 52', err);
     // if (error.response.status === 403) {
     //         localStorage.removeItem('token');
 

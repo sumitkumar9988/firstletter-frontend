@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const SocialMedia = () => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+  return <div></div>;
+};
 
-export default SocialMedia
+export default SocialMedia;

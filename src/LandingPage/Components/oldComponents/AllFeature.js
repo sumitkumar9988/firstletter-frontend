@@ -1,6 +1,6 @@
-import React from "react";
-import resumeIllustartor from "./../../Asset/Image/resume.svg";
-import resume2Illustartor from "./../../Asset/Image/resume2.svg";
+import React from 'react';
+import resumeIllustartor from './../../Asset/Image/resume.svg';
+import resume2Illustartor from './../../Asset/Image/resume2.svg';
 
 const AllFeature = () => {
   return (
@@ -16,11 +16,7 @@ const AllFeature = () => {
                             text-center bg-no-repeat bg-contain border-solid md:ml-0
                             md:mt-0 md:max-w-none lg:mb-0 md:w-1/2 xl:pl-10"
           >
-            <img
-              src={resumeIllustartor}
-              alt="illustration"
-              className="p-2 pl-6 pr-5 xl:pl-16 xl:pr-20 "
-            />
+            <img src={resumeIllustartor} alt="illustration" className="p-2 pl-6 pr-5 xl:pl-16 xl:pr-20 " />
           </div>
 
           <div
@@ -80,8 +76,7 @@ const AllFeature = () => {
               Represent youself on Internet
             </h2>
             <p className="pt-4 pb-8 m-0 leading-7 text-gray-700 border-0 border-gray-300 sm:pr-10 lg:text-lg">
-              Mostly developer struggle with current solutions to represent
-              online
+              Mostly developer struggle with current solutions to represent online
             </p>
             <ul className="p-0 m-0 leading-6 border-0 border-gray-300">
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
@@ -90,7 +85,7 @@ const AllFeature = () => {
                                  h-6 mr-2 text-white bg-purple-500 rounded-full"
                 >
                   <span className="text-sm font-bold">✓</span>
-                </span>{" "}
+                </span>{' '}
                 Show your experience
               </li>
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
@@ -99,7 +94,7 @@ const AllFeature = () => {
                                  h-6 mr-2 text-white bg-purple-500 rounded-full"
                 >
                   <span className="text-sm font-bold">✓</span>
-                </span>{" "}
+                </span>{' '}
                 Show your intrest and habbit
               </li>
               <li className="box-border relative py-1 pl-0 text-left text-gray-500 border-solid">
@@ -108,18 +103,14 @@ const AllFeature = () => {
                                 bg-purple-500 rounded-full"
                 >
                   <span className="text-sm font-bold">✓</span>
-                </span>{" "}
+                </span>{' '}
                 Show All your certificate
               </li>
             </ul>
           </div>
 
           <div className="box-border relative w-full max-w-md px-4 mt-10 mb-4 text-center bg-no-repeat bg-contain border-solid md:mt-0 md:max-w-none lg:mb-0 md:w-1/2">
-            <img
-              alt=""
-              src={resume2Illustartor}
-              className="pl-4 sm:pr-10 xl:pl-10 lg:pr-32"
-            />
+            <img alt="" src={resume2Illustartor} className="pl-4 sm:pr-10 xl:pl-10 lg:pr-32" />
           </div>
         </div>
       </div>

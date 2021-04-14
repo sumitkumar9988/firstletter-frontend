@@ -1,5 +1,5 @@
-import React from "react";
-import skillsvg from "./../../Asset/Image/skills1.svg";
+import React from 'react';
+import skillsvg from './../../Asset/Image/skills1.svg';
 const Feature = () => {
   return (
     <div id="feature">
@@ -16,19 +16,14 @@ const Feature = () => {
               </h1>
             </div>
             <div className="relative top-0 right-0 h-64 mt-12 md:-mt-16 md:absolute md:h-96">
-              <img
-                alt=""
-                src={skillsvg}
-                className="object-cover mt-3 mr-5 h-80 lg:h-96"
-              />
+              <img alt="" src={skillsvg} className="object-cover mt-3 mr-5 h-80 lg:h-96" />
             </div>
           </div>
 
           <div className="my-16 border-b border-gray-300 lg:my-24"></div>
           <h2 className="text-left text-gray-500 xl:text-xl">
-            Building beautiful portfolio to boost your career. Show your Github
-            projects and your skills Share your profile with both peers and
-            potential employers
+            Building beautiful portfolio to boost your career. Show your Github projects and your skills Share your
+            profile with both peers and potential employers
           </h2>
         </div>
       </div>

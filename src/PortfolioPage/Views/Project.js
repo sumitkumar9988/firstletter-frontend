@@ -1,11 +1,12 @@
-import React from "react";
+import React from 'react';
 
 const Project = () => {
   return (
-    <div id="project" className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-      <h2 className="text-5xl text-center mb-10 text-gray-900 font-semibold font-heading">
-        My Project
-      </h2>
+    <div
+      id="project"
+      className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+    >
+      <h2 className="text-5xl text-center mb-10 text-gray-900 font-semibold font-heading">My Project</h2>
       <div className="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
         <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
           <img
@@ -23,8 +24,7 @@ const Project = () => {
               Project 1
             </p>
             <p className="mb-2 text-gray-700">
-              Sed ut perspiciatis unde omnis iste natus error sit sed qui
-              consequuntur magni voluptatem doloremque.
+              Sed ut perspiciatis unde omnis iste natus error sit sed qui consequuntur magni voluptatem doloremque.
             </p>
             <p
               aria-label=""
@@ -51,8 +51,7 @@ const Project = () => {
               Project 1
             </p>
             <p className="mb-2 text-gray-700">
-              Sed ut perspiciatis unde omnis iste natus error sit sed qui
-              consequuntur magni voluptatem doloremque.
+              Sed ut perspiciatis unde omnis iste natus error sit sed qui consequuntur magni voluptatem doloremque.
             </p>
             <p
               aria-label=""
@@ -79,8 +78,7 @@ const Project = () => {
               Project 1
             </p>
             <p className="mb-2 text-gray-700">
-              Sed ut perspiciatis unde omnis iste natus error sit sed qui
-              consequuntur magni voluptatem doloremque.
+              Sed ut perspiciatis unde omnis iste natus error sit sed qui consequuntur magni voluptatem doloremque.
             </p>
             <p
               aria-label=""
@@ -107,8 +105,7 @@ const Project = () => {
               Project 1
             </p>
             <p className="mb-2 text-gray-700">
-              Sed ut perspiciatis unde omnis iste natus error sit sed qui
-              consequuntur magni voluptatem doloremque.
+              Sed ut perspiciatis unde omnis iste natus error sit sed qui consequuntur magni voluptatem doloremque.
             </p>
             <p
               aria-label=""
@@ -135,8 +132,7 @@ const Project = () => {
               Project 1
             </p>
             <p className="mb-2 text-gray-700">
-              Sed ut perspiciatis unde omnis iste natus error sit sed qui
-              consequuntur magni voluptatem doloremque.
+              Sed ut perspiciatis unde omnis iste natus error sit sed qui consequuntur magni voluptatem doloremque.
             </p>
             <p
               aria-label=""
@@ -163,8 +159,7 @@ const Project = () => {
               Project 1
             </p>
             <p className="mb-2 text-gray-700">
-              Sed ut perspiciatis unde omnis iste natus error sit sed qui
-              consequuntur magni voluptatem doloremque.
+              Sed ut perspiciatis unde omnis iste natus error sit sed qui consequuntur magni voluptatem doloremque.
             </p>
             <p
               aria-label=""
@@ -184,7 +179,7 @@ export default Project;
 // Card component
 
 // {
-  /* <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
+/* <div className="overflow-hidden transition-shadow duration-300 bg-white rounded shadow-sm">
 <img
   src="https://images.pexels.com/photos/447592/pexels-photo-447592.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
   className="object-cover w-full h-64"

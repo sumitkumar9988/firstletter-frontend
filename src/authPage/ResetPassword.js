@@ -1,78 +1,88 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import Alert from '../extraPage/Alert';
+import Loader from '../extraPage/Loader';
+import { resetPasswords, signup } from '../redux/actions/authActions.js';
 
-const Login = () => {
+const ResetPassword = ({ history, location }) => {
+  
+  const [password, setPassword] = useState('');
+  const [confimPassword, setConfimPassword] = useState('');
+
+  const dispatch = useDispatch();
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+
+  console.log('user', userInfo);
+  useEffect(() => {
+    if (!userInfo) {
+      history.push('/login');
+    }
+  }, [history, userInfo]);
+
+  const data = {
+    password,
+    confimPassword,
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(signup(data));
+  };
+
   return (
-    <div class="flex items-center justify-center h-screen bg-black sm:px-6">
-      <div class="w-full max-w-sm p-4 bg-gray-900 rounded-md shadow-md sm:p-6">
-        <div class="flex items-center justify-center">
-          <span class="text-xl font-medium text-white">Login</span>
-        </div>
-        <form class="mt-4">
-          <label for="email" class="block">
-            <span class="text-sm text-white">Email</span>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              autocomplete="username"
-              class="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
-              required
-            />
-          </label>
-          <label for="password" class="block mt-3">
-            <span class="text-sm text-white">Password</span>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              autocomplete="current-password"
-              class="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
-              required
-            />
-          </label>
-          <div class="flex items-center justify-between mt-4">
-            <div>
-              <label class="inline-flex items-center">
-                <input
-                  type="checkbox"
-                  class="text-indigo-600 border form-checkbox focus:outline-none focus:shadow-outline"
-                />
-                <span class="mx-2 text-sm text-white">Remember me</span>
-              </label>
-            </div>
-            <div>
-              <a
-                class="block text-sm text-indigo-200 hover:underline focus:outline-none focus:underline"
-                href="#"
-              >
-                Forgot your password?
-              </a>
-            </div>
+    <div className="bg-gray-800 pt-9 h-screen ">
+      {/* {error && <Alert message={error} type="error" color="red" />}
+      {loading && <Loader />} */}
+      <div className="flex items-center justify-center  sm:px-6">
+        <div className="w-full max-w-sm p-4 bg-gray-900 rounded-md shadow-md sm:p-6">
+          <div className="flex items-center justify-center">
+            <span className="text-xl font-medium text-white">Reset Your Account Password</span>
           </div>
-          <div class="mt-6">
-            <button
-              type="submit"
-              class="w-full px-4 py-2 text-sm text-center text-white bg-indigo-500 rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700 "
-            >
-              Sign in
-            </button>
-          </div>
+          <form className="mt-4">
+          
+          
 
-          <div class="mt-6">
-            <Link to="/home">
-              <h3
-                class="font-medium  text-center text-indigo-600
-                   hover:text-indigo-500"
+            <label for="password" className="block mt-3">
+              <span className="text-sm text-white">New Password</span>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                onChange={(e) => setPassword(e.target.value)}
+                className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
+                required
+              />
+            </label>
+
+            <label for="password" className="block mt-3">
+              <span className="text-sm text-white">Confirm Password</span>
+              <input
+                type="password"
+                id="confimPassword"
+                name="confimPassword"
+                onChange={(e) => setConfimPassword(e.target.value)}
+                className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
+                required
+              />
+            </label>
+
+            <div className="mt-6">
+              <button
+                type="submit"
+                onClick={submitHandler}
+                className="w-full px-4 py-2 text-sm text-center text-white bg-indigo-500 rounded-md hover:bg-indigo-700 focus:outline-none focus:bg-indigo-700 "
               >
-                Create Your Account
-              </h3>
-            </Link>
-          </div>
-        </form>
+                Change Password
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default ResetPassword;

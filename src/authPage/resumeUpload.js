@@ -16,9 +16,7 @@ const resumeUpload = () => {
             <div className="flex flex-col items-center justify-center w-full h-auto my-20 bg-gray-300 sm:w-3/4 sm:rounded-lg sm:shadow-xl">
               <div className="mt-10 mb-10 text-center">
                 <h2 className="text-2xl font-semibold mb-2">Upload your files</h2>
-                <p className="text-xs text-gray-500">
-                  File should be of format .mp4, .avi, .mov or .mkv
-                </p>
+                <p className="text-xs text-gray-500">File should be of format .mp4, .avi, .mov or .mkv</p>
               </div>
               <form
                 action="#"
@@ -29,9 +27,7 @@ const resumeUpload = () => {
                   for="file-upload"
                   className="z-20 flex flex-col-reverse items-center justify-center w-full h-full cursor-pointer"
                 >
-                  <p className="z-10 text-xs font-light text-center text-gray-500">
-                    Drag & Drop your files here
-                  </p>
+                  <p className="z-10 text-xs font-light text-center text-gray-500">Drag & Drop your files here</p>
                   <svg
                     className="z-10 w-8 h-8 text-indigo-400"
                     fill="currentColor"

@@ -44,9 +44,7 @@ const BasicInfo = () => {
                     />
                   </div>
                   <div className="w-full md:w-full px-3 mb-6">
-                    <label className="block uppercase tracking-wide text-gray-50 text-xs font-bold mb-2">
-                      Bio
-                    </label>
+                    <label className="block uppercase tracking-wide text-gray-50 text-xs font-bold mb-2">Bio</label>
                     <textarea
                       className="bg-white rounded-md  leading-normal resize-none w-full h-20 py-2 px-3 shadow-inner border border-gray-400 font-medium  focus:outline-none "
                       required
@@ -64,11 +62,7 @@ const BasicInfo = () => {
                         <option>Other</option>
                       </select>
                       <div className="pointer-events-none absolute top-0 mt-3  right-0 flex items-center px-2 text-gray-600">
-                        <svg
-                          className="fill-current h-4 w-4"
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 20 20"
-                        >
+                        <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                           <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                         </svg>
                       </div>
@@ -78,12 +72,8 @@ const BasicInfo = () => {
                   <div className="flex justify-center  w-full mx-auto sm:max-w-lg">
                     <div className="flex flex-col items-center justify-center  w-full h-auto  bg-white sm:w-3/4 sm:rounded-lg sm:shadow-xl">
                       <div className="mt-10 mb-10 text-center">
-                        <h2 className="text-2xl font-semibold mb-2">
-                          Upload your Resume from LinkedIn
-                        </h2>
-                        <p className="text-xs text-gray-500">
-                          File should be of format .mp4, .avi, .mov or .mkv
-                        </p>
+                        <h2 className="text-2xl font-semibold mb-2">Upload your Resume from LinkedIn</h2>
+                        <p className="text-xs text-gray-500">File should be of format .mp4, .avi, .mov or .mkv</p>
                       </div>
                       <form
                         action="#"

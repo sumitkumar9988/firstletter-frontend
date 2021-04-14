@@ -1,15 +1,12 @@
-import React from "react";
-import {Link} from 'react-router-dom'
-
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Headers = () => {
   return (
     <>
       <header className="relative w-full px-8 text-gray-700 bg-white body-font">
         <div className="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
-          <p
-            className="relative z-10 flex items-center w-auto text-2xl font-extrabold leading-none text-black select-none"
-          >
+          <p className="relative z-10 flex items-center w-auto text-2xl font-extrabold leading-none text-black select-none">
             Firstletter
           </p>
 
@@ -29,22 +26,26 @@ const Headers = () => {
         </nav> */}
 
           <div className="relative z-10 inline-flex items-center space-x-3 md:ml-5 lg:justify-end">
-           <Link to="/login">
-              <p  className="inline-flex items-center justify-center px-4
+            <Link to="/login">
+              <p
+                className="inline-flex items-center justify-center px-4
                   py-2 text-base font-medium leading-6 text-gray-600
                   whitespace-no-wrap bg-white border border-gray-200
-                  rounded-md shadow-sm hover:bg-gray-50 ">
-                   Sign in
-               </p>
-           </Link>
+                  rounded-md shadow-sm hover:bg-gray-50 "
+              >
+                Sign in
+              </p>
+            </Link>
             <span className="inline-flex rounded-md shadow-sm">
               <Link to="/register">
-              <p  className="inline-flex items-center justify-center
+                <p
+                  className="inline-flex items-center justify-center
                     px-4 py-2 text-base font-medium leading-6
                   text-white whitespace-no-wrap  
                     border bg-purple-600 rounded-md
-                    shadow-sm hover:bg-purple-700 ">
-                    Sign up
+                    shadow-sm hover:bg-purple-700 "
+                >
+                  Sign up
                 </p>
               </Link>
             </span>
