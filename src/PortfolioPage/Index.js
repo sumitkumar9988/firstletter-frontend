@@ -1,27 +1,33 @@
 import React from 'react';
 
 //Components imports
-import PortfolioHeader from './Views/Header';
-import UserIntroduction from './Views/UserIntroduction';
-import Project from './Views/Project';
-import Education from './Views/Education';
-import Contact from './Views/Contact';
-import Footer from './Views/Footer';
-import Skill from './Views/Skill';
+import PortfolioHeader from './components/Header';
+import UserIntroduction from './components/UserIntroduction';
+// import Project from './Views/Project';
+import Education from './components/Education';
+import Experience from './components/Experience';
+import Footer from './components/Footer'
+
+import Contact from './components/Contact';
+// import Footer from './components/Footer';
+// import Skill from './Views/Skill';
 
 
 const Index = (props) => {
   console.log('in porftlio page subdomain');
   console.log(props.subDomain);
   return (
-    <div>
+    <div className="bg-black">
       <PortfolioHeader />
       <UserIntroduction />
-      <Project />
       <Education />
-      <Skill />
+      <Experience    />
       <Contact />
-      <Footer />
+
+      <Footer/>
+      {/* <Project />
+      <Skill />
+      <Footer /> */}
     </div>
   );
 };
