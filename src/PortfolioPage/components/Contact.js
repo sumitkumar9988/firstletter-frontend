@@ -4,7 +4,7 @@ export const Contact = () => {
   return (
     <div id="contact">
       <section className="py-12 px-4">
-        <h2 className="text-4xl mb-10 text-center font-semibold font-heading">Contact me</h2>
+        <h2 className="text-4xl mb-10 text-white text-center font-semibold font-heading">Contact me</h2>
         <div className="w-full max-w-2xl mx-auto mb-8">
           <form>
             <div className="flex mb-4 -mx-2">
@@ -37,9 +37,9 @@ export const Contact = () => {
             </div>
           </form>
         </div>
-        <div className="text-center">
-          <p className="mb-2">Or just email us on</p>
-          <p className="text-indigo-600 hover:underline" href="#">
+        <div className=" text-center">
+          <p className="text-white mb-2">Or just email us on</p>
+          <p className="text-indigo-600 text-2xl hover:underline" href="#">
             sumit.firstletter@gmail.com
           </p>
         </div>

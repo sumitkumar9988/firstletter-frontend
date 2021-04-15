@@ -3,9 +3,9 @@ import React from 'react';
 const Footer = () => {
   return (
     <div>
-      <section className="text-gray-700 bg-white body-font">
+      <section className="text-gray-700 bg-black body-font">
         <div className="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row">
-          <p className="text-xl font-black leading-none text-gray-900 select-none logo">
+          <p className="text-xl font-black leading-none text-gray-50 select-none logo">
             Sumit<span className="text-indigo-600">.</span>
           </p>
           <span className="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
@@ -61,6 +61,7 @@ const Footer = () => {
             </p>
           </span>
         </div>
+        <p className="text-white text-center pb-5">Build by Firstletter.tech</p>
       </section>
     </div>
   );
