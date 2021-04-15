@@ -12,9 +12,35 @@ import FourOFour from './extraPage/FourOFour';
 import Trail from './extraPage/Trail';
 import ResumeUpload from './authPage/resumeUpload';
 import ProfilePhoto from './authPage/ProfilePhoto';
+import { parseDomain, fromUrl } from 'parse-domain';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
+  // let url = window.location.href;
+  // let url = 'https://www.firstletter.tech/';
+  // url = url.replace('https://', '');
+  // url = url.replace(':3000/', '');
+  // url = url.replace('/', '');
+
+  // console.log(url);
+  // const { subDomains, domain, topLevelDomains } = parseDomain(url);
+
+  // console.log(subDomains); // []
+  // console.log(domain); // "parse-domain"
+  // console.log(topLevelDomains);
+  console.log(window.location.host);
+
+  const url = 'https://www.instagram.com/';
+  const parsedData = url.split('.');
+  // console.log(parseDomain);
+
+  if (parsedData.length >= 3) {
+    const subDomain = parsedData[0];
+    console.log(subDomain);
+  } else {
+    console.log('fuckof');
+  }
+
   return (
     <div>
       <Router>
