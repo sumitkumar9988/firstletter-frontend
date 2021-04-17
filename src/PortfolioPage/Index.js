@@ -1,33 +1,31 @@
 import React from 'react';
 
-//Components imports
-import PortfolioHeader from './components/Header';
-import UserIntroduction from './components/UserIntroduction';
-// import Project from './Views/Project';
-import Education from './components/Education';
-import Experience from './components/Experience';
-import Footer from './components/Footer'
-
-import Contact from './components/Contact';
-// import Footer from './components/Footer';
-// import Skill from './Views/Skill';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import About from './Views/About';
+import Codechef from './Views/Codechef';
+import Codeforces from './Views/Codeforces';
+import Home from './Views/Home';
+import ProjectDetails from './Views/ProjectDetails';
+import Spoj from './Views/Spoj';
+import FourOFour from './../extraPage/FourOFour';
 
 
 const Index = (props) => {
   console.log('in porftlio page subdomain');
   console.log(props.subDomain);
   return (
-    <div className="bg-black">
-      <PortfolioHeader />
-      <UserIntroduction />
-      <Education />
-      <Experience    />
-      <Contact />
-
-      <Footer/>
-      {/* <Project />
-      <Skill />
-      <Footer /> */}
+    <div className="">
+      <Router>
+        <Switch>
+          <Route path="/about" component={About} />
+          <Route path="/codechef" component={Codechef} />
+          <Route path="/codeforces" component={Codeforces} />
+          <Route path="/spoj" component={Spoj} />
+          <Route path="/Project/:id" component={ProjectDetails} />
+          <Route exact path="/" component={Home} />
+          <Route component={FourOFour} />
+        </Switch>
+      </Router>
     </div>
   );
 };
