@@ -1,6 +1,5 @@
 import React from 'react';
 import LandingPage from './LandingPage/Index';
-import PortfolioPage from './PortfolioPage/Index';
 import Dashboard from './Dashboard/Index';
 import Login from './authPage/Login';
 import Register from './authPage/Register';
@@ -10,9 +9,7 @@ import ForgetPassword from './authPage/ForgetPassword';
 import ResetPassword from './authPage/ResetPassword';
 import FourOFour from './extraPage/FourOFour';
 import Trail from './extraPage/Trail';
-import ResumeUpload from './authPage/resumeUpload';
 import ProfilePhoto from './authPage/ProfilePhoto';
-import { parseDomain, fromUrl } from 'parse-domain';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -28,31 +25,28 @@ function App() {
   // console.log(subDomains); // []
   // console.log(domain); // "parse-domain"
   // console.log(topLevelDomains);
-  console.log(window.location.host);
+  // console.log(window.location.host);
 
-  const url = 'https://www.instagram.com/';
-  const parsedData = url.split('.');
-  // console.log(parseDomain);
+  // const url = 'https://www.instagram.com/';
+  // const parsedData = url.split('.');
 
-  if (parsedData.length >= 3) {
-    const subDomain = parsedData[0];
-    console.log(subDomain);
-  } else {
-    console.log('fuckof');
-  }
+  // if (parsedData.length >= 3) {
+  //   const subDomain = parsedData[0];
+  //   console.log(subDomain);
+  // } else {
+  //   console.log('fuckof');
+  // }
 
   return (
     <div>
       <Router>
         <Switch>
           <Route path="/trail" component={Trail} />
-          <Route path="/sumit" component={PortfolioPage} />
           <Route path="/changepassword" component={ChangePassword} />
           <Route path="/resetpassword" component={ResetPassword} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/emailsent" component={EmailSent} />
-          <Route path="/resume" component={ResumeUpload} />
           <Route path="/forgetpassword" component={ForgetPassword} />
           <Route path="/photo" component={ProfilePhoto} />
           <Route path="/home" component={Dashboard} />
