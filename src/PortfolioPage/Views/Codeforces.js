@@ -3,11 +3,11 @@ import data from './../../utils/codeforces.json';
 
 const Codeforces = () => {
   return (
-    <div className="bg-black">
-      <div className="ml-10 pt-8 mr-10 ">
+    <div className="bg-black ">
+      <div className="ml-10 pt-8 mr-10 h-full">
         <div class="lg:flex lg:items-center  lg:justify-between">
           <div class="flex-1 min-w-0">
-            <h2 class="text-2xl font-bold leading-7 text-gray-50 sm:text-3xl sm:truncate">SPOJ Profile</h2>
+            <h2 class="text-2xl font-bold leading-7 text-gray-50 sm:text-3xl sm:truncate">CodeForces Profile</h2>
             <div class="mt-1 flex flex-col sm:flex-row sm:flex-wrap sm:mt-0 sm:space-x-6">
               <div class="mt-2 flex items-center text-sm text-gray-500">
                 <svg
@@ -79,26 +79,25 @@ const Codeforces = () => {
           </div>
         </div>
 
-        <p className="pt-10">
-          <p className="sans-serif pt-5 font-medium text-lg  text-blue-500 hover:text-blue-600 ">Solved Problem</p>
-          <div className="flex flex-wrap -mx-2 pt-6 mb-8">
-            {data.solved.map((item) => (
-              <div className="w-1/2 md:w-1/4 lg:w-1/8 px-2 mb-2">
-                <div className=" h-8 text-sm text-grey-dark flex items-center justify-center">
-                  <p className="text-white">{item}</p>
+        <p className="pt-10 bg-black h-auto">
+          <p className="sans-serif pt-5 font-medium text-4xl  text-blue-500 hover:text-blue-600 ">Contests:-</p>
+          <div className="flex flex-wrap -mx-0 pt-8  pb-8">
+            {data.contests?(data.contests.map((item) => (
+              <div className="mb-9  w-full sm:w-1/2 lg:w-1/3  ease ">
+                 <div class="p-16 h-60 transition-all duration-150 mr-2 pb-5  bg-white rounded-lg shadow-xl ">
+                <div class="mt-3 mb-6">
+                <p class="mt-1 text-2xl font-bold pb-2 leading-6 text-blue-500">
+                   Rank: {item.Rank}
+                    </p>
+                    <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">{item.Contest}</h5>
+                   
                 </div>
+            </div>
+              
               </div>
-            ))}
-          </div>
-          <p className="sans-serif pt-5 font-medium text-lg  text-blue-500 hover:text-blue-600 ">todo Problem</p>
-          <div className="flex flex-wrap -mx-2 pt-6 pb-8">
-            {data.todo.map((item) => (
-              <div className="w-1/2 md:w-1/4 lg:w-1/8 px-2 mb-2">
-                <div className=" h-8 text-sm text-grey-dark flex items-center justify-center">
-                  <p className="text-white">{item}</p>
-                </div>
-              </div>
-            ))}
+            ))):(<div className="h-screen">
+              
+            </div>)}
           </div>
         </p>
       </div>
@@ -107,3 +106,8 @@ const Codeforces = () => {
 };
 
 export default Codeforces;
+{/* <div className=" text-sm text-grey-dark flex items-center text-center justify-center">
+<p className="text-white">{item.Contest}</p>
+<p className="text-white mt-1"></p>
+<p className="text-white">{item.Solved}</p>
+</div> */}

@@ -82,23 +82,23 @@ const Spoj = () => {
         <p className="pt-10">
           <p className="sans-serif pt-5 font-medium text-lg  text-blue-500 hover:text-blue-600 ">Solved Problem</p>
           <div className="flex flex-wrap -mx-2 pt-6 mb-8">
-            {data.solved.map((item) => (
-              <div className="w-1/2 md:w-1/4 lg:w-1/8 px-2 mb-2">
+            {data.solved?(data.solved.map((item) => (
+              <div className="w-1/2 md:w-1/4 lg:w-1/8 px-2 mb-4">
                 <div className=" h-8 text-sm text-grey-dark flex items-center justify-center">
-                  <p className="text-white">{item}</p>
+                  <p className="text-white font-medium pb-8 text-2xl">{item}</p>
                 </div>
               </div>
-            ))}
+            ))):null}
           </div>
           <p className="sans-serif pt-5 font-medium text-lg  text-blue-500 hover:text-blue-600 ">todo Problem</p>
           <div className="flex flex-wrap -mx-2 pt-6 pb-8">
-            {data.todo.map((item) => (
-              <div className="w-1/2 md:w-1/4 lg:w-1/8 px-2 mb-2">
+           {data.todo?(data.todo.map((item) => (
+              <div className="w-1/2 md:w-1/4 lg:w-1/8 px-2 mb-4">
                 <div className=" h-8 text-sm text-grey-dark flex items-center justify-center">
-                  <p className="text-white">{item}</p>
+                  <p className="text-2xl font-medium mb-9 text-white">{item}</p>
                 </div>
               </div>
-            ))}
+            ))):null} 
           </div>
         </p>
       </div>
