@@ -1,10 +1,12 @@
 import React from 'react';
 import data from './../../utils/spoj.json';
+import Heaader from './../components/Header';
 
 const Spoj = () => {
   return (
     <div className="bg-black">
-      <div className="ml-10 pt-8 mr-10 ">
+      <Heaader/>
+      <div className="ml-36 pt-8 mr-10">
         <div class="lg:flex lg:items-center  lg:justify-between">
           <div class="flex-1 min-w-0">
             <h2 class="text-2xl font-bold leading-7 text-gray-50 sm:text-3xl sm:truncate">SPOJ Profile</h2>
@@ -103,6 +105,7 @@ const Spoj = () => {
         </p>
       </div>
     </div>
+    
   );
 };
 

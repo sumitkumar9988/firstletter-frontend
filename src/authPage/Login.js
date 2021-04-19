@@ -15,9 +15,9 @@ const Login = ({ history, location }) => {
   const { loading, error, userInfo } = userLogin;
   console.log('user', userInfo);
   useEffect(() => {
-    if (userInfo) {
-      history.push('/home');
-    }
+    // if (userInfo) {
+    //   history.push('/home');
+    // }
   }, [history, userInfo]);
 
   const data = {
