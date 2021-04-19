@@ -8,36 +8,42 @@ const NavBar = () => {
         <div className="flex-col w-full h-full overflow-hidden bg-black rounded-lg select-none">
           <div className="flex flex-col items-center justify-center w-full h-full mt-12 text-center ">
             <Link to="/">
-            <a className="inline-block px-4 py-2 mx-2 font-medium text-left text-blue-500 hover:text-indigo-200">
-              Home
-            </a>
+              <a className="inline-block px-4 py-2 mx-2 font-medium text-left text-blue-500 hover:text-indigo-200">
+                Home
+              </a>
             </Link>
-           
+
+            <Link to="/achievement">
+              <a className="inline-block  px-4 py-2 mx-2 font-medium text-left  text-blue-500 hover:text-indigo-200 ">
+                  Achievement
+              </a>
+            </Link>
+
             <Link to="/codechef">
-            <a className="inline-block  px-4 py-2 mx-2 font-medium text-left  text-blue-500 hover:text-indigo-200 ">
-              CodeChef
-            </a>
+              <a className="inline-block  px-4 py-2 mx-2 font-medium text-left  text-blue-500 hover:text-indigo-200 ">
+                CodeChef
+              </a>
             </Link>
-           
+
             <Link to="/spoj">
-            <a className="inline-block  px-4 py-2 mx-2 font-medium text-left  text-blue-500 hover:text-indigo-200 ">
-              SPOJ
-            </a>
+              <a className="inline-block  px-4 py-2 mx-2 font-medium text-left  text-blue-500 hover:text-indigo-200 ">
+                SPOJ
+              </a>
             </Link>
-          
+
             <Link to="/codeforces">
-            <a className="inline-block  px-4 py-2 mx-2 font-medium text-left  text-blue-500 hover:text-indigo-200 ">
-              Codeforces
-            </a>
+              <a className="inline-block  px-4 py-2 mx-2 font-medium text-left  text-blue-500 hover:text-indigo-200 ">
+                Codeforces
+              </a>
             </Link>
-           
+
             <Link to="/about">
-            <a className="inline-block  px-4 py-2 mx-2 font-medium text-left text-blue-500 hover:text-indigo-200 ">
-              About
-            </a>
+              <a className="inline-block  px-4 py-2 mx-2 font-medium text-left text-blue-500 hover:text-indigo-200 ">
+                About
+              </a>
             </Link>
-            
-          </div>)
+          </div>
+          )
         </div>
       </div>
     </div>

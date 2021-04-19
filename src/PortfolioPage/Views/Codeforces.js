@@ -1,10 +1,12 @@
 import React from 'react';
 import data from './../../utils/codeforces.json';
+import Heaader from './../components/Header';
 
 const Codeforces = () => {
   return (
     <div className="bg-black ">
-      <div className="ml-10 pt-8 mr-10 h-full">
+      <Heaader       />
+      <div className="ml-36 pt-8 mr-10 h-full">
         <div class="lg:flex lg:items-center  lg:justify-between">
           <div class="flex-1 min-w-0">
             <h2 class="text-2xl font-bold leading-7 text-gray-50 sm:text-3xl sm:truncate">CodeForces Profile</h2>
@@ -82,22 +84,20 @@ const Codeforces = () => {
         <p className="pt-10 bg-black h-auto">
           <p className="sans-serif pt-5 font-medium text-4xl  text-blue-500 hover:text-blue-600 ">Contests:-</p>
           <div className="flex flex-wrap -mx-0 pt-8  pb-8">
-            {data.contests?(data.contests.map((item) => (
-              <div className="mb-9  w-full sm:w-1/2 lg:w-1/3  ease ">
-                 <div class="p-16 h-60 transition-all duration-150 mr-2 pb-5  bg-white rounded-lg shadow-xl ">
-                <div class="mt-3 mb-6">
-                <p class="mt-1 text-2xl font-bold pb-2 leading-6 text-blue-500">
-                   Rank: {item.Rank}
-                    </p>
-                    <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">{item.Contest}</h5>
-                   
+            {data.contests ? (
+              data.contests.map((item) => (
+                <div className="mb-9  w-full sm:w-1/2 lg:w-1/3  ease ">
+                  <div class="p-16 h-64 transition-all duration-150 mr-2 pb-5  bg-white rounded-lg shadow-xl ">
+                    <div class="mt-3 mb-6">
+                      <p class="mt-1 text-2xl font-bold pb-2 leading-6 text-blue-500">Rank: {item.Rank}</p>
+                      <h5 class="pb-2 text-xl font-bold leading-6 text-gray-600">{item.Contest}</h5>
+                    </div>
+                  </div>
                 </div>
-            </div>
-              
-              </div>
-            ))):(<div className="h-screen">
-              
-            </div>)}
+              ))
+            ) : (
+              <div className="h-screen"></div>
+            )}
           </div>
         </p>
       </div>
@@ -106,8 +106,3 @@ const Codeforces = () => {
 };
 
 export default Codeforces;
-{/* <div className=" text-sm text-grey-dark flex items-center text-center justify-center">
-<p className="text-white">{item.Contest}</p>
-<p className="text-white mt-1"></p>
-<p className="text-white">{item.Solved}</p>
-</div> */}
