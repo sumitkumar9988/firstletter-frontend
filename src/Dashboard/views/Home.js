@@ -1,11 +1,11 @@
-import React from 'react';
-import Chart from './../components/Chart';
+import React from 'react'
+import Nav from './../components/Nav'
 const Home = () => {
-  return (
-    <div>
-      <Chart />
-    </div>
-  );
-};
+    return (
+        <div>
+           <h1 className="text-3xl">Testing</h1>
+        </div>
+    )
+}
 
-export default Home;
+export default Home

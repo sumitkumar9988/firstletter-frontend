@@ -6,7 +6,7 @@ const NavItemDestop = () => {
     <div>
       <div class="hidden sm:block sm:ml-6">
         <div class="flex space-x-4">
-          <Link to="/home/">
+          <Link to="/home">
             <p
               href="#"
               class="text-white hover:bg-gray-700  hover:text-white
@@ -15,33 +15,34 @@ const NavItemDestop = () => {
               Dashboard
             </p>
           </Link>
-          <Link to="/home/education">
+          <Link to="/home/ach">
             <p
-              class="text-gray-300 hover:bg-gray-700  hover:text-white
+              class="text-gray-300 hover:bg-gray-400  hover:text-white
              px-3 py-2 rounded-md text-sm font-medium"
             >
-              Education
+              Achievement
             </p>
           </Link>
-          <Link to="/home/experience">
-            <p
-              class="text-gray-300 hover:bg-gray-700  hover:text-white
-             px-3 py-2 rounded-md text-sm font-medium"
-            >
-              Experience
-            </p>
-          </Link>
+
           <Link to="/home/projects">
             <p
-              class="text-gray-300 hover:bg-gray-700  hover:text-white
+              class="text-gray-300 hover:bg-gray-400  hover:text-white
              px-3 py-2 rounded-md text-sm font-medium"
             >
               Projects
             </p>
           </Link>
+          <Link to="/home/cp">
+            <p
+              class="text-gray-300 hover:bg-gray-400  hover:text-white
+             px-3 py-2 rounded-md text-sm font-medium"
+            >
+              Compitative Programming
+            </p>
+          </Link>
           <Link to="/home/social">
             <p
-              class="text-gray-300 hover:bg-gray-700  hover:text-white
+              class="text-gray-300 hover:bg-gray-400  hover:text-white
              px-3 py-2 rounded-md text-sm font-medium"
             >
               Social Links
