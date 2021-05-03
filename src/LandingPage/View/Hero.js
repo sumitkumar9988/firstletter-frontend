@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './../Components/components/Header';
-import Introduction from './../Components/components/Introduction';
+import Header from './../Components/Header';
+import Introduction from './../Components/Introduction';
 
 const Hero = () => {
   return (

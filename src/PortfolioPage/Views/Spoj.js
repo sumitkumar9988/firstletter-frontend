@@ -111,29 +111,3 @@ const Spoj = () => {
 
 export default Spoj;
 
-// 4 grid tailwind
-
-{
-  /* <div className="flex flex-wrap -mx-2 mb-8">
-<div className="w-full md:w-1/2 lg:w-1/4 px-2 mb-4">
-  <div className="border h-12 text-sm text-grey-dark flex items-center justify-center">
-    <p>full / half / quarter</p>
-  </div>
-</div>
-<div className="w-full md:w-1/2 lg:w-1/4 px-2 mb-4">
-  <div className="border h-12 text-sm text-grey-dark flex items-center justify-center">
-    <p>full / half / quarter</p>
-  </div>
-</div>
-<div className="w-full md:w-1/2 lg:w-1/4 px-2 mb-4">
-  <div className="border h-12 text-sm text-grey-dark flex items-center justify-center">
-    <p>full / half / quarter</p>
-  </div>
-</div>
-<div className="w-full md:w-1/2 lg:w-1/4 px-2 mb-4">
-  <div className="border h-12 text-sm text-grey-dark flex items-center justify-center">
-    <p>full / half / quarter</p>
-  </div>
-</div>
-</div> */
-}

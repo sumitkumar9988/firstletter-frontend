@@ -5,7 +5,7 @@ import Alert from '../extraPage/Alert';
 import Loader from '../extraPage/Loader';
 import { login } from '../redux/actions/authActions.js';
 
-const Login = ({ history, location }) => {
+const Login = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -13,7 +13,6 @@ const Login = ({ history, location }) => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
-  console.log('user', userInfo);
   useEffect(() => {
     if (userInfo) {
       history.push('/home');
@@ -72,14 +71,15 @@ const Login = ({ history, location }) => {
                   <span className="mx-2 text-sm text-white">Remember me</span>
                 </label>
               </div>
+              <Link to="/forgetpassword">
               <div>
                 <a
                   className="block text-sm text-indigo-200 hover:underline focus:outline-none focus:underline"
-                  href="#"
                 >
                   Forgot your password?
                 </a>
               </div>
+              </Link>
             </div>
             <div className="mt-6">
               <button

@@ -7,27 +7,27 @@ const Nav = () => {
         <div class="flex-col w-full h-full overflow-hidden bg-black rounded-lg select-none">
           <div class="flex flex-col items-center justify-center w-full h-full mt-12 text-center ">
             <Link to="/">
-              <a class="inline-block px-4 py-2 mx-2 font-medium text-left text-blue-500 hover:text-indigo-200">Home</a>
+              <p class="inline-block px-4 py-2 mx-2 font-medium text-left text-blue-500 hover:text-indigo-200">Home</p>
             </Link>
             <Link to="/about">
-              <a class="inline-block  px-4 py-2 mx-2 font-medium text-left text-blue-500 hover:text-indigo-200 ">
+              <p class="inline-block  px-4 py-2 mx-2 font-medium text-left text-blue-500 hover:text-indigo-200 ">
                 About
-              </a>
+              </p>
             </Link>
             <Link to="/contact">
-              <a class="inline-block  px-4 py-2 mx-2 font-medium text-left  text-blue-500 hover:text-indigo-200 ">
+              <p class="inline-block  px-4 py-2 mx-2 font-medium text-left  text-blue-500 hover:text-indigo-200 ">
                 Contact
-              </a>
+              </p>
             </Link>
             <Link to="/login">
-              <a class="inline-block px-4 mt-7 py-2 mx-2 font-medium text-left  text-red-500 hover:text-indigo-200 ">
+              <p class="inline-block px-4 mt-7 py-2 mx-2 font-medium text-left  text-red-500 hover:text-indigo-200 ">
                 Login
-              </a>
+              </p>
             </Link>
             <Link to="/register">
-              <a class="inline-block  px-4 py-2 mx-2 font-medium text-left  text-red-500 hover:text-indigo-200 ">
+              <p class="inline-block  px-4 py-2 mx-2 font-medium text-left  text-red-500 hover:text-indigo-200 ">
                 Signup
-              </a>
+              </p>
             </Link>
           </div>
           )

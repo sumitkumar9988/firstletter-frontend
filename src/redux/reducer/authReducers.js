@@ -79,7 +79,7 @@ export const forgetPasswordReducer = (state = {}, action) => {
     case FORGET_PASSWORD_REQUEST:
       return { loading: true };
     case FORGET_PASSWORD_SUCCESS:
-      return { loading: false, success: true };
+      return { loading: false, success: action.payload };
     case FORGET_PASSWORD_FAILURE:
       return { loading: false, error: action.payload };
     default:
@@ -92,7 +92,7 @@ export const resetPasswordReducer = (state = { user: {} }, action) => {
     case RESET_PASSWORD_REQUEST:
       return { loading: true };
     case RESET_PASSWORD_SUCCESS:
-      return { loading: false, userInfo: action.payload };
+      return { loading: false, success: action.payload };
     case RESET_PASSWORD_FAILURE:
       return { loading: false, error: action.payload };
     default:

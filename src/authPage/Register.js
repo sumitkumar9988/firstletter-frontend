@@ -5,12 +5,11 @@ import Alert from '../extraPage/Alert';
 import Loader from '../extraPage/Loader';
 import { signup } from '../redux/actions/authActions.js';
 
-const Register = ({ history, location }) => {
+const Register = ({ history }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
-  const [message, setMessage] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -107,14 +106,15 @@ const Register = ({ history, location }) => {
                   <span className="mx-2 text-sm text-white">Remember me</span>
                 </label>
               </div>
+              <Link to="/login">
               <div>
-                <a
+                <p
                   className="block text-sm text-indigo-200 hover:underline focus:outline-none focus:underline"
-                  href="#"
                 >
                   Already Have Account?
-                </a>
+                </p>
               </div>
+              </Link>
             </div>
             <div className="mt-6">
               <button

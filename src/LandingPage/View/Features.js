@@ -1,6 +1,6 @@
 import React from 'react';
-import LeftImageItem from './../Components/components/LeftImageItem';
-import RightImageItem from './../Components/components/RightImageItem';
+import LeftImageItem from './../Components/LeftImageItem';
+import RightImageItem from './../Components/RightImageItem';
 
 const Features = () => {
   return (
@@ -20,12 +20,6 @@ const Features = () => {
         title="Irure officia elit exercitation laborum aute fugiat "
         description="Ullamco adipisicing fugiat ea in in ullamco cillum proident est est qui.Et ea deserunt Lorem voluptate anim labore cupidatat nulla eiusmod."
       />
-      <RightImageItem
-        image="https://images.unsplash.com/photo-1593642702909-dec73df255d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80"
-        title="Irure officia elit exercitation laborum aute fugiat "
-        description="Ullamco adipisicing fugiat ea in in ullamco cillum proident est est qui.Et ea deserunt Lorem voluptate anim labore cupidatat nulla eiusmod."
-      />
-      <LeftImageItem />
     </div>
   );
 };

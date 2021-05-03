@@ -1,24 +1,18 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './views/Home';
-import Nav from './components/Nav';
-import Education from './views/Education'
-import Certificate from './views/Certificate'
-import Experience from './views/Experience'
-
+import Layout from './components/Layout'
+import Home from './views/Home'
+import Profile from './views/Profile'
 const Index = ({ match }) => {
   return (
     <div>
       <Router>
-        <Nav  />
+      <Layout>
         <Switch>
+        <Route   path={`${match.path}/me`} component={Profile} />
           <Route exact path={match.path} component={Home} />
-          {/* <Route path={`${match.path}/project`} component={Project} /> */}
-          <Route exact path={`${match.path}/ach`} component={Education} />
-          <Route path={`${match.path}/ach/education`} component={Education} />
-          <Route path={`${match.path}/ach/certificate`} component={Certificate} />
-          <Route path={`${match.path}/ach/experience`} component={Experience} />
         </Switch>
+        </Layout>
       </Router>
     </div>
   );

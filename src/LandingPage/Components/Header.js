@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { ReactComponent as Headeropen } from './../../../Asset/Image/headeropen.svg';
-import { ReactComponent as Headerclose } from './../../../Asset/Image/headerclose.svg';
+import { ReactComponent as Headeropen } from './../../Asset/Image/headeropen.svg';
+import { ReactComponent as Headerclose } from './../../Asset/Image/headerclose.svg';
 import Nav from './Nav';
 
 const Header = () => {

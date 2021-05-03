@@ -19,18 +19,18 @@ import {
   GET_ALL_USER_DETAILS_REQUEST,
   GET_ALL_USER_DETAILS_SUCCESS,
   GET_ALL_USER_DETAILS_FAILURE,
-  FILL_BASIC_DETAILS_REQUEST,
-  FILL_BASIC_DETAILS_SUCCESS,
-  FILL_BASIC_DETAILS_FAILURE,
-  UPDATE_PROFILE_IMAGE_REQUEST,
-  UPDATE_PROFILE_IMAGE_SUCESS,
-  UPDATE_PROFILE_IMAGE_FAILURE,
-  UPDATE_USERNAME_REQUEST,
-  UPDATE_USERNAME_SUCCESS,
-  UPDATE_USERNAME_FAIL,
-  UPDATE_SOCIAL_ACCOUNT_REQUEST,
-  UPDATE_SOCIAL_ACCOUNT_SUCCESS,
-  UPDATE_SOCIAL_ACCOUNT_FAIL,
+  // FILL_BASIC_DETAILS_REQUEST,
+  // FILL_BASIC_DETAILS_SUCCESS,
+  // FILL_BASIC_DETAILS_FAILURE,
+  // UPDATE_PROFILE_IMAGE_REQUEST,
+  // UPDATE_PROFILE_IMAGE_SUCESS,
+  // UPDATE_PROFILE_IMAGE_FAILURE,
+  // UPDATE_USERNAME_REQUEST,
+  // UPDATE_USERNAME_SUCCESS,
+  // UPDATE_USERNAME_FAIL,
+  // UPDATE_SOCIAL_ACCOUNT_REQUEST,
+  // UPDATE_SOCIAL_ACCOUNT_SUCCESS,
+  // UPDATE_SOCIAL_ACCOUNT_FAIL,
 } from './../constant/authConstants';
 
 export const login = (input) => async (dispatch) => {
@@ -95,7 +95,7 @@ export const changePassword = (input) => async (dispatch, getState) => {
   }
 };
 
-export const resetPasswords = (input, key) => async (dispatch) => {
+export const resetPasswords = (input, id) => async (dispatch) => {
   dispatch({ type: RESET_PASSWORD_REQUEST });
   try {
     const config = {
@@ -104,11 +104,11 @@ export const resetPasswords = (input, key) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post(`${baseURL}/resetPassword/${key}`, input, config);
+    const { data } = await axios.post(`${baseURL}/resetPassword/${id}`, input, config);
 
     dispatch({
       type: RESET_PASSWORD_SUCCESS,
-      payload: data,
+      payload: true,
     });
     dispatch({
       type: LOGIN_SUCCESS,
@@ -116,6 +116,7 @@ export const resetPasswords = (input, key) => async (dispatch) => {
     });
     localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
+    console.log(error);
     dispatch({
       type: RESET_PASSWORD_FAILURE,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -133,10 +134,10 @@ export const forgetPassword = (input) => async (dispatch) => {
     };
 
     const { data } = await axios.post(`${baseURL}/forgetpassword`, input, config);
-
+    console.log(data.message);
     dispatch({
       type: FORGET_PASSWORD_SUCCESS,
-      payload: data,
+      payload: data.message,
     });
   } catch (error) {
     dispatch({
@@ -171,4 +172,8 @@ export const getAllUser = () => async (dispatch, getState) => {
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
     });
   }
+};
+export const logout = () => (dispatch) => {
+  localStorage.removeItem('userInfo');
+  document.location.href = '/';
 };
