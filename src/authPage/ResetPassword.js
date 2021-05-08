@@ -36,7 +36,7 @@ const ResetPassword = ({history, match }) => {
   };
 
   return (
-    <div className="bg-gray-800 pt-9 h-screen ">
+    <div className="bg-black pt-9 h-screen ">
       {error && <Alert message={error} type="error" color="red" />}
       {loading && <Loader />}
       <div className="flex items-center justify-center  sm:px-6">

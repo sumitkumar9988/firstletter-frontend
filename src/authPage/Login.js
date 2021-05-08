@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../extraPage/Alert';
 import Loader from '../extraPage/Loader';
 import { login } from '../redux/actions/authActions.js';
+import logo from './../Asset/logo.png'
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState('');
@@ -35,9 +36,11 @@ const Login = ({ history }) => {
       {loading && <Loader />}
       <div className="flex items-center pt-9 justify-center bg-black sm:px-6">
         <div className="w-full max-w-sm p-4 bg-gray-900 rounded-md shadow-md sm:p-6">
+        <img src={logo} className="h-24 mt-2 m-auto" alt="logo"></img>
           <div className="flex items-center justify-center">
             <span className="text-xl font-medium text-white">Login</span>
           </div>
+         
           <form className="mt-4">
             <label for="email" className="block">
               <span className="text-sm text-white">Email</span>
@@ -72,13 +75,11 @@ const Login = ({ history }) => {
                 </label>
               </div>
               <Link to="/forgetpassword">
-              <div>
-                <a
-                  className="block text-sm text-indigo-200 hover:underline focus:outline-none focus:underline"
-                >
-                  Forgot your password?
-                </a>
-              </div>
+                <div>
+                  <a className="block text-sm text-indigo-200 hover:underline focus:outline-none focus:underline">
+                    Forgot your password?
+                  </a>
+                </div>
               </Link>
             </div>
             <div className="mt-6">

@@ -16,7 +16,7 @@ export default function IndexPage({ children }) {
     if (!userInfo) {
       dispatch(logout());
     }
-  }, [userInfo]);
+  }, [dispatch,userInfo]);
 
   const logoutHandler = () => {
     console.log('logout');
@@ -70,6 +70,13 @@ export default function IndexPage({ children }) {
                       </div>
                     </li>
                   </Link>
+                  <Link to="/home/programming">
+                    <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
+                      <div className="flex items-center">
+                        <span className="text-sm">Compitative Programming</span>
+                      </div>
+                    </li>
+                  </Link>
                   <Link to="/home/jobs">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
@@ -89,7 +96,7 @@ export default function IndexPage({ children }) {
               }
             >
               <div className=" w-full h-full  absolute" onClick={() => setShow(!show)}></div>
-              <div className="w-64 md:w-96 absolute z-40 bg-gray-900 shadow h-full flex-col justify-between lg:hidden pb-4 transition duration-150 ease-in-out">
+              <div className="w-64 md:w-96  absolute z-40 bg-gray-900 shadow h-full flex-col justify-between lg:hidden pb-4 transition duration-150 ease-in-out">
                 <div className="flex flex-col justify-between h-full ">
                   <div>
                     <div className="flex items-center justify-between px-8">
@@ -153,6 +160,13 @@ export default function IndexPage({ children }) {
                           <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                             <div className="flex items-center">
                               <span className="xl:text-base md:text-2xl text-base ml-2">Certificate</span>
+                            </div>
+                          </li>
+                        </Link>
+                        <Link to="/home/programming">
+                          <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
+                            <div className="flex items-center">
+                              <span className="xl:text-base md:text-2xl text-base ml-2">Compitative Programming</span>
                             </div>
                           </li>
                         </Link>

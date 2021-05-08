@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../extraPage/Alert';
 import Loader from '../extraPage/Loader';
 import { forgetPassword } from '../redux/actions/authActions.js';
+import logo from './../Asset/logo.png'
 
 const ForgetPassword = ({ }) => {
   
@@ -26,12 +27,15 @@ const ForgetPassword = ({ }) => {
   };
 
   return (
-    <div className="bg-gray-800 pt-9 h-screen ">
+    <div className="bg-black pt-9 h-screen ">
       {error && <Alert message={error} type="error" color="red" />}
-      {success && <Alert message={success  +  ' Check your e-mail'} type="success" color="blue" />}
+      {success && <Alert message={success + ' Check your e-mail'} type="success" color="blue" />}
       {loading && <Loader />}
       <div className="flex items-center justify-center pt-9 pb-9 sm:px-6">
+
         <div className="w-full max-w-sm p-4 pt-9 bg-gray-900 rounded-md shadow-md sm:p-6">
+        <img src={logo} className="h-24 mt-2 m-auto" alt="logo"></img>
+
           <div className="flex items-center justify-center">
             <span className="text-xl font-medium text-white">Forget Your Password</span>
           </div>
@@ -50,13 +54,11 @@ const ForgetPassword = ({ }) => {
 
             <div className="flex items-center justify-between mt-4">
               <Link to="/register">
-              <div>
-                <p
-                  className="block text-sm text-indigo-200 hover:underline focus:outline-none focus:underline"
-                >
-                  Create Yor Account?
-                </p>
-              </div>
+                <div>
+                  <p className="block text-sm text-indigo-200 hover:underline focus:outline-none focus:underline">
+                    Create Yor Account?
+                  </p>
+                </div>
               </Link>
             </div>
             <div className="mt-6">

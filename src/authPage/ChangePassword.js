@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Alert from '../extraPage/Alert';
-import Loader from '../extraPage/Loader';
+// import Alert from '../extraPage/Alert';
+// import Loader from '../extraPage/Loader';
 import { signup } from '../redux/actions/authActions.js';
 
 const ChangePassword = ({ history, location }) => {
