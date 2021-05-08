@@ -1,4 +1,4 @@
-export const baseURL = 'http://firstletterbackend-env.eba-prw6hafg.ap-south-1.elasticbeanstalk.com/api/v1/user';
+export const baseURL = 'https://www.sumitk.site/api/v1/user';
 
 
 
