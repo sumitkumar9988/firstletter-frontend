@@ -2,6 +2,7 @@ import React from 'react';
 function Index() {
   return (
     <>
+    {/* Feature */}
       <section className="mx-auto container bg-black pt-16">
         <div className="px-4 lg:px-0">
           <div className="flex items-center flex-col px-4">
