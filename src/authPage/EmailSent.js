@@ -14,14 +14,14 @@ const EmailSent = () => {
             alt="semai sent"
           />
           <div class="relative container pt-12 px-4 mx-auto text-center">
-            <a
+            <p
               class="inline-block w-full md:w-auto mb-2 md:mb-5
                      px-8 py-4 mr-4 text-sm font-medium leading-normal
                     bg-blue-500 hover:bg-blue-300 text-white rounded 
                     transition duration-200"
             >
               Track your performance
-            </a>
+            </p>
           </div>
         </div>
       </section>

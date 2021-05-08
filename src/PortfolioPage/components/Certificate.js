@@ -14,7 +14,7 @@ const Certificate = () => {
             <div class="w-full md:w-1/2 h-64 md:h-auto ">
               <img
                 className="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover"
-                href="#"
+                alt="#"
                 title="Link"
                 src="https://images.unsplash.com/photo-1568057373189-8bf0cf6179e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80"
               />
@@ -22,7 +22,7 @@ const Certificate = () => {
             <div class="w-full md:w-1/2 h-64 md:h-auto ">
               <img
                 class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover"
-                href="#"
+                alt="#"
                 title="Link"
                 src="https://images.unsplash.com/photo-1584445584400-1a7cc5de77ae?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=397&q=80"
               />
@@ -30,7 +30,7 @@ const Certificate = () => {
             <div class="w-full md:w-1/2 h-64 md:h-auto ">
               <img
                 class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover"
-                href="#"
+                alt="#"
                 title="Link"
                 src="https://images.unsplash.com/photo-1568124924590-969ea0925fcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
               />
@@ -38,7 +38,7 @@ const Certificate = () => {
             <div class="w-full md:w-1/2 h-64 md:h-auto ">
               <img
                 class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover"
-                href="#"
+                alt="#"
                 title="Link"
                 src="https://images.unsplash.com/photo-1568124924590-969ea0925fcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
               />
@@ -46,7 +46,7 @@ const Certificate = () => {
             <div class="w-full md:w-1/2 h-64 md:h-auto ">
               <img
                 class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover"
-                href="#"
+                alt="#"
                 title="Link"
                 src="https://images.unsplash.com/photo-1568124924590-969ea0925fcc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
               />
@@ -54,7 +54,7 @@ const Certificate = () => {
             <div class="w-full md:w-1/2 h-64 md:h-auto ">
               <img
                 class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover"
-                href="#"
+                alt="#"
                 title="Link"
                 src="https://images.unsplash.com/photo-1568057373484-69bbc440c02e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=334&q=80"
               />
@@ -62,7 +62,7 @@ const Certificate = () => {
             <div class="w-full md:w-1/2 h-64 md:h-auto ">
               <img
                 class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover"
-                href="#"
+                alt="#"
                 title="Link"
                 src="https://images.unsplash.com/photo-1597700561118-3b2cae28c6c8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=335&q=80"
               />
@@ -70,7 +70,7 @@ const Certificate = () => {
             <div class="w-full md:w-1/2 h-64 md:h-auto ">
               <img
                 class="block w-full h-full bg-grey-dark bg-no-repeat bg-center bg-cover"
-                href="#"
+                alt="#"
                 title="Link"
                 src="https://images.unsplash.com/photo-1568057373484-69bbc440c02e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=334&q=80"
               />

@@ -19,7 +19,7 @@ const Project = () => {
               <div class="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-white rounded-lg shadow-2xl hover:scale-105">
                 <img
                   class="h-56 rounded-t-lg  object-cover"
-                  alt="article image"
+                  alt="article "
                   src="https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=967&amp;q=80"
                 />
                 <div class="px-6 pt-8 mb-2 text-xl font-bold">
@@ -33,7 +33,7 @@ const Project = () => {
               <div class="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-white rounded-lg shadow-2xl hover:scale-105">
                 <img
                   class="h-56 rounded-t-lg  object-cover"
-                  alt="article image"
+                  alt="article "
                   src="https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=967&amp;q=80"
                 />
                 <div class="px-6 pt-8 mb-2 text-xl font-bold">
@@ -47,7 +47,7 @@ const Project = () => {
               <div class="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-white rounded-lg shadow-2xl hover:scale-105">
                 <img
                   class="h-56 rounded-t-lg  object-cover"
-                  alt="article image"
+                  alt="article "
                   src="https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=967&amp;q=80"
                 />
                 <div class="px-6 pt-8 mb-2 text-xl font-bold">
@@ -61,7 +61,7 @@ const Project = () => {
               <div class="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-white rounded-lg shadow-2xl hover:scale-105">
                 <img
                   class="h-56 rounded-t-lg  object-cover"
-                  alt="article image"
+                  alt="article "
                   src="https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=967&amp;q=80"
                 />
                 <div class="px-6 pt-8 mb-2 text-xl font-bold">

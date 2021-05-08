@@ -1,13 +1,13 @@
 import React from 'react';
 
-const Profile = () => {
+const Jobs = () => {
   return (
     <div>
       <div className="min-h-screen mt-4">
-        <p className="text-6xl text-white">Profile</p>
+        <p className="text-6xl text-white">Jobs</p>
       </div>
     </div>
   );
 };
 
-export default Profile;
+export default Jobs;

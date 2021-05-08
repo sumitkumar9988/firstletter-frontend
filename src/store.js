@@ -9,14 +9,16 @@ import {
   resetPasswordReducer,
   getUserDetailsReducer,
 } from './redux/reducer/authReducers';
+import { getAllUserExperience } from './redux/reducer/dashboardReducer';
 
 const reducer = combineReducers({
   userSignup: signupReducer,
   userLogin: loginReducer,
-  userChangePassword:  changePasswordReducer,
-  useForgetPassword:  forgetPasswordReducer,
-  userResetPassword:  resetPasswordReducer,
-  getUserDetails:  getUserDetailsReducer,
+  userChangePassword: changePasswordReducer,
+  useForgetPassword: forgetPasswordReducer,
+  userResetPassword: resetPasswordReducer,
+  getUserDetails: getUserDetailsReducer,
+  userAllExplist: getAllUserExperience,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;

@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "data": {
+    "experience": {
+      "_id": "6074a085e897362220cd8909",
+      "jobTitle": "Frontend developer intern",
+      "user": "607498a7f884ad37f4cdc327",
+      "organization": "Google Inc",
+      "organizationLogo": "https://firstletter-multimedia.s3.amazonaws.com/a28e61b9-07c8-4133-a146-6d1836a21b3a.webp",
+      "website": "www.google.com",
+      "startDate": "2021",
+      "endDate": "2022",
+      "duration": 6,
+      "responsibilities": "Improving UI",
+      "__v": 0
+    }
+  }
+}

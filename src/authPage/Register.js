@@ -4,13 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../extraPage/Alert';
 import Loader from '../extraPage/Loader';
 import { signup } from '../redux/actions/authActions.js';
+import logo from './../Asset/logo.png'
 
-const Register = ({ history, location }) => {
+const Register = ({ history }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
-  const [message, setMessage] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -40,11 +40,12 @@ const Register = ({ history, location }) => {
   };
 
   return (
-    <div className="bg-gray-800 pt-9 h-screen ">
+    <div className="bg-black pt-9 h-screen ">
       {error && <Alert message={error} type="error" color="red" />}
       {loading && <Loader />}
       <div className="flex items-center justify-center  sm:px-6">
         <div className="w-full max-w-sm p-4 bg-gray-900 rounded-md shadow-md sm:p-6">
+              <img src={logo} className="h-24 mt-2 m-auto" alt="logo"></img>
           <div className="flex items-center justify-center">
             <span className="text-xl font-medium text-white">Create Your Account</span>
           </div>
@@ -107,14 +108,13 @@ const Register = ({ history, location }) => {
                   <span className="mx-2 text-sm text-white">Remember me</span>
                 </label>
               </div>
-              <div>
-                <a
-                  className="block text-sm text-indigo-200 hover:underline focus:outline-none focus:underline"
-                  href="#"
-                >
-                  Already Have Account?
-                </a>
-              </div>
+              <Link to="/login">
+                <div>
+                  <p className="block text-sm text-indigo-200 hover:underline focus:outline-none focus:underline">
+                    Already Have Account?
+                  </p>
+                </div>
+              </Link>
             </div>
             <div className="mt-6">
               <button

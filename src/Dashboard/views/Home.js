@@ -1,11 +1,11 @@
-import React from 'react';
-import Chart from './../components/Chart';
-const Home = () => {
-  return (
-    <div>
-      <Chart />
-    </div>
-  );
+import React from "react";
+const Index = () => {
+    return (
+      <>
+        <div className="min-h- mt-4">
+          <p className="text-6xl text-white">Home</p>
+        </div>
+      </>
+    );
 };
-
-export default Home;
+export default Index;

@@ -5,46 +5,46 @@ import Alert from '../extraPage/Alert';
 import Loader from '../extraPage/Loader';
 import { resetPasswords, signup } from '../redux/actions/authActions.js';
 
-const ResetPassword = ({ history, location }) => {
-  
+const ResetPassword = ({history, match }) => {
   const [password, setPassword] = useState('');
   const [confimPassword, setConfimPassword] = useState('');
 
   const dispatch = useDispatch();
 
+  const userResetPassword = useSelector((state) => state.userResetPassword);
+  const { success ,loading,error} = userResetPassword;
+
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  console.log('user', userInfo);
   useEffect(() => {
-    if (!userInfo) {
-      history.push('/login');
+    if(userInfo){
+      history.push('/home');
     }
-  }, [history, userInfo]);
+  }, [userInfo]);
 
   const data = {
     password,
-    confimPassword,
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signup(data));
+    if(password!==confimPassword){
+      error="password Don't match Confirm your Password"
+    }
+    dispatch(resetPasswords(data,match.params.id));
   };
 
   return (
-    <div className="bg-gray-800 pt-9 h-screen ">
-      {/* {error && <Alert message={error} type="error" color="red" />}
-      {loading && <Loader />} */}
+    <div className="bg-black pt-9 h-screen ">
+      {error && <Alert message={error} type="error" color="red" />}
+      {loading && <Loader />}
       <div className="flex items-center justify-center  sm:px-6">
         <div className="w-full max-w-sm p-4 bg-gray-900 rounded-md shadow-md sm:p-6">
           <div className="flex items-center justify-center">
             <span className="text-xl font-medium text-white">Reset Your Account Password</span>
           </div>
           <form className="mt-4">
-          
-          
-
             <label for="password" className="block mt-3">
               <span className="text-sm text-white">New Password</span>
               <input
