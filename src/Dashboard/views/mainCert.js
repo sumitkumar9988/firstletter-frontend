@@ -63,41 +63,28 @@ function IndexPage() {
                       <rect width={60} height={2} fill="#E53E3E" />
                     </svg>
                   </div>
-                  <div className=" flex w-full pt-8 flex-row lg:flex-col">
-                    <div className="flex w-full pt-8 ">
-                      <button className="bg-red-600 text-white py-5 px-6 mr-2" onClick={goPrev} id="prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" width={14} height={26} viewBox="0 0 14 26" fill="none">
-                          <path
-                            d="M12.5 2L1.5 13L12.5 24"
-                            stroke="white"
-                            strokeWidth="2.75"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </button>
-                      <div className="bg-red-600 text-white py-5 px-6" id="next" onClick={goNext}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width={14} height={26} viewBox="0 0 14 26" fill="none">
-                          <path
-                            d="M1.5 24L12.5 13L1.5 2"
-                            stroke="white"
-                            strokeWidth="2.75"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="flex w-full pt-8 ml-4">
-                      <button className="bg-red-600 text-white py-5 px-10 " onClick={goPrev} id="prev">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8"  viewBox="0 0 20 20" fill="currentColor">
-                          <path
-                            fill-rule="evenodd"
-                            d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
-                            clip-rule="evenodd"
-                          />
-                        </svg>
-                      </button>
+                  <div className="flex w-full pt-8">
+                    <button className="bg-red-600 text-white py-5 px-6 mr-2" onClick={goPrev} id="prev">
+                      <svg xmlns="http://www.w3.org/2000/svg" width={14} height={26} viewBox="0 0 14 26" fill="none">
+                        <path
+                          d="M12.5 2L1.5 13L12.5 24"
+                          stroke="white"
+                          strokeWidth="2.75"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
+                    <div className="bg-red-600 text-white py-5 px-6" id="next" onClick={goNext}>
+                      <svg xmlns="http://www.w3.org/2000/svg" width={14} height={26} viewBox="0 0 14 26" fill="none">
+                        <path
+                          d="M1.5 24L12.5 13L1.5 2"
+                          stroke="white"
+                          strokeWidth="2.75"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
                     </div>
                   </div>
                 </div>
@@ -117,7 +104,7 @@ function IndexPage() {
                         <div className="relative h-96">
                           <img
                             className="absolute inset-0 object-cover object-center w-full h-full"
-                            src="https://images.unsplash.com/photo-1559588501-59a118c47e59?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"
+                            src="https://cdn.tuk.dev/assets/components/111220/events/eventsection1.png"
                             alt
                           />
                         </div>

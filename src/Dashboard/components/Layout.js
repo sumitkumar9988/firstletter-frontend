@@ -27,60 +27,60 @@ export default function IndexPage({ children }) {
     <>
       {' '}
       <div className="">
-        <div className="w-full h-full bg-gray-800 ">
-          <div className="flex flex-no-wrap ">
-            <div className="w-64 absolute lg:relative bg-gray-900 shadow min-h-screen flex-col justify-between hidden lg:flex pb-12">
+        <div className="w-full h-full bg-black ">
+          <div className="flex   flex-no-wrap ">
+            <div className="  w-64 absolute lg:relative bg-gray-900 shadow min-h-screen flex-col justify-between hidden lg:flex pb-12">
               <div className="px-8">
-                <div className="h-20 w-full flex items-center">
+                <div className="h-20 w-full flex items-center ">
                   <Logo />
                 </div>
-                <ul className="mt-12">
+                <ul className="mt-12 fixed">
                   <Link to="/home">
-                    <li className="flex w-full justify-between text-indigo-500 cursor-pointer items-center mb-6">
+                    <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-sm">Dashboard</span>
+                        <span className="text-base">Dashboard</span>
                       </div>
                     </li>
                   </Link>
                   <Link to="/home/education">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-sm">Education</span>
+                        <span className="text-base">Education</span>
                       </div>
                     </li>
                   </Link>
                   <Link to="/home/experience">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-sm">Experience</span>
+                        <span className="text-base">Experience</span>
                       </div>
                     </li>
                   </Link>
                   <Link to="/home/certificate">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-sm">Certificate</span>
+                        <span className="text-base">Certificate</span>
                       </div>
                     </li>
                   </Link>
                   <Link to="/home/projects">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-sm">Projects</span>
+                        <span className="text-base">Projects</span>
                       </div>
                     </li>
                   </Link>
                   <Link to="/home/programming">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-sm">Compitative Programming</span>
+                        <span className="text-base">Compitative Programming</span>
                       </div>
                     </li>
                   </Link>
                   <Link to="/home/jobs">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-sm">Jobs</span>
+                        <span className="text-base">Jobs</span>
                       </div>
                     </li>
                   </Link>
@@ -91,21 +91,21 @@ export default function IndexPage({ children }) {
             <div
               className={
                 show
-                  ? 'w-full h-full absolute z-40 transform translate-x-0 '
-                  : ' w-full h-full absolute z-40 transform -translate-x-full '
+                  ? 'w-full h-full fixed z-40 transform translate-x-0 '
+                  : ' w-full h-full fixed z-40 transform -translate-x-full '
               }
             >
               <div className=" w-full h-full  absolute" onClick={() => setShow(!show)}></div>
               <div className="w-64 md:w-96  absolute z-40 bg-gray-900 shadow h-full flex-col justify-between lg:hidden pb-4 transition duration-150 ease-in-out">
                 <div className="flex flex-col justify-between h-full ">
-                  <div>
+                  <div className="">
                     <div className="flex items-center justify-between px-8">
                       <div className="h-16 w-full flex items-center">
                         <Logo />
                       </div>
                       <div
                         id="closeSideBar"
-                        className="flex items-center justify-center h-10 w-10"
+                        className="flex  items-center justify-center h-10 w-10"
                         onClick={() => setShow(!show)}
                       >
                         <svg
@@ -225,10 +225,10 @@ export default function IndexPage({ children }) {
             {/* Sidebar ends */}
             <div className="w-full ">
               {/* Navigation starts */}
-              <nav className="h-16 flex items-center lg:items-stretch justify-end lg:justify-between bg-gray-900 shadow relative z-0">
-                <div className="hidden lg:flex w-full pr-6">
+              <nav className="h-16 flex  items-center lg:items-stretch justify-end lg:justify-between bg-gray-900 shadow z-50 relative ">
+                <div className="hidden lg:flex w-full pr-6 ">
                   <div className="w-1/2  h-full hidden lg:flex items-center pl-6 pr-24"></div>
-                  <div className="w-1/2 hidden lg:flex">
+                  <div className=" w-1/2 hidden lg:flex">
                     <div className="w-full flex items-center pl-8 justify-end">
                       <div className="flex items-center relative cursor-pointer" onClick={() => setProfile(!profile)}>
                         <div className="rounded-full">
@@ -253,7 +253,7 @@ export default function IndexPage({ children }) {
                                     <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                                   </svg>
                                   <Link to="/home/me">
-                                    <span className="text-sm ml-1">My Profile</span>
+                                    <span className="text-base ml-1">My Profile</span>
                                   </Link>
                                 </div>
                               </li>
@@ -275,7 +275,7 @@ export default function IndexPage({ children }) {
                                     <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
                                     <path d="M7 12h14l-3 -3m0 6l3 -3" />
                                   </svg>
-                                  <span onClick={logoutHandler} className="text-sm ml-2">
+                                  <span onClick={logoutHandler} className="text-base ml-2">
                                     Sign out
                                   </span>
                                 </div>
@@ -294,7 +294,7 @@ export default function IndexPage({ children }) {
                           </div>
                         </div>
 
-                        <p className="text-gray-50 text-sm mx-3">{userInfo ? userInfo.data.user.name : null}</p>
+                        <p className="text-gray-50 text-base mx-3">{userInfo ? userInfo.data.user.name : null}</p>
                         <div className="cursor-pointer text-gray-50">
                           <svg
                             aria-haspopup="true"
@@ -342,8 +342,8 @@ export default function IndexPage({ children }) {
                   )}
                 </div>
               </nav>
-              <div className="container mx-auto  md:w-4/5 w-11/12">
-                <div className="w-full h-full bg-gray-800  rounded  ">{children}</div>
+              <div className="container mx-auto  md:w-4/5 w-11/12 ">
+                <div className="w-full h-full bg-black  rounded  ">{children}</div>
               </div>
             </div>
           </div>
