@@ -12,7 +12,7 @@ import Certificate from './views/Certificate';
 
 const Index = ({ match }) => {
   return (
-    <div>
+    <div className="">
       <Router>
         <Layout>
           <Switch>
