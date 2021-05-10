@@ -10,21 +10,21 @@ import Project from './views/Project';
 import Cp from './views/Cp';
 import Certificate from './views/Certificate';
 const { useHistory } = 'react-router-dom';
-const Index = ({ match }) => {
+const Index = () => {
   const history = useHistory;
   return (
     <div className="">
       <Router history={history}>
         <Layout>
           <Switch>
-            <Route path={`${match.path}/me`} component={Profile} />
-            <Route path={`${match.path}/education`} component={Education} />
-            <Route path={`${match.path}/experience`} component={Experience} />
-            <Route path={`${match.path}/jobs`} component={Jobs} />
-            <Route path={`${match.path}/projects`} component={Project} />
-            <Route path={`${match.path}/programming`} component={Cp} />
-            <Route path={`${match.path}/certificate`} component={Certificate} />
-            <Route exact path={match.path} component={Home} />
+            <Route path="/home/me" component={Profile} />
+            <Route path="/home/education" component={Education} />
+            <Route path="/home/experience" component={Experience} />
+            <Route path="/home/jobs" component={Jobs} />
+            <Route path="/home/projects" component={Project} />
+            <Route path="/home/programming" component={Cp} />
+            <Route path="/home/certificate" component={Certificate} />
+            <Route exact path="/home" component={Home} />
           </Switch>
         </Layout>
       </Router>
