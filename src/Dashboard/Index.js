@@ -13,7 +13,7 @@ const { useHistory } = 'react-router-dom';
 const Index = () => {
   const history = useHistory;
   return (
-    <div className="">
+    <div >
       <Router history={history}>
         <Layout>
           <Switch>
@@ -24,7 +24,7 @@ const Index = () => {
             <Route path="/home/projects" component={Project} />
             <Route path="/home/programming" component={Cp} />
             <Route path="/home/certificate" component={Certificate} />
-            <Route exact path="/home" component={Home} />
+            <Route  path="/home" component={Home} />
           </Switch>
         </Layout>
       </Router>
