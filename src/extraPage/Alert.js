@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Alert = ({ color, type, children }) => {
+const Alert = ({ color = 'red', type, children }) => {
   const [showAlert, setShowAlert] = React.useState(true);
   return (
     <div className="pr-9 pl-9">

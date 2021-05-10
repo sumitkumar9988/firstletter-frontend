@@ -9,11 +9,12 @@ import Jobs from './views/Jobs';
 import Project from './views/Project';
 import Cp from './views/Cp';
 import Certificate from './views/Certificate';
-
+const { useHistory } = 'react-router-dom';
 const Index = ({ match }) => {
+  const history = useHistory;
   return (
     <div className="">
-      <Router>
+      <Router history={history}>
         <Layout>
           <Switch>
             <Route path={`${match.path}/me`} component={Profile} />
