@@ -73,3 +73,32 @@ export const getAllUserExperience = (state = { data: { experience: [] } }, actio
       return state;
   }
 };
+
+
+
+export const getAllUserCertificate = (state = { data: { certificate: [] } }, action) => {
+  switch (action.type) {
+    case GET_ALL_CERTIFICATE_LIST_REQUEST:
+      return { loading: true };
+    case GET_ALL_CERTIFICATE_LIST_SUCCESS:
+      return { loading: false, certificates: action.payload.data.certificate };
+    case GET_ALL_CERTIFICATE_LIST_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+
+export const getAllUserEducation = (state = { data: { education: [] } }, action) => {
+  switch (action.type) {
+    case GET_ALL_EDUCATION_LIST_REQUEST:
+      return { loading: true };
+    case GET_ALL_EDUCATION_LIST_SUCCESS:
+      return { loading: false, educations: action.payload.data.education };
+    case GET_ALL_EDUCATION_LIST_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
