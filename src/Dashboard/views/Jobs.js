@@ -1,7 +1,8 @@
 import React from 'react';
+import DeveloperImage from './../../Asset/developer.png';
 function Index() {
   return (
-    <div className="pt-4 overflow-y-hidden">
+    <div className=" overflow-y-hidden">
       <div className="w-full bg-black sm:pt-16 sm:pb-32 pt-10 pb-10">
         <div className="container mx-auto">
           <div className="xl:flex lg:flex md:flex flex-wrap xl:justify-between lg:justify-around sm:w-full w-11/12 mx-auto sm:mx-0 xl:items-center">
@@ -27,7 +28,7 @@ function Index() {
             </div>
             <div className="xl:w-5/12 lg:w-5/12 w-11/12 mx-auto xl:mx-0 lg:mx-0 lg:pt-0 pt-6">
               <div className="flex items-end justify-center h-full">
-                <img src="https://cdn.tuk.dev/assets/newsletter.png" alt className="mt-10 sm:mt-0" />
+                <img src={DeveloperImage} alt className="mt-10 sm:mt-0" />
               </div>
             </div>
           </div>

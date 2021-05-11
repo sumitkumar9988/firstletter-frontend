@@ -9,7 +9,7 @@ import {
   resetPasswordReducer,
   getUserDetailsReducer,
 } from './redux/reducer/authReducers';
-import { getAllUserExperience, getAllUserCertificate } from './redux/reducer/dashboardReducer';
+import { getAllUserExperience, getAllUserCertificate, getAllUserEducation } from './redux/reducer/dashboardReducer';
 
 const reducer = combineReducers({
   userSignup: signupReducer,
@@ -20,6 +20,7 @@ const reducer = combineReducers({
   getUserDetails: getUserDetailsReducer,
   userAllExplist: getAllUserExperience,
   userAllCertificateList: getAllUserCertificate,
+  userEducationList: getAllUserEducation,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;

@@ -88,3 +88,17 @@ export const getAllUserCertificate = (state = { data: { certificate: [] } }, act
       return state;
   }
 };
+
+
+export const getAllUserEducation = (state = { data: { education: [] } }, action) => {
+  switch (action.type) {
+    case GET_ALL_EDUCATION_LIST_REQUEST:
+      return { loading: true };
+    case GET_ALL_EDUCATION_LIST_SUCCESS:
+      return { loading: false, educations: action.payload.data.education };
+    case GET_ALL_EDUCATION_LIST_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
