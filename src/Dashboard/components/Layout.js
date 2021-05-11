@@ -3,7 +3,7 @@ import { ReactComponent as Logo } from './../../Asset/Image/blue_logo.svg';
 import { Link } from 'react-router-dom';
 import { logout } from '../../redux/actions/authActions';
 import { useDispatch, useSelector } from 'react-redux';
-
+import userPng from '../../Asset/user.png'
 export default function IndexPage({ children }) {
   const [show, setShow] = useState(false);
   const [profile, setProfile] = useState(false);
@@ -187,7 +187,7 @@ export default function IndexPage({ children }) {
                           <div className="flex items-center">
                             <img
                               alt="profile-pic"
-                              src="https://tuk-cdn.s3.amazonaws.com/assets/components/boxed_layout/bl_1.png"
+                              src={userPng}
                               className="w-8 h-8 rounded-md"
                             />
                             <p className="md:text-xl text-gray-50 text-base leading-4 ml-2">
@@ -287,7 +287,7 @@ export default function IndexPage({ children }) {
                           <div className="relative">
                             <img
                               className="rounded-full h-10 w-10 object-cover"
-                              src="https://tuk-cdn.s3.amazonaws.com/assets/components/sidebar_layout/sl_1.png"
+                              src={userPng}
                               alt="avatar"
                             />
                             <div className="w-2 h-2 rounded-full bg-green-400 border border-white absolute inset-0 mb-0 mr-0 m-auto" />

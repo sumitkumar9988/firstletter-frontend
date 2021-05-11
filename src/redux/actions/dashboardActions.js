@@ -89,3 +89,34 @@ export const getAllUserExperience = () => async (dispatch, getState) => {
     });
   }
 };
+
+
+
+
+
+export const getAllUserCertificate = () => async (dispatch, getState) => {
+  dispatch({ type: GET_ALL_CERTIFICATE_LIST_REQUEST });
+  try {
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.get(`${baseURL}/certificate`, config);
+
+    dispatch({
+      type: GET_ALL_CERTIFICATE_LIST_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: GET_ALL_CERTIFICATE_LIST_FAIL,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+    });
+  }
+};
