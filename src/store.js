@@ -9,7 +9,22 @@ import {
   resetPasswordReducer,
   getUserDetailsReducer,
 } from './redux/reducer/authReducers';
-import { getAllUserExperience, getAllUserCertificate, getAllUserEducation } from './redux/reducer/dashboardReducer';
+
+import {
+  getEducationListOfUser,
+  getEducationByid,
+  deleteEducation,
+  addNewEducation,
+  updateEducationById,
+  getAllUserCertificate,
+  addNewCertificate,
+  deleteCertificate,
+  getAllUserExperience,
+  getExperienceById,
+  deleteExperienceByID,
+  addNewExperience,
+  updateExperienceByID,
+} from './redux/reducer/dashboardReducer';
 
 const reducer = combineReducers({
   userSignup: signupReducer,
@@ -20,7 +35,17 @@ const reducer = combineReducers({
   getUserDetails: getUserDetailsReducer,
   userAllExplist: getAllUserExperience,
   userAllCertificateList: getAllUserCertificate,
-  userEducationList: getAllUserEducation,
+  userEducationList: getEducationListOfUser,
+  userEducation: getEducationByid,
+  deleteEducation: deleteEducation,
+  postEducation: addNewEducation,
+  patchEduction: updateEducationById,
+  postCertficate: addNewCertificate,
+  deleteCertificate: deleteCertificate,
+  userExperienceID: getExperienceById,
+  deleteExperience: deleteExperienceByID,
+  postExperience: addNewExperience,
+  patchExperience: updateExperienceByID,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
