@@ -117,6 +117,7 @@ export const addNewEducation = (input) => async (dispatch, getState) => {
     const {
       userLogin: { userInfo },
     } = getState();
+    console.log(userInfo.token);
     const config = {
       headers: {
         'Content-Type': 'application/json',
@@ -124,7 +125,7 @@ export const addNewEducation = (input) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`${baseURL}/education/`, config, input);
+    const { data } = await axios.post(`${baseURL}/education`, input, config);
 
     dispatch({
       type: ADD_NEW_EDUCATION_SUCCESS,

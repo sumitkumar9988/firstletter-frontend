@@ -1,13 +1,18 @@
 import React, { useEffect } from 'react';
+import {Link} from 'react-router-dom'
 import { getAllUserCertificate } from '../../redux/actions/dashboardActions';
 import { useDispatch, useSelector } from 'react-redux';
-import Alert from '../../extraPage/Alert';
+import Alert from '../components/Error';
+// import Loader from './../components/Loader'
 
 function IndexPage() {
   const dispatch = useDispatch();
 
   const certificateList = useSelector((state) => state.userAllCertificateList);
-  const { loading, error, certificates } = certificateList;
+  const { 
+    // loading,
+    error,
+    certificates } = certificateList;
 
   console.log(certificates);
   useEffect(() => {
@@ -20,8 +25,9 @@ function IndexPage() {
   };
 
   return (
-    <div className="mx-auto container relative z-40">
-      {error && <Alert message={error} type="error"/>}
+    <div className="mx-auto container relative ">
+      {error && <Alert message={error} type="error" />}
+      {/* {loading && <Loader/>} */}
       {certificates &&
         certificates.map((item) => {
           return (
@@ -29,9 +35,12 @@ function IndexPage() {
               <div className="flex items-center mt-32 justify-center relative">
                 <img loading="lazy" src={item.image} alt="cert" className="relative" />
               </div>
-              <h2 className="text-green-400 text-center mt-4 uppercase text-3xl ">{item.name}</h2>
-              <h2 className="text-red-300 text-center mt-2  text-lg ">By:- {item.Organization}</h2>
-
+              <h2 className="text-green-400 font-semibold text-center mt-4 tracking-wide uppercase text-2xl ">
+                
+                {item.name}
+              
+              </h2>
+              <h2 className="text-red-300 text-center mt-2  text-xs font-thin"> {item.Organization}</h2>
 
               <div className="pt-6 ">
                 <div className="flex justify-between w-full items-center text-gray-600 text-sm">

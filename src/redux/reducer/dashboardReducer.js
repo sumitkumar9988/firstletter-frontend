@@ -1,4 +1,3 @@
-import axios from 'axios';
 import {
   // GITHUB_O_AUTH,
   // GITHUB_CALLBACK,
