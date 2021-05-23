@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-
+import { useDispatch, useSelector } from 'react-redux';
+import FormData from 'form-data';
+import Loader from './../components/Loader';
+import Alert from '../../extraPage/Alert';
+import { addNewExperience } from './../../redux/actions/dashboardActions';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const Index = () => {
@@ -15,28 +19,43 @@ const Index = () => {
   const [duration, setDuration] = useState(0);
   const [website, setWebsite] = useState();
 
+  const dispatch = useDispatch();
+
+  const addExperience = useSelector((state) => state.postExperience);
+  const { loading, error, success } = addExperience;
+
   const onChangePicture = (e) => {
-    console.log('picture: ', image);
     setImage(e.target.files[0]);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const submitHandler = (e) => {
     e.preventDefault();
-    const data = {
-      jobTitle: jobTitle,
-      image: image,
-      responsibilities: responsibilities,
-      organization: organization,
-      startDate: moment(startDate).format('YYYY-MM-DD'),
-      endDate: moment(endDate).format('YYYY-MM-DD'),
-      website: website,
-    };
-    console.log('submit data', data);
+    let data = new FormData();
+    data.append('jobTitle', jobTitle);
+    data.append('responsibilities', responsibilities);
+    data.append('organization', organization);
+    data.append('startDate', moment(startDate).format('YYYY-MM-DD'));
+    data.append('endDate', moment(endDate).format('YYYY-MM-DD'));
+    data.append('website', website);
+
+    if (image !== null) {
+      data.append('image', image);
+    }
+    dispatch(addNewExperience(data));
+    window.scrollTo(0, 0);
   };
 
   return (
     <div>
       <div>
+        {error && <Alert message={error} type="error" />}
+        {success && <Alert message={success} type="success" />}
+        {loading && <Loader />}
+
         <form className="container mx-auto bg-black shadow rounded">
           <div>
             <div className="xl:w-full border-b border-white  py-5">

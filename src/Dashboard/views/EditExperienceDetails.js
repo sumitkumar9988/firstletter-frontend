@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import { Link } from 'react-router-dom';
-
+import FormData from 'form-data';
+import { useDispatch, useSelector } from 'react-redux';
 import 'react-datepicker/dist/react-datepicker.css';
+import Loader from './../components/Loader';
+import Alert from '../../extraPage/Alert';
+import { updateExperience, getExperienceById, deleteExperirence } from './../../redux/actions/dashboardActions';
+import { RESET_EXPERIENCE_DETAILS } from './../../redux/constant/dashBoardConstants';
 
-const Index = () => {
+const Index = ({ match, history }) => {
+  const id = match.params.id;
   const [jobTitle, setJob] = useState('');
   const [image, setImage] = useState(null);
   const [organization, setOrganization] = useState('');
@@ -14,24 +19,62 @@ const Index = () => {
   const [endDate, setEndDate] = useState(new Date());
   const [duration, setDuration] = useState(0);
   const [website, setWebsite] = useState();
+  const dispatch = useDispatch();
+
+  const patchExperience = useSelector((state) => state.patchExperience);
+  const { loading, error, success } = patchExperience;
+
+  const userExperienceID = useSelector((state) => state.userExperienceID);
+  const { loading: loadingExperience, error: experienceError, experiences } = userExperienceID;
+
+  const deleteExperience = useSelector((state) => state.deleteExperience);
+  const {
+    loading: loadingDeletExperience,
+    error: deleteExperienceError,
+    success: deleteExperiencesSuccess,
+  } = deleteExperience;
 
   const onChangePicture = (e) => {
     console.log('picture: ', image);
     setImage(e.target.files[0]);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    if (!experiences || !experiences.jobTitle || experiences._id !== match.params.id) {
+      dispatch({ type: RESET_EXPERIENCE_DETAILS });
+      dispatch(getExperienceById(id));
+    } else {
+      setJob(experiences.jobTitle);
+      setOrganization(experiences.organization);
+      setResponsibilities(experiences.responsibilities);
+      setWebsite(experiences.website);
+    }
+  }, [dispatch, match, experiences, id]);
+
   const submitHandler = (e) => {
     e.preventDefault();
-    const data = {
-      jobTitle: jobTitle,
-      image: image,
-      responsibilities: responsibilities,
-      organization: organization,
-      startDate: moment(startDate).format('YYYY-MM-DD'),
-      endDate: moment(endDate).format('YYYY-MM-DD'),
-      website: website,
-    };
-    console.log('submit data', data);
+    let data = new FormData();
+    data.append('jobTitle', jobTitle);
+    data.append('responsibilities', responsibilities);
+    data.append('organization', organization);
+    data.append('startDate', moment(startDate).format('YYYY-MM-DD'));
+    data.append('endDate', moment(endDate).format('YYYY-MM-DD'));
+    data.append('website', website);
+
+    if (image !== null) {
+      data.append('image', image);
+    }
+    dispatch(updateExperience(id, data));
+    window.scrollTo(0, 0);
+  };
+
+  const deleteHandler = (parameter) => (event) => {
+    // Do something
+    event.preventDefault();
+    console.log(parameter);
+    dispatch(deleteExperirence(parameter));
+    history.push('/home/education');
   };
 
   return (
@@ -182,11 +225,12 @@ const Index = () => {
               </div>
             </div>
             <div className="w-full py-4 sm:px-12 px-4 bg-gradient-to-l from-gray-700 via-gray-900 to-black mt-6 flex justify-end rounded-bl rounded-br">
-              <Link to="/home/experience">
-                <button className="btn text-sm focus:outline-none text-gray-600 dark:text-gray-400 border border-gray-300 dark:border-gray-500 py-2 px-6 mr-4 rounded bg-gray-50 hover:bg-gray-200 transition duration-150 ease-in-out">
-                  Cancel
-                </button>
-              </Link>
+              <button
+                onClick={deleteHandler(id)}
+                className="btn text-sm focus:outline-none text-gray-600 dark:text-gray-400 border border-gray-300 dark:border-gray-500 py-2 px-6 mr-4 rounded bg-gray-50 hover:bg-gray-200 transition duration-150 ease-in-out"
+              >
+                Delete This
+              </button>
               <button
                 className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-2 text-sm focus:outline-none"
                 type="submit"

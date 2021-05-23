@@ -1,16 +1,20 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import { Link } from 'react-router-dom';
+import FormData from 'form-data';
 import { useDispatch, useSelector } from 'react-redux';
 import 'react-datepicker/dist/react-datepicker.css';
 import Loader from './../components/Loader';
 import Alert from '../../extraPage/Alert';
-import { updateEductionDetails,getEducatinDetailById } from './../../redux/actions/dashboardActions';
-import {RESET_EDUCATION_DETAILS} from './../../redux/constant/dashBoardConstants'
+import {
+  updateEductionDetails,
+  getEducatinDetailById,
+  deleteEducationDetail,
+} from './../../redux/actions/dashboardActions';
+import { RESET_EDUCATION_DETAILS } from './../../redux/constant/dashBoardConstants';
 
-const Index = ({match}) => {
-  const id=match.params.id
+const Index = ({ match, history }) => {
+  const id = match.params.id;
   const [institute, setinstitute] = useState('');
   const [image, setImage] = useState(null);
   const [basicinfo, setBasicinfo] = useState('');
@@ -25,13 +29,14 @@ const Index = ({match}) => {
   const { loading, error, success } = patchEduction;
 
   const educationByID = useSelector((state) => state.userEducation);
-  const { loading:loadingEducationDetail, error:educationDetailError, education } = educationByID;
+  const { loading: loadingEducationDetail, error: educationDetailError, education } = educationByID;
 
   const deleteEducation = useSelector((state) => state.deleteEducation);
-  const { loading:deleteEducationLoading, error:deleteEducationError, success:deleteEducationSuccess } = deleteEducation;
-
-
-
+  const {
+    loading: deleteEducationLoading,
+    error: deleteEducationError,
+    success: deleteEducationSuccess,
+  } = deleteEducation;
 
   const onChangePicture = (e) => {
     console.log('picture: ', image);
@@ -39,50 +44,56 @@ const Index = ({match}) => {
   };
 
   useEffect(() => {
-
-      if(!education || !education.institute || education._id !== match.params.id){
-        dispatch({type:RESET_EDUCATION_DETAILS})
-        dispatch(getEducatinDetailById(id));
-      }else{
-        setinstitute(education.institute);
-        setBasicinfo(education.basicinfo)
-        setDegree(education.degree)
-        setGrade(education.grade)
-
-      }
-  }, [dispatch,match,education,id])
+    window.scrollTo(0, 0);
+    if (!education || !education.institute || education._id !== match.params.id) {
+      dispatch({ type: RESET_EDUCATION_DETAILS });
+      dispatch(getEducatinDetailById(id));
+    } else {
+      setinstitute(education.institute);
+      setBasicinfo(education.basicinfo);
+      setDegree(education.degree);
+      setGrade(education.grade);
+    }
+  }, [dispatch, match, education, id]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(image)
-    const data = {
-      institute: institute,
-      image: image,
-      basicinfo: basicinfo,
-      degree: degree,
-      startDate: moment(startDate).format('YYYY-MM-DD'),
-      endDate: moment(endDate).format('YYYY-MM-DD'),
-      grade: grade,
-    };
+    console.log(image);
+
+    let data = new FormData();
+    data.append('institute', institute);
+    data.append('basicinfo', basicinfo);
+    data.append('degree', degree);
+    data.append('startDate', moment(startDate).format('YYYY-MM-DD'));
+    data.append('endDate', moment(endDate).format('YYYY-MM-DD'));
+    data.append('grade', grade);
+    if (image !== null) {
+      data.append('image', image);
+      // data.append('image', image);
+    }
     console.log('submit data', data);
-    dispatch(updateEductionDetails(id,data));
+    dispatch(updateEductionDetails(id, data));
+    window.scrollTo(0, 0);
   };
 
-
- 
+  const clickMe = (parameter) => (event) => {
+    // Do something
+    event.preventDefault();
+    console.log(parameter);
+    dispatch(deleteEducationDetail(parameter));
+    history.push('/home/education');
+  };
 
   return (
     <div>
-   {error   && <Alert message={error} type="error" />}
-   {educationDetailError   && <Alert message={educationDetailError} type="error" />}
-   {deleteEducationError   && <Alert message={deleteEducationError} type="error" />}
-   {success && <Alert message={success} type="success" />}
-   {loadingEducationDetail && <Loader />}
-   {loading && <Loader />}
-   
-      <div>
-      
+      {error && <Alert message={error} type="error" />}
+      {educationDetailError && <Alert message={educationDetailError} type="error" />}
+      {deleteEducationError && <Alert message={deleteEducationError} type="error" />}
+      {success && <Alert message={success} type="success" />}
+      {loadingEducationDetail && <Loader />}
+      {loading && <Loader />}
 
+      <div>
         <form className="container mx-auto bg-black shadow rounded">
           <div>
             <div className="xl:w-full border-b border-white  py-5">
@@ -228,11 +239,13 @@ const Index = ({match}) => {
               </div>
             </div>
             <div className="w-full py-4 sm:px-12 px-4 bg-gradient-to-l from-gray-700 via-gray-900 to-black mt-6 flex justify-end rounded-bl rounded-br">
-              <Link to="/home/education">
-                <button className="btn text-sm focus:outline-none text-gray-600 dark:text-gray-400 border border-gray-300 dark:border-gray-500 py-2 px-6 mr-4 rounded bg-gray-50 hover:bg-gray-200 transition duration-150 ease-in-out">
-                  Cancel
-                </button>
-              </Link>
+              <button
+                onClick={clickMe(id)}
+                className="btn text-sm focus:outline-none text-gray-600 dark:text-gray-400 border border-gray-300 dark:border-gray-500 py-2 px-6 mr-4 rounded bg-gray-50 hover:bg-gray-200 transition duration-150 ease-in-out"
+              >
+                Delete This
+              </button>
+
               <button
                 className="bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-2 text-sm focus:outline-none"
                 type="submit"
@@ -244,7 +257,6 @@ const Index = ({match}) => {
           </div>
         </form>
       </div>
-      
     </div>
   );
 };

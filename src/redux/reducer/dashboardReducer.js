@@ -53,6 +53,7 @@ import {
   DELETE_CERTIFICATE_REQUEST,
   DELETE_CERTIFICATE_SUCCESS,
   DELETE_CERTIFICATE_FAIL,
+  RESET_EXPERIENCE_DETAILS,
 } from './../constant/dashBoardConstants';
 
 // all Reducers related to Education
@@ -175,6 +176,8 @@ export const getAllUserExperience = (state = { data: { experience: [] } }, actio
       return { loading: false, experiences: action.payload.data.experience };
     case GET_ALL_EXPERIENCE_LIST_FAIL:
       return { loading: false, error: action.payload };
+    case RESET_EXPERIENCE_DETAILS:
+      return {};
     default:
       return state;
   }

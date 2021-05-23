@@ -69,14 +69,15 @@ export const getAllUserEducation = () => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-
+    console.log('Request');
     const { data } = await axios.get(`${baseURL}/education`, config);
-
+    console.log(data);
     dispatch({
       type: GET_ALL_EDUCATION_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
+    console.log(error);
     dispatch({
       type: GET_ALL_EDUCATION_LIST_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -136,7 +137,7 @@ export const addNewEducation = (input) => async (dispatch, getState) => {
   }
 };
 
-export const updateEductionDetails = (input, id) => async (dispatch, getState) => {
+export const updateEductionDetails = (id, input) => async (dispatch, getState) => {
   dispatch({ type: UPDATE_EDUCATION_DETAILS_REQUEST });
   try {
     const {
@@ -149,13 +150,14 @@ export const updateEductionDetails = (input, id) => async (dispatch, getState) =
       },
     };
 
-    const { data } = await axios.patch(`${baseURL}/education/:${id}`, config, input);
+    const { data } = await axios.patch(`${baseURL}/education/${id}`, input, config);
 
     dispatch({
       type: UPDATE_EDUCATION_DETAILS_SUCCESS,
       payload: data,
     });
   } catch (error) {
+    console.log(error);
     dispatch({
       type: UPDATE_EDUCATION_DETAILS_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -176,7 +178,7 @@ export const deleteEducationDetail = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`${baseURL}/education/:${id}`, config);
+    const { data } = await axios.delete(`${baseURL}/education/${id}`, config);
 
     dispatch({
       type: DELETE_EDUCATION_SUCCESS,
@@ -315,7 +317,7 @@ export const getExperienceById = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.get(`${baseURL}/experience/:${id}`, config);
+    const { data } = await axios.get(`${baseURL}/experience/${id}`, config);
 
     dispatch({
       type: GET_EXPERIENCE_BY_ID_SUCCESS,
@@ -329,7 +331,7 @@ export const getExperienceById = (id) => async (dispatch, getState) => {
   }
 };
 
-export const deleteExperirnce = (id) => async (dispatch, getState) => {
+export const deleteExperirence = (id) => async (dispatch, getState) => {
   dispatch({ type: DELETE_EXPERIENCE_REQUEST });
   try {
     const {
@@ -342,7 +344,7 @@ export const deleteExperirnce = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`${baseURL}/experience/:${id}`, config);
+    const { data } = await axios.delete(`${baseURL}/experience/${id}`, config);
 
     dispatch({
       type: DELETE_EXPERIENCE_SUCCESS,
@@ -356,7 +358,7 @@ export const deleteExperirnce = (id) => async (dispatch, getState) => {
   }
 };
 
-export const addNewExperience = (id, input) => async (dispatch, getState) => {
+export const addNewExperience = (input) => async (dispatch, getState) => {
   dispatch({ type: ADD_NEW_EXPERIENCE_REQUEST });
   try {
     const {
@@ -369,7 +371,7 @@ export const addNewExperience = (id, input) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`${baseURL}/experience/:${id}`, config, input);
+    const { data } = await axios.post(`${baseURL}/experience/}`, input, config);
 
     dispatch({
       type: ADD_NEW_EXPERIENCE_SUCCESS,
@@ -396,7 +398,7 @@ export const updateExperience = (id, input) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.patch(`${baseURL}/experience/:${id}`, config, input);
+    const { data } = await axios.patch(`${baseURL}/experience/${id}`, input, config);
 
     dispatch({
       type: UPDATE_EXPERIENCE_DETAILS_SUCCESS,
