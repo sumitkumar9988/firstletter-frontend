@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import 'react-datepicker/dist/react-datepicker.css';
+import Loader from './../components/Loader';
+import Alert from '../../extraPage/Alert';
+import { updateEductionDetails,getEducatinDetailById } from './../../redux/actions/dashboardActions';
+import {RESET_EDUCATION_DETAILS} from './../../redux/constant/dashBoardConstants'
 
-const Index = () => {
+const Index = ({match}) => {
+  const id=match.params.id
   const [institute, setinstitute] = useState('');
   const [image, setImage] = useState(null);
   const [basicinfo, setBasicinfo] = useState('');
@@ -13,28 +19,70 @@ const Index = () => {
   const [endDate, setEndDate] = useState(new Date());
   const [grade, setGrade] = useState(null);
 
+  const dispatch = useDispatch();
+
+  const patchEduction = useSelector((state) => state.patchEduction);
+  const { loading, error, success } = patchEduction;
+
+  const educationByID = useSelector((state) => state.userEducation);
+  const { loading:loadingEducationDetail, error:educationDetailError, education } = educationByID;
+
+  const deleteEducation = useSelector((state) => state.deleteEducation);
+  const { loading:deleteEducationLoading, error:deleteEducationError, success:deleteEducationSuccess } = deleteEducation;
+
+
+
+
   const onChangePicture = (e) => {
     console.log('picture: ', image);
     setImage(e.target.files[0]);
   };
 
+  useEffect(() => {
+
+      if(!education || !education.institute || education._id !== match.params.id){
+        dispatch({type:RESET_EDUCATION_DETAILS})
+        dispatch(getEducatinDetailById(id));
+      }else{
+        setinstitute(education.institute);
+        setBasicinfo(education.basicinfo)
+        setDegree(education.degree)
+        setGrade(education.grade)
+
+      }
+  }, [dispatch,match,education,id])
+
   const submitHandler = (e) => {
     e.preventDefault();
+    console.log(image)
     const data = {
       institute: institute,
       image: image,
       basicinfo: basicinfo,
       degree: degree,
-      startDate: moment(startDate).format('YYYY'),
-      endDate: moment(endDate).format('YYYY'),
+      startDate: moment(startDate).format('YYYY-MM-DD'),
+      endDate: moment(endDate).format('YYYY-MM-DD'),
       grade: grade,
     };
     console.log('submit data', data);
+    dispatch(updateEductionDetails(id,data));
   };
+
+
+ 
 
   return (
     <div>
+   {error   && <Alert message={error} type="error" />}
+   {educationDetailError   && <Alert message={educationDetailError} type="error" />}
+   {deleteEducationError   && <Alert message={deleteEducationError} type="error" />}
+   {success && <Alert message={success} type="success" />}
+   {loadingEducationDetail && <Loader />}
+   {loading && <Loader />}
+   
       <div>
+      
+
         <form className="container mx-auto bg-black shadow rounded">
           <div>
             <div className="xl:w-full border-b border-white  py-5">
@@ -196,7 +244,7 @@ const Index = () => {
           </div>
         </form>
       </div>
-      ;
+      
     </div>
   );
 };

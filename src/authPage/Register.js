@@ -25,7 +25,10 @@ const Register = ({ history }) => {
     if (user) {
       history.push('/home');
     }
-  }, [history, userInfo]);
+    if (userInfo) {
+      history.push('/home');
+    }
+  }, [history, userInfo, user]);
 
   const data = {
     name,

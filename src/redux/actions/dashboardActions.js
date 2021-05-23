@@ -96,9 +96,7 @@ export const getEducatinDetailById = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-
-    const { data } = await axios.get(`${baseURL}/education/:${id}`, config);
-
+    const { data } = await axios.get(`${baseURL}/education/${id}`, config);
     dispatch({
       type: GET_EDUCATION_BY_ID_SUCCESS,
       payload: data,
@@ -117,14 +115,13 @@ export const addNewEducation = (input) => async (dispatch, getState) => {
     const {
       userLogin: { userInfo },
     } = getState();
-    console.log(userInfo.token);
     const config = {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-
+    console.log(input);
     const { data } = await axios.post(`${baseURL}/education`, input, config);
 
     dispatch({

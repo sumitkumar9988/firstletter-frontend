@@ -23,6 +23,7 @@ import {
   ADD_NEW_EDUCATION_SUCCESS,
   ADD_NEW_EDUCATION_FAIL,
   UPDATE_EDUCATION_DETAILS_REQUEST,
+  RESET_EDUCATION_DETAILS,
   UPDATE_EDUCATION_DETAILS_SUCCESS,
   UPDATE_EDUCATION_DETAILS_FAIL,
   DELETE_EDUCATION_REQUEST,
@@ -77,6 +78,8 @@ export const getEducationByid = (state = { data: { education: [] } }, action) =>
       return { loading: false, education: action.payload.data.education };
     case GET_EDUCATION_BY_ID_FAIL:
       return { loading: false, error: action.payload };
+    case RESET_EDUCATION_DETAILS:
+      return {};
     default:
       return state;
   }

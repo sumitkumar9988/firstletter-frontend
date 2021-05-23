@@ -1,11 +1,7 @@
 import React from 'react'
 
 const Trail = () => {
-  return (
-    <div>
-      For testing components
-    </div>
-  )
+  return <div>hola soy varshika y mi harmano es el perro y mi harmana es gato</div>;
 }
 
 export default Trail

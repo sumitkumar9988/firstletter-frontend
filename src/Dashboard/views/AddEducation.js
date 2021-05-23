@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import 'react-datepicker/dist/react-datepicker.css';
-
+import FormData from 'form-data';
+import Compress from 'react-image-file-resizer';
+import Loader from './../components/Loader';
+import { resizeFile } from './../../utils/resizer';
 import Alert from '../../extraPage/Alert';
 import { addNewEducation } from './../../redux/actions/dashboardActions';
 const Index = () => {
@@ -22,22 +25,35 @@ const Index = () => {
   const { loading, error, success } = addEducation;
 
   const onChangePicture = (e) => {
-    console.log('picture: ', image);
     setImage(e.target.files[0]);
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = async (e) => {
     e.preventDefault();
-    const data = {
-      institute: institute,
-      image: image,
-      basicinfo: basicinfo,
-      degree: degree,
-      startDate: moment(startDate).format('YYYY-MM-DD'),
-      endDate: moment(endDate).format('YYYY-MM-DD'),
-      grade: grade,
-    };
-    console.log('submit data', data);
+    console.log(image);
+    let data = new FormData();
+    data.append('institute', institute);
+    data.append('basicinfo', basicinfo);
+    data.append('degree', degree);
+    data.append('startDate', startDate);
+    data.append('endDate', endDate);
+    data.append('grade', grade);
+    if (image !== null) {
+      const compressImage = await resizeFile(image);
+      data.append('image', compressImage);
+      // data.append('image', image);
+    }
+    // console.log(data);
+    // const data = {
+    //   institute: institute,
+    //   image: image,
+    //   basicinfo: basicinfo,
+    //   degree: degree,
+    //   startDate: moment(startDate).format('YYYY-MM-DD'),
+    //   endDate: moment(endDate).format('YYYY-MM-DD'),
+    //   grade: grade,
+    // };
+
     dispatch(addNewEducation(data));
   };
 
@@ -46,6 +62,7 @@ const Index = () => {
       <div>
         {error && <Alert message={error} type="error" />}
         {success && <Alert message={success} type="success" />}
+        {loading && <Loader />}
 
         <form className="container mx-auto bg-black shadow rounded">
           <div>

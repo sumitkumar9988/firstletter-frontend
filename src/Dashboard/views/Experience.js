@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PlusLogo from '../../Asset/plus.png';
 import { Link } from 'react-router-dom';
 import openInNewTab from './../utils/OpenInNewTab';
+import moment from 'moment'
 // import Loader from '../components/Loader'
 import Alert from './../components/Error';
 function IndexPage() {
@@ -36,24 +37,24 @@ function IndexPage() {
             {experiences &&
               experiences.map((item) => {
                 return (
-                  <Link to={'experience/edit/'+item._id}>
-                  <div className="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-gradient-to-r from-blue-500 to-blue-600  rounded-lg shadow-2xl hover:scale-105">
-                    <img className="h-56 rounded-t-lg  object-cover" alt="logo " src={item.organizationLogo} />
-                    <div className="px-6 pt-8 mb-2 text-xl text-red-50 font-bold">
-                      <span>{item.jobTitle}</span>
+                  <Link to={'experience/edit/' + item._id}>
+                    <div className="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-gradient-to-r from-blue-500 to-blue-600  rounded-lg shadow-2xl hover:scale-105">
+                      <img className="h-56 rounded-t-lg  object-cover" alt="logo " src={item.organizationLogo} />
+                      <div className="px-6 pt-8 mb-2 text-xl text-red-50 font-bold">
+                        <span>{item.jobTitle}</span>
+                      </div>
+                      <div className="px-6  mb-2 text-lg text-red-50 ">
+                        <a target="_blank" href={'//' + item.website} rel="noopener noreferrer">
+                          {item.organization}
+                        </a>
+                      </div>
+                      <div className="px-6 pt-2 text-blue-50">
+                        <small>
+                          From:- {moment(item.startDate).format('DD-MM-YYYY')} | {moment(item.endDate).format('DD-MM-YYYY') } For:- {item.duration}
+                        </small>
+                        <div className="overflow-hidden h-40 ...">{item.responsibilities}</div>
+                      </div>
                     </div>
-                    <div className="px-6  mb-2 text-lg text-red-50 ">
-                      <a target="_blank" href={'//'+item.website}  rel="noopener noreferrer">
-                        {item.organization}
-                      </a>
-                    </div>
-                    <div className="px-6 pt-2 text-blue-50">
-                      <small>
-                        From:- {item.startDate} | {item.endDate} For:- {item.duration}
-                      </small>
-                      <div className="overflow-hidden h-40 ...">{item.responsibilities}</div>
-                    </div>
-                  </div>
                   </Link>
                 );
               })}
