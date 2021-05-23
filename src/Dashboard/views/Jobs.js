@@ -13,18 +13,6 @@ function Index() {
               <p className="text-xl text-white sm:pb-10 pb-16 text-center sm:text-left">
                 You can subscribe to our newsletter to get to know about our latest products and exciting offers.
               </p>
-              <div className="bg-white px-4 flex justify-between pt-2 pb-2 items-center rounded">
-                <input
-                  type="text"
-                  placeholder="Your Email"
-                  id="email"
-                  aria-label="email"
-                  className="py-2 text-base bg-transparent focus:outline-none w-11/12"
-                />
-                <button className="focus:outline-none bg-indigo-700 w-32 h-10 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-6 py-2 text-xs">
-                  Subscribe
-                </button>
-              </div>
             </div>
             <div className="xl:w-5/12 lg:w-5/12 w-11/12 mx-auto xl:mx-0 lg:mx-0 lg:pt-0 pt-6">
               <div className="flex items-end justify-center h-full">

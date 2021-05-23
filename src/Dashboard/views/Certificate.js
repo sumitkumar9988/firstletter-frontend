@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { getAllUserCertificate } from '../../redux/actions/dashboardActions';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../components/Error';
@@ -9,10 +9,11 @@ function IndexPage() {
   const dispatch = useDispatch();
 
   const certificateList = useSelector((state) => state.userAllCertificateList);
-  const { 
+  const {
     // loading,
     error,
-    certificates } = certificateList;
+    certificates,
+  } = certificateList;
 
   console.log(certificates);
   useEffect(() => {
@@ -31,21 +32,19 @@ function IndexPage() {
       {certificates &&
         certificates.map((item) => {
           return (
-            <div className="">
+            <div className="min-h-screen bg-black">
               <div className="flex items-center mt-32 justify-center relative">
                 <img loading="lazy" src={item.image} alt="cert" className="relative" />
               </div>
               <h2 className="text-green-400 font-semibold text-center mt-4 tracking-wide uppercase text-2xl ">
-                
                 {item.name}
-              
               </h2>
               <h2 className="text-red-300 text-center mt-2  text-xs font-thin"> {item.Organization}</h2>
 
               <div className="pt-6 ">
                 <div className="flex justify-between w-full items-center text-gray-600 text-sm">
                   <div className="flex items-center">
-                    <button className="w-12 h-12 bg-indigo-700 rounded-full bg-indigo-700 rounded-full flex items-center justify-center items-center hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 flex items-center justify-center">
+                    <button className="w-12 h-12 bg-indigo-700 rounded-full   flex items-center justify-center  hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 flex items-center justify-center">
                       <a href={item.url}>
                         <svg width={25} height={24} viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path

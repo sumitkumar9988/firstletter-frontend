@@ -30,7 +30,6 @@ const Nav = () => {
               </p>
             </Link>
           </div>
-          )
         </div>
       </div>
     </div>

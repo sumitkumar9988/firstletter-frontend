@@ -147,7 +147,7 @@ export const forgetPassword = (input) => async (dispatch) => {
   }
 };
 
-export const getAllUser = () => async (dispatch, getState) => {
+export const userProfile = () => async (dispatch, getState) => {
   dispatch({ type: GET_ALL_USER_DETAILS_REQUEST });
   try {
     const {

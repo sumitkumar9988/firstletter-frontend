@@ -1,13 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Layout from './components/Layout'
-import Home from './views/Home'
-import Profile from './views/Profile'
+import Layout from './components/Layout';
+import Home from './views/Home';
+import Profile from './views/Profile';
 import Education from './views/Education';
 import Experience from './views/Experience';
 import Jobs from './views/Jobs';
 import Project from './views/Project';
 import Cp from './views/Cp';
+import Codechef from './views/Codechef';
+import Spoj from './views/Spoj';
+import CodeForces from './views/Codeforces';
 import Certificate from './views/Certificate';
 import AddCertificate from './views/AddCertificate';
 import AddEducation from './views/AddEducation';
@@ -17,12 +20,11 @@ import EditExperienceDetails from './views/EditExperienceDetails';
 import EducationFullDetails from './views/EducationFullDetails';
 import ExperienceFullDetails from './views/ExperienceFullDetails';
 
-
 const { useHistory } = 'react-router-dom';
 const Index = () => {
   const history = useHistory;
   return (
-    <div >
+    <div>
       <Router history={history}>
         <Layout>
           <Switch>
@@ -37,10 +39,13 @@ const Index = () => {
             <Route path="/home/experience" component={Experience} />
             <Route path="/home/jobs" component={Jobs} />
             <Route path="/home/projects" component={Project} />
+            <Route path="/home/programming/codechef" component={Codechef} />
+            <Route path="/home/programming/spoj" component={Spoj} />
+            <Route path="/home/programming/codeforces" component={CodeForces} />
             <Route path="/home/programming" component={Cp} />
             <Route path="/home/certificate/:id" component={AddCertificate} />
             <Route path="/home/certificate" component={Certificate} />
-            <Route  path="/home" component={Home} />
+            <Route path="/home" component={Home} />
           </Switch>
         </Layout>
       </Router>

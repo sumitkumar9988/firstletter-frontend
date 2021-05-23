@@ -9,7 +9,6 @@ import {
   GET_ALL_USER_DETAILS_REQUEST,
   GET_ALL_USER_DETAILS_SUCCESS,
   GET_ALL_USER_DETAILS_FAILURE,
-
   CHANGE_PASSWORD_REQUEST,
   CHANGE_PASSWORD_SUCCESS,
   CHANGE_PASSWORD_FAILURE,
@@ -105,11 +104,10 @@ export const getUserDetailsReducer = (state = { user: {} }, action) => {
     case GET_ALL_USER_DETAILS_REQUEST:
       return { loading: true };
     case GET_ALL_USER_DETAILS_SUCCESS:
-      return { loading: false, user: action.payload };
+      return { loading: false, user: action.payload.user };
     case GET_ALL_USER_DETAILS_FAILURE:
       return { loading: false, error: action.payload };
     default:
       return state;
   }
 };
-
