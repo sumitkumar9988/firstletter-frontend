@@ -4,11 +4,11 @@ function Index() {
   return (
     <>
       <div className="w-full bg-black  py-10">
-        <div className="my-6 lg:my-12 container px-6 mx-auto flex flex-col md:flex-row items-start md:items-center justify-between pb-4 border-b border-gray-300">
+        <div className="my-6 lg:my-12 container px-6 mx-auto flex  md:flex-row items-start md:items-center justify-between pb-4 border-b border-gray-300">
           <div>
             <h4 className="text-2xl font-bold leading-tight text-gray-50 ">CodeChef</h4>
           </div>
-          <div className="mt-6 md:mt-0">
+          <div className=" md:mt-0">
             <button className="transition focus:outline-none duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm">
               Update
             </button>

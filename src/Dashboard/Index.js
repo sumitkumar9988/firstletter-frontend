@@ -19,6 +19,7 @@ import EditEducationDetails from './views/EditEducationDetails';
 import EditExperienceDetails from './views/EditExperienceDetails';
 import EducationFullDetails from './views/EducationFullDetails';
 import ExperienceFullDetails from './views/ExperienceFullDetails';
+import Github from './views/Github';
 
 const { useHistory } = 'react-router-dom';
 const Index = () => {
@@ -38,6 +39,7 @@ const Index = () => {
             <Route path="/home/experience/:id" component={ExperienceFullDetails} />
             <Route path="/home/experience" component={Experience} />
             <Route path="/home/jobs" component={Jobs} />
+            <Route path="/home/projects/github" component={Github} />
             <Route path="/home/projects" component={Project} />
             <Route path="/home/programming/codechef" component={Codechef} />
             <Route path="/home/programming/spoj" component={Spoj} />

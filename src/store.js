@@ -26,6 +26,16 @@ import {
   updateExperienceByID,
 } from './redux/reducer/dashboardReducer';
 
+import {
+  githubOAuth,
+  setCodchefUsername,
+  getCodechefData,
+  setSPOJUsername,
+  getSPOJData,
+  setCodeforcesUsername,
+  getCodeforcesData,
+} from './redux/reducer/ProjectReducer';
+
 const reducer = combineReducers({
   userSignup: signupReducer,
   userLogin: loginReducer,
@@ -46,6 +56,13 @@ const reducer = combineReducers({
   deleteExperience: deleteExperienceByID,
   postExperience: addNewExperience,
   patchExperience: updateExperienceByID,
+  githubOAuth: githubOAuth,
+  codchefUsername: setCodchefUsername,
+  codechefData: getCodechefData,
+  SPOJUsername: setSPOJUsername,
+  SPOJData: getSPOJData,
+  codeforcesUsername: setCodeforcesUsername,
+  codeforcesData: getCodeforcesData,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;
