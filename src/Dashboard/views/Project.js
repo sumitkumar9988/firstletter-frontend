@@ -5,7 +5,7 @@ import { userProfile } from './../../redux/actions/authActions';
 import Loader from './../components/Loader';
 import Alert from '../../extraPage/Alert';
 import Toggle from './../components/ToggleButton';
-import image from './icon.png';
+import image from './../../Asset/icon.png';
 
 function IndexPage({ history }) {
   const dispatch = useDispatch();

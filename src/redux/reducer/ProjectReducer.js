@@ -1,3 +1,4 @@
+import { act } from 'react-dom/test-utils';
 import {
   SAVE_GITHUB_USERNAME_REQUEST,
   SAVE_GITHUB_USERNAME_SUCCESS,
@@ -51,7 +52,7 @@ export const setCodchefUsername = (state = {}, action) => {
     case SET_CODECHEF_USERNAME_REQUEST:
       return { loading: true };
     case SET_CODECHEF_USERNAME_SUCCESS:
-      return { loading: false, success: action.payload };
+      return { loading: false, success: action.payload.message };
     case SET_CODECHEF_USERNAME_FAIL:
       return { loading: false, error: action.payload };
     default:
@@ -59,12 +60,13 @@ export const setCodchefUsername = (state = {}, action) => {
   }
 };
 
-export const getCodechefData = (state = {}, action) => {
+export const getCodechefData = (state = { data: { codeChef: {} } }, action) => {
   switch (action.type) {
     case GET_CODECHEF_DATA_REQUEST:
       return { loading: true };
     case GET_CODECHEF_DATA_SUCCESS:
-      return { loading: false, success: action.payload };
+      console.log('red', action.payload);
+      return { loading: false, codechef: action.payload.data.codeChef };
     case GET_CODECHEF_DATA_FAIL:
       return { loading: false, error: action.payload };
     default:
