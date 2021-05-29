@@ -371,7 +371,7 @@ export const addNewExperience = (input) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`${baseURL}/experience/}`, input, config);
+    const { data } = await axios.post(`${baseURL}/experience`, input, config);
 
     dispatch({
       type: ADD_NEW_EXPERIENCE_SUCCESS,

@@ -99,12 +99,12 @@ export const resetPasswordReducer = (state = { user: {} }, action) => {
   }
 };
 
-export const getUserDetailsReducer = (state = { user: {} }, action) => {
+export const getUserDetailsReducer = (state = { data: { user: {} } }, action) => {
   switch (action.type) {
     case GET_ALL_USER_DETAILS_REQUEST:
       return { loading: true };
     case GET_ALL_USER_DETAILS_SUCCESS:
-      return { loading: false, user: action.payload.user };
+      return { loading: false, user: action.payload.data.user };
     case GET_ALL_USER_DETAILS_FAILURE:
       return { loading: false, error: action.payload };
     default:

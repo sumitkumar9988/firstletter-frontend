@@ -19,7 +19,6 @@ const Header = () => {
             <p class="w-1/4 py-4 pl-6 pr-4  ">
               <span class="p-1 text-xl font-black leading-none text-white select-none">
                 <span>Firstletter</span>
-                <span class="text-indigo-300">.</span>
               </span>
             </p>
             {open ? <Nav /> : null}

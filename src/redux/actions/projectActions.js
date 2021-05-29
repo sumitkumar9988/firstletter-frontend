@@ -61,6 +61,88 @@ export const saveGithubUsername = (input) => async (dispatch, getState) => {
   }
 };
 
+export const projectList = (input) => async (dispatch, getState) => {
+  dispatch({ type: ALL_USER_PROJECTS_REQUEST });
+  try {
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const { data } = await axios.post(`${baseURL}/github/callback`, input, config);
+    console.log(data);
+    dispatch({
+      type: ALL_USER_PROJECTS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: ALL_USER_PROJECTS_FAIL,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+    });
+  }
+};
+
+export const projectDetails = (input) => async (dispatch, getState) => {
+  dispatch({ type: ALL_USER_PROJECTS_BY_ID_REQUEST });
+  try {
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const { data } = await axios.post(`${baseURL}/github/callback`, input, config);
+    console.log(data);
+    dispatch({
+      type: ALL_USER_PROJECTS_BY_ID_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: ALL_USER_PROJECTS_BY_ID_FAIL,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+    });
+  }
+};
+
+export const updateProjectDetails = (input) => async (dispatch, getState) => {
+  dispatch({ type: UPDATE_PROJECT_DETAILS_REQUEST });
+  try {
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const { data } = await axios.post(`${baseURL}/github/callback`, input, config);
+    console.log(data);
+    dispatch({
+      type: UPDATE_PROJECT_DETAILS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    console.log(error);
+    dispatch({
+      type: UPDATE_PROJECT_DETAILS_FAIL,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+    });
+  }
+};
+
+// compitative programming realted actions
 export const setCodechefUsername = (input) => async (dispatch, getState) => {
   dispatch({ type: SET_CODECHEF_USERNAME_REQUEST });
   try {

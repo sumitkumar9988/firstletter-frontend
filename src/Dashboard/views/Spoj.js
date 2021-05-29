@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userProfile } from './../../redux/actions/authActions';
-import { setCodechefUsername, getCodechefData } from './../../redux/actions/projectActions';
+import { setSPOJUsername, getSPOJData } from './../../redux/actions/projectActions';
 import Alert from '../../extraPage/Alert';
 import Loader from './../components/Loader';
 
@@ -11,32 +11,31 @@ function Index() {
   const userDetails = useSelector((state) => state.getUserDetails);
   const { loading, error, user } = userDetails;
 
-  const codchefUsername = useSelector((state) => state.codchefUsername);
-  const { loading: codechefUsernameLoading, error: codechefUsernameError, success } = codchefUsername;
+  const SPOJUsername = useSelector((state) => state.SPOJUsername);
+  const { loading: SPOJUsernameLoading, error: spojUsernameError, success } = SPOJUsername;
 
-  const codechefData = useSelector((state) => state.codechefData);
-  const { loading: codechefLoading, error: codechefError, codechef } = codechefData;
+  const SPOJData = useSelector((state) => state.SPOJData);
+  const { loading: SPOJDataLoading, error: SPOJDataError, spoj } = SPOJData;
 
-  console.log(codechef);
   useEffect(() => {
     dispatch(userProfile());
-    dispatch(getCodechefData());
+    dispatch(getSPOJData());
   }, [dispatch]);
 
   const handler = () => {
     const input = {
-      codeChefUsername: username,
+      spojAccount: username,
     };
-    dispatch(setCodechefUsername(input));
+    dispatch(setSPOJUsername(input));
   };
 
   if (!user) {
     return null;
   } else {
-    if (!user.codeChefAccount) {
+    if (!user.spojAccount) {
       return (
         <div className="bg-black min-h-screen">
-          {codechefUsernameError && <Alert message={codechefUsernameError} type="error" />}
+          {spojUsernameError && <Alert message={spojUsernameError} type="error" />}
           {success && <Alert message={success} type="success" />}
           <div className="mt-28 w-11/12 mx-auto mb-4 my-6 md:w-2/3 shadow sm:px-10 sm:py-6 py-4 px-4 bg-white dark:bg-gray-800 rounded-md">
             <p className="text-lg text-gray-800 dark:text-gray-100 font-semibold mb-3">Add Your Codechef Account</p>
@@ -68,10 +67,10 @@ function Index() {
   }
   return (
     <>
-      {codechefLoading ? (
+      {SPOJDataLoading ? (
         <Loader />
       ) : error ? (
-        <Alert message={codechefError} type="error" />
+        <Alert message={SPOJDataError} type="error" />
       ) : (
         <div className="min-h-screen">
           <div className="my-6 lg:my-12 container px-6 mx-auto flex  md:flex-row items-start md:items-center justify-between pb-4 border-b border-gray-300">
@@ -90,24 +89,22 @@ function Index() {
                 <div className="flex flex-col items-center">
                   <img src="https://cdn.tuk.dev/assets/templates/olympus/profile.png" alt="profile" />
                   <p className="mt-2 text-xs sm:text-sm md:text-base font-semibold text-center text-white">
-                    {codechef?.username}
+                    {spoj?.username}
                   </p>
                 </div>
               </div>
               <div className="flex items-center mt-7">
                 <div className>
                   <p className="text-1xs text-gray-300">Rank</p>
-                  <p className="mt-2 text-base sm:text-lg md:text-xl  text-gray-50">{codechef?.rank}</p>
+                  <p className="mt-2 text-base sm:text-lg md:text-xl  text-gray-50">{spoj?.rank}</p>
                 </div>
                 <div className="ml-12">
                   <p className="text-1xs text-gray-300">points</p>
-                  <p className="mt-2 text-base sm:text-lg md:text-xl  text-gray-50">{codechef?.rank}</p>
+                  <p className="mt-2 text-base sm:text-lg md:text-xl  text-gray-50">{spoj?.rank}</p>
                 </div>
                 <div className="ml-12">
                   <p className="text-1xs text-gray-300">Total Problem Solved</p>
-                  <p className="mt-2 text-base text-center sm:text-lg md:text-xl text-gray-50">
-                    {/* {codechef?.solved.length} */}
-                  </p>
+                  <p className="mt-2 text-base text-center sm:text-lg md:text-xl text-gray-50">{spoj?.solved.length}</p>
                 </div>
               </div>
             </div>

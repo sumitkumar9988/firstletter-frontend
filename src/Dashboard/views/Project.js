@@ -20,6 +20,7 @@ function IndexPage({ history }) {
     return null;
   } else {
     if (!user.gitHubAccount) {
+      console.log('TTT');
       return (
         <div className="bg-black min-h-screen">
           <div className="bg-black min-h-screen">
@@ -28,7 +29,7 @@ function IndexPage({ history }) {
                 Your <span className="inline-block text-pink-400">Project</span>
               </h2>
             </div>
-
+            //
             <div className=" text-center  w-1/3 m-auto">
               <a
                 aria-label="Continue with github"
