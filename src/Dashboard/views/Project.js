@@ -2,25 +2,48 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { userProfile } from './../../redux/actions/authActions';
+import { projectListData, projectDetails, updateProjectDetails } from './../../redux/actions/projectActions';
+import moment from 'moment';
 import Loader from './../components/Loader';
 import Alert from '../../extraPage/Alert';
 import Toggle from './../components/ToggleButton';
 import image from './../../Asset/icon.png';
 
-function IndexPage({ history }) {
+function IndexPage({}) {
   const dispatch = useDispatch();
+
   const userDetails = useSelector((state) => state.getUserDetails);
   const { loading, error, user } = userDetails;
 
+  const projectList = useSelector((state) => state.projectList);
+  const { projectLoading, projectError, projects } = projectList;
+
+  // const projectDetails = useSelector((state) => state.projectDetails);
+  // const { projectDetailsLoading, projectDetailsError, projectDetails } = projectDetails;
+
+  const updateProject = useSelector((state) => state.updateProject);
+  const { updateLoading, updateError, success } = updateProject;
+
   useEffect(() => {
     dispatch(userProfile());
+    dispatch(projectListData());
   }, [dispatch]);
+
+  const refreshProject = (e) => {
+    e.preventDefault();
+    dispatch(projectListData(true));
+  };
+
+  const toggleShow = (parameter) => (event) => {
+    event.preventDefault();
+    console.log(parameter);
+    // dispatch(deleteEducationDetail(parameter));
+  };
 
   if (!user) {
     return null;
   } else {
     if (!user.gitHubAccount) {
-      console.log('TTT');
       return (
         <div className="bg-black min-h-screen">
           <div className="bg-black min-h-screen">
@@ -70,11 +93,12 @@ function IndexPage({ history }) {
               <h4 className="text-2xl font-bold leading-tight text-gray-50 ">Choose Your Project</h4>
             </div>
             <div className=" md:mt-0">
-              {/* <Link to="/home/projects/github"> */}
-              <button className="transition focus:outline-none duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm">
+              <button
+                onClick={refreshProject}
+                className="transition focus:outline-none duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm"
+              >
                 Refresh Projects
               </button>
-              {/* </Link> */}
             </div>
           </div>
           {/* ending of top bar */}
@@ -82,35 +106,29 @@ function IndexPage({ history }) {
           <div className="my-12 ">
             <div className="max-w-xl px-4 mb-10 mx-auto sm:px-6 lg:max-w-screen-xl lg:px-8">
               <div className="lg:grid  lg:grid-cols-2 lg:gap-10">
-                {/* starting  */}
-                {/* {experiences &&
-              experiences.map((item) => {
-                return ( */}
-                {/* <Link to={'experience/edit/' + item._id}> */}
-                <div className="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-gradient-to-r from-pink-500 to-red-500   rounded-lg shadow-2xl hover:scale-105">
-                  <img className="h-56 rounded-t-lg  object-cover" alt="logo " src={image} />
-                  <div className="">
-                    <Toggle checked={false} />
-                  </div>
-                  <div className="px-6 pt-8 mb-2 text-xl text-red-50 font-bold">
-                    <span>item.jobTitle</span>
-                  </div>
-                  <div className="px-6  mb-2 text-lg text-red-50 ">
-                    <a target="_blank" rel="noopener noreferrer">
-                      item.organization
-                    </a>
-                  </div>
-                  <div className="px-6 pt-2 text-blue-50">
-                    {/* <small>
-                      From:- {moment(item.startDate).format('DD-MM-YYYY')} | {moment(item.endDate).format('DD-MM-YYYY')}{' '}
-                      For:- {item.duration}
-                    </small> */}
-                    <div className="overflow-hidden h-40 ...">item.responsibilities</div>
-                  </div>
-                </div>
-                {/* </Link> */}
-                {/* );
-              })} */}
+                {projects &&
+                  projects.map((project) => {
+                    return (
+                      <div className="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-gradient-to-r from-pink-500 to-red-500   rounded-lg shadow-2xl hover:scale-105">
+                        <img className="h-56 rounded-t-lg  object-cover" alt="logo " src={image} />
+                        <div className="">
+                          <Toggle checked={false} />
+                        </div>
+                        <div className="px-6 pt-8 mb-2 text-xl text-red-50 font-bold">
+                          <span>{project.name}</span>
+                        </div>
+                        <div className="px-6  mb-2 text-lg text-red-50 ">
+                          {/* <a target="_blank" rel="noopener noreferrer">
+                            item.organization
+                          </a> */}
+                        </div>
+                        <div className="px-6 pt-2 text-blue-50">
+                          <small>update on:- {moment(project.updated_at).format('DD-MM-YYYY')}</small>
+                          <div className="overflow-hidden h-40 ...">{project.description}</div>
+                        </div>
+                      </div>
+                    );
+                  })}
               </div>
             </div>
           </div>

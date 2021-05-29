@@ -77,7 +77,6 @@ const Index = ({ match, history }) => {
   };
 
   const clickMe = (parameter) => (event) => {
-    // Do something
     event.preventDefault();
     console.log(parameter);
     dispatch(deleteEducationDetail(parameter));

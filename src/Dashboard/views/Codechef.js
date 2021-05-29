@@ -17,13 +17,13 @@ function Index() {
   const codechefData = useSelector((state) => state.codechefData);
   const { loading: codechefLoading, error: codechefError, codechef } = codechefData;
 
-  console.log(codechef);
   useEffect(() => {
     dispatch(userProfile());
     dispatch(getCodechefData());
   }, [dispatch]);
 
-  const handler = () => {
+  const handler = (e) => {
+    e.preventDefault();
     const input = {
       codeChefUsername: username,
     };

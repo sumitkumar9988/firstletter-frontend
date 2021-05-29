@@ -46,8 +46,10 @@ export const saveGithubUsername = (input) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
+    console.log('testing');
     const { data } = await axios.post(`${baseURL}/github/callback`, input, config);
-    console.log(data);
+    console.log('success');
+    await axios.get(`${baseURL}/project/refesh`, config);
     dispatch({
       type: SAVE_GITHUB_USERNAME_SUCCESS,
       payload: data,
@@ -61,7 +63,7 @@ export const saveGithubUsername = (input) => async (dispatch, getState) => {
   }
 };
 
-export const projectList = (input) => async (dispatch, getState) => {
+export const projectListData = (refesh) => async (dispatch, getState) => {
   dispatch({ type: ALL_USER_PROJECTS_REQUEST });
   try {
     const {
@@ -73,14 +75,18 @@ export const projectList = (input) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.post(`${baseURL}/github/callback`, input, config);
-    console.log(data);
+    let response;
+    if (refesh === true) {
+      console.log('refresh');
+      response = await axios.get(`${baseURL}/project/refesh`, config);
+    } else {
+      response = await axios.get(`${baseURL}/project/`, config);
+    }
     dispatch({
       type: ALL_USER_PROJECTS_SUCCESS,
-      payload: data,
+      payload: response.data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: ALL_USER_PROJECTS_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -88,7 +94,7 @@ export const projectList = (input) => async (dispatch, getState) => {
   }
 };
 
-export const projectDetails = (input) => async (dispatch, getState) => {
+export const projectDetails = (id) => async (dispatch, getState) => {
   dispatch({ type: ALL_USER_PROJECTS_BY_ID_REQUEST });
   try {
     const {
@@ -100,8 +106,7 @@ export const projectDetails = (input) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.post(`${baseURL}/github/callback`, input, config);
-    console.log(data);
+    const { data } = await axios.get(`${baseURL}/project/${id}`, config);
     dispatch({
       type: ALL_USER_PROJECTS_BY_ID_SUCCESS,
       payload: data,
@@ -115,7 +120,7 @@ export const projectDetails = (input) => async (dispatch, getState) => {
   }
 };
 
-export const updateProjectDetails = (input) => async (dispatch, getState) => {
+export const updateProjectDetails = (input, id) => async (dispatch, getState) => {
   dispatch({ type: UPDATE_PROJECT_DETAILS_REQUEST });
   try {
     const {
@@ -127,14 +132,12 @@ export const updateProjectDetails = (input) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.post(`${baseURL}/github/callback`, input, config);
-    console.log(data);
+    const { data } = await axios.patch(`${baseURL}/project/${id}`, input, config);
     dispatch({
       type: UPDATE_PROJECT_DETAILS_SUCCESS,
       payload: data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: UPDATE_PROJECT_DETAILS_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,

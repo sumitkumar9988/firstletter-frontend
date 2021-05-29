@@ -34,6 +34,9 @@ import {
   getSPOJData,
   setCodeforcesUsername,
   getCodeforcesData,
+  projectListReducer,
+  projectDetailsReducer,
+  updateProjectReducer,
 } from './redux/reducer/ProjectReducer';
 
 const reducer = combineReducers({
@@ -63,6 +66,9 @@ const reducer = combineReducers({
   SPOJData: getSPOJData,
   codeforcesUsername: setCodeforcesUsername,
   codeforcesData: getCodeforcesData,
+  projectList: projectListReducer,
+  projectDetails: projectDetailsReducer,
+  updateProject: updateProjectReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;

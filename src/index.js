@@ -30,6 +30,5 @@ reportWebVitals();
 //   </Provider>,
 //   document.getElementById('root'),
 
-
 // "prestart": "rm ./node_modules/webpack-dev-server/ssl/server.pem && cp -f ./ssl/server.pem ./node_modules/webpack-dev-server/ssl",
-// 
+//

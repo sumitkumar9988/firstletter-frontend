@@ -60,12 +60,12 @@ export const signupReducer = (state = { user: {} }, action) => {
   }
 };
 
-export const changePasswordReducer = (state = { user: {} }, action) => {
+export const changePasswordReducer = (state = { data: { user: {} } }, action) => {
   switch (action.type) {
     case CHANGE_PASSWORD_REQUEST:
       return { loading: true };
     case CHANGE_PASSWORD_SUCCESS:
-      return { loading: false, userInfo: action.payload };
+      return { loading: false, success: true };
     case CHANGE_PASSWORD_FAILURE:
       return { loading: false, error: action.payload };
     default:

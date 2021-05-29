@@ -17,7 +17,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div>
+    <div className="bg-black">
       <Router>
         <Switch>
           <Route path="/trail" component={Trail} />
@@ -42,5 +42,3 @@ function App() {
 }
 
 export default App;
-
-

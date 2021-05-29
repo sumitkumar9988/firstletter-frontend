@@ -54,8 +54,10 @@ export const signup = (input) => async (dispatch) => {
   try {
     let { data } = await axios.post(`${baseURL}/signup`, input);
     dispatch({ type: SIGNUP_SUCCESS, payload: data });
+    dispatch({ type: LOGIN_SUCCESS, payload: data });
     localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
+    console.log(error);
     dispatch({
       type: SIGNUP_FAILURE,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,

@@ -44,12 +44,12 @@ export const githubOAuth = (state = {}, action) => {
   }
 };
 
-export const projectListReducer = (state = {}, action) => {
+export const projectListReducer = (state = { data: { projects: {} } }, action) => {
   switch (action.type) {
     case ALL_USER_PROJECTS_REQUEST:
       return { loading: true };
     case ALL_USER_PROJECTS_SUCCESS:
-      return { loading: false, success: action.payload };
+      return { loading: false, projects: action.payload.data.projects };
     case ALL_USER_PROJECTS_FAIL:
       return { loading: false, error: action.payload };
     default:
