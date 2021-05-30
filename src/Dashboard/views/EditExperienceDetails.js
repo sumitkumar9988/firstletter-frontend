@@ -74,7 +74,7 @@ const Index = ({ match, history }) => {
     event.preventDefault();
     console.log(parameter);
     dispatch(deleteExperirence(parameter));
-    history.push('/home/education');
+    history.push('/home/experience');
   };
 
   return (

@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
+import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import FormData from 'form-data';
+import Loader from './../components/Loader';
+import Alert from '../../extraPage/Alert';
 import 'react-datepicker/dist/react-datepicker.css';
+import { addCertificate } from './../../redux/actions/dashboardActions';
 
 const Index = () => {
   const [name, setName] = useState('');
@@ -12,26 +17,38 @@ const Index = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [learning, setLearning] = useState('');
 
+  const dispatch = useDispatch();
+
+  const postCertficate = useSelector((state) => state.postCertficate);
+  const { loading, error, success } = postCertficate;
+
   const onChangePicture = (e) => {
-    console.log('picture: ', image);
     setImage(e.target.files[0]);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const submitHandler = (e) => {
     e.preventDefault();
-    const data = {
-      name: name,
-      image: image,
-      Organization: Organization,
-      url: url,
-      startDate: moment(startDate).format('YYYY-MM-DD'),
-      learning: learning,
-    };
-    console.log('submit data', data);
+    let data = new FormData();
+    data.append('name', name);
+    data.append('Organization', Organization);
+    data.append('startDate', moment(startDate).format('YYYY-MM-DD'));
+    data.append('learning', learning);
+    if (image !== null) {
+      data.append('image', image);
+    }
+    dispatch(addCertificate(data));
+    window.scrollTo(0, 0);
   };
 
   return (
     <div>
+      {error && <Alert message={error} type="error" />}
+      {success && <Alert message={success} type="success" />}
+      {loading && <Loader />}
       <div>
         <form className="container mx-auto bg-black shadow rounded">
           <div>

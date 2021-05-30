@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllUserCertificate } from '../../redux/actions/dashboardActions';
+import { getAllUserCertificate, deleteCertificate } from '../../redux/actions/dashboardActions';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../components/Error';
-// import Loader from './../components/Loader'
+import Loader from './../components/Loader';
 
 function IndexPage() {
   const dispatch = useDispatch();
@@ -15,20 +15,44 @@ function IndexPage() {
     certificates,
   } = certificateList;
 
+  const delCertificate = useSelector((state) => state.delCertificate);
+  const { loading: deleteCertificateLoading, error: certificateDeleteError, success } = delCertificate;
+
+  console.log(deleteCertificateLoading);
+  console.log(certificateDeleteError);
+  console.log(success);
+
   console.log(certificates);
   useEffect(() => {
     dispatch(getAllUserCertificate());
-  }, [dispatch]);
+    if (success) {
+      dispatch(getAllUserCertificate());
+    }
+  }, [dispatch, success]);
 
-  const deleteThis = (e) => {
-    e.preventDefault();
-    console.log('delete');
+  const deleteThis = (parameter) => (event) => {
+    event.preventDefault();
+    dispatch(deleteCertificate(parameter));
   };
 
   return (
-    <div className="mx-auto container relative ">
+    <div className="mx-auto container relative min-h-screen bg-black">
       {error && <Alert message={error} type="error" />}
-      {/* {loading && <Loader/>} */}
+      {certificateDeleteError && <Alert message={certificateDeleteError} type="error" />}
+      {deleteCertificateLoading && <Loader />}
+      <div className="my-6 lg:my-12 container px-6 mx-auto flex  md:flex-row items-start md:items-center justify-between pb-4 border-b border-gray-300">
+        <div>
+          <h4 className="text-2xl font-bold leading-tight text-gray-50 ">certificate</h4>
+        </div>
+        <div className=" md:mt-0">
+          <Link to="/home/certificate/new">
+            <button className="transition focus:outline-none duration-150 ease-in-out hover:bg-indigo-600 bg-indigo-700 rounded text-white px-8 py-2 text-sm">
+              Add New
+            </button>
+          </Link>
+        </div>
+      </div>
+
       {certificates &&
         certificates.map((item) => {
           return (
@@ -66,7 +90,10 @@ function IndexPage() {
                     </a>
                   </div>
                   <div className="flex items-center pl-2 ">
-                    <button class="text-white focus:outline-none bg-gradient-to-r from-red-500 to-pink-500 rounded-md py-2 px-3">
+                    <button
+                      onClick={deleteThis(item._id)}
+                      class="text-white focus:outline-none bg-gradient-to-r from-red-500 to-pink-500 rounded-md py-2 px-3"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         class="h-6 w-6"

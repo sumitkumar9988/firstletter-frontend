@@ -1,13 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { userProfile } from './../../redux/actions/authActions';
 import { projectListData, projectDetails, updateProjectDetails } from './../../redux/actions/projectActions';
 import moment from 'moment';
 import Loader from './../components/Loader';
 import Alert from '../../extraPage/Alert';
 import Toggle from './../components/ToggleButton';
-import image from './../../Asset/icon.png';
 
 function IndexPage({}) {
   const dispatch = useDispatch();
@@ -27,17 +25,22 @@ function IndexPage({}) {
   useEffect(() => {
     dispatch(userProfile());
     dispatch(projectListData());
-  }, [dispatch]);
+    if (success) {
+      dispatch(projectListData());
+    }
+  }, [dispatch, success]);
 
   const refreshProject = (e) => {
     e.preventDefault();
     dispatch(projectListData(true));
   };
 
-  const toggleShow = (parameter) => (event) => {
+  const toggleShow = (parameter, id) => (event) => {
     event.preventDefault();
-    console.log(parameter);
-    // dispatch(deleteEducationDetail(parameter));
+    const data = {
+      included: parameter,
+    };
+    dispatch(updateProjectDetails(data, id));
   };
 
   if (!user) {
@@ -46,6 +49,9 @@ function IndexPage({}) {
     if (!user.gitHubAccount) {
       return (
         <div className="bg-black min-h-screen">
+          {/* {projectError && <Alert message={projectError} type="error" />}
+          {error && <Alert message={error} type="error" />} */}
+
           <div className="bg-black min-h-screen">
             <div className="container relative max-w-2xl px-5 pt-12 mx-auto sm:py-12 lg:px-0">
               <h2 className="mb-10 text-4xl font-extrabold leading-10 tracking-tight text-left text-gray-50 sm:text-5xl sm:leading-none md:text-6xl sm:text-center">
@@ -80,9 +86,12 @@ function IndexPage({}) {
       {loading ? (
         <Loader />
       ) : error ? (
-        <Alert message={error} type="error" />
+        <Alert message={projectError} type="error" />
       ) : (
         <div>
+          {/* {projectError && <Alert message={projectError} type="error" />}
+          {error && <Alert message={error} type="error" />} */}
+          {/* {deleteEducationError && <Alert message={deleteEducationError} type="error" />} */}
           <div className="container relative max-w-2xl px-5 pt-4 mx-auto sm:py-12 lg:px-0">
             <h2 className="mb-2 text-4xl font-extrabold leading-10 tracking-tight text-left text-gray-50 sm:text-5xl sm:leading-none md:text-6xl sm:text-center">
               Your <span className="inline-block text-pink-400">Project</span>
@@ -110,9 +119,9 @@ function IndexPage({}) {
                   projects.map((project) => {
                     return (
                       <div className="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-gradient-to-r from-pink-500 to-red-500   rounded-lg shadow-2xl hover:scale-105">
-                        <img className="h-56 rounded-t-lg  object-cover" alt="logo " src={image} />
-                        <div className="">
-                          <Toggle checked={false} />
+                        <img className="h-56 rounded-t-lg  object-cover" alt="logo " src={project.projectLogo} />
+                        <div className="" onClick={toggleShow(!project.included, project._id)}>
+                          <Toggle checked={project.included} />
                         </div>
                         <div className="px-6 pt-8 mb-2 text-xl text-red-50 font-bold">
                           <span>{project.name}</span>

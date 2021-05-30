@@ -45,7 +45,7 @@ const Index = () => {
             <Route path="/home/programming/spoj" component={Spoj} />
             <Route path="/home/programming/codeforces" component={CodeForces} />
             <Route path="/home/programming" component={Cp} />
-            <Route path="/home/certificate/:id" component={AddCertificate} />
+            <Route path="/home/certificate/new" component={AddCertificate} />
             <Route path="/home/certificate" component={Certificate} />
             <Route path="/home" component={Home} />
           </Switch>

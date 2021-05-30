@@ -8,7 +8,7 @@ const About = () => {
   return (
     <div className="bg-black">
       <Header />
-      <Feature />
+      {/* <Feature /> */}
       <FAQ />
       <Newletter />
       <Footer />

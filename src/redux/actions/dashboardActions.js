@@ -234,7 +234,7 @@ export const addCertificate = (input) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.post(`${baseURL}/certificate`, config, input);
+    const { data } = await axios.post(`${baseURL}/certificate`, input, config);
 
     dispatch({
       type: ADD_NEW_CERTIFICATE_SUCCESS,
@@ -261,7 +261,7 @@ export const deleteCertificate = (id) => async (dispatch, getState) => {
       },
     };
 
-    const { data } = await axios.delete(`${baseURL}/certificate/:${id}`, config);
+    const { data } = await axios.delete(`${baseURL}/certificate/${id}`, config);
 
     dispatch({
       type: DELETE_CERTIFICATE_SUCCESS,

@@ -54,7 +54,7 @@ const reducer = combineReducers({
   postEducation: addNewEducation,
   patchEduction: updateEducationById,
   postCertficate: addNewCertificate,
-  deleteCertificate: deleteCertificate,
+  delCertificate: deleteCertificate,
   userExperienceID: getExperienceById,
   deleteExperience: deleteExperienceByID,
   postExperience: addNewExperience,
