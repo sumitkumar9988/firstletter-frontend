@@ -2,7 +2,7 @@ import React from 'react';
 function Index() {
   return (
     <>
-    {/* Feature */}
+      {/* Feature */}
       <section className="mx-auto container bg-black pt-16">
         <div className="px-4 lg:px-0">
           <div className="flex items-center flex-col px-4">
@@ -13,10 +13,10 @@ function Index() {
           </div>
         </div>
       </section>
-      <section className="bg-indigo-700 py-12 mt-20">
+      <section className="bg-indigo-600 py-12 mt-20">
         <div className="px-4 lg:px-0">
           <div className="mx-auto container flex flex-wrap px-2 md:px-24">
-            <div className="flex sm:w-full md:w-1/2 lg:border-r md:border-r sm:border-r-0 border-indigo-400 pb-10 lg:pt-10">
+            <div className="flex sm:w-full md:w-1/2 lg:border-r md:border-r sm:border-r-0  pb-10 lg:pt-10">
               <div className="mr-5 text-white">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

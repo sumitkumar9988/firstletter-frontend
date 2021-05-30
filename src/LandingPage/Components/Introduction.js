@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Introduction = () => {
   return (
@@ -12,14 +13,16 @@ const Introduction = () => {
           Build Your Portfolio show your skills to your peers and employer and apply to your dream jobs quickly
         </div>
         <div className="relative  items-center max-w-md mx-auto mt-12 overflow-hidden text-center rounded-full">
-          <button
-            type="text"
-            name="email"
-            placeholder="Email Address"
-            className="bg-blue-500 width-64 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full"
-          >
-            Get Started
-          </button>
+          <Link to="/register">
+            <button
+              type="text"
+              name="email"
+              placeholder="Email Address"
+              className="bg-blue-500 width-64 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full"
+            >
+              Get Started
+            </button>
+          </Link>
         </div>
       </div>
     </div>

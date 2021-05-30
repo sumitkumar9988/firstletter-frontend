@@ -23,7 +23,7 @@ function Index() {
         <div className="lg:w-6/12 md:w-1/2 relative mx-4 md:mx-4 lg:ml-20 md:mr-0 pt-12 md:pt-0 md:pt-0">
           <img
             className="mt-16 pr-20 relative z-10 rounded w-full"
-            src="https://tuk-cdn.s3.amazonaws.com/assets/components/cta/cta_2.png"
+            src="https://res.cloudinary.com/sumit9988/image/upload/v1622351314/cherry-563_tf7ljr.png"
             alt="Glasses"
           />
           <div className="absolute sm:w-auto md:w-96 lg:w-auto xl:w-auto w-auto bg-red-300 top-0 right-0 flex flex-col items-end justify-end pr-8 pt-8 md:pl-56 pl-96 pb-24">
