@@ -1,12 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ReactComponent as Profile } from './../../Asset/Profile.svg';
+import { ReactComponent as ProfileIllustation } from './../../Asset/Profile.svg';
+import { useSelector } from 'react-redux';
 
-const Cp = () => {
+const Profile = () => {
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
   return (
     <div className="min-h-screen  bg-black">
       <div className="absolute mx-auto bg-cover pt-12 right-0 transform mr-12 z-0 opacity-40">
-        <Profile />
+        <ProfileIllustation />
       </div>
       <div className="container relative max-w-2xl px-5 pt-12 mx-auto sm:py-12 lg:px-0">
         <h2 className="mb-10 text-4xl font-extrabold leading-10 tracking-tight text-left text-gray-50 sm:text-5xl sm:leading-none md:text-6xl sm:text-center">
@@ -30,15 +33,27 @@ const Cp = () => {
               Change Password
             </p>
           </Link>
-          <Link to="/home/programming/codeforces">
-            <p class="inline-block  px-4 py-2 mx-2 text-2xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
-              Contact Us
-            </p>
-          </Link>
+
+          <a
+            href={`https://${userInfo.data.user.username}.firstletter.tech/`}
+            class="inline-block  px-4 py-2 mx-2 text-2xl text-left font-semibold text-pink-500 hover:text-indigo-200 "
+          >
+            Your site
+          </a>
+
+          <p class="inline-block pt-20  px-4 py-2 mx-2 text-1xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
+            Contact Me if You face any problem
+          </p>
+          <p class="inline-block   px-4 py-2 mx-2 text-1xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
+            sumit.firstletter@gmail.com
+          </p>
+          <p class="inline-block   px-4  mx-2 text-1xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
+            +91 8968033002
+          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Cp;
+export default Profile;

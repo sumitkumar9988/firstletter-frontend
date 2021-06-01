@@ -114,11 +114,11 @@ export const getCodechefData = (state = { data: { codeChef: {} } }, action) => {
 
 export const setSPOJUsername = (state = {}, action) => {
   switch (action.type) {
-    case SET_CODEFORCES_USERNAME_REQUEST:
+    case SET_SPOJ_USERNAME_REQUEST:
       return { loading: true };
-    case SET_CODEFORCES_USERNAME_SUCCESS:
-      return { loading: false, success: action.payload };
-    case SET_CODEFORCES_USERNAME_FAIL:
+    case SET_SPOJ_USERNAME_SUCCESS:
+      return { loading: false, success: action.payload.status };
+    case SET_SPOJ_USERNAME_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;
@@ -143,7 +143,7 @@ export const setCodeforcesUsername = (state = {}, action) => {
     case SET_SPOJ_USERNAME_REQUEST:
       return { loading: true };
     case SET_SPOJ_USERNAME_SUCCESS:
-      return { loading: false, success: action.payload };
+      return { loading: false, success: action.payload.status };
     case SET_SPOJ_USERNAME_FAIL:
       return { loading: false, error: action.payload };
     default:

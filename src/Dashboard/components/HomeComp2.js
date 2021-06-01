@@ -25,7 +25,7 @@ export default function IndexPage() {
               Your website is Ready share with your friend and peers and Don't forget to add Your Details
             </div>
             <a
-              href={`http://${userInfo.data.user.username}.firstletter.tech/`}
+              href={`https://${userInfo.data.user.username}.firstletter.tech/`}
               className="border-b border-white lg:text-2xl text-base leading-6 f-f-l font-bold"
             >
               Visit Now

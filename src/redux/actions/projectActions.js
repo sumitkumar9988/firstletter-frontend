@@ -210,13 +210,14 @@ export const setSPOJUsername = (input) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.post(`${baseURL}/spok`, input, config);
+    console.log(input);
+    const { data } = await axios.post(`${baseURL}/spoj`, input, config);
+
     dispatch({
       type: SET_SPOJ_USERNAME_SUCCESS,
       payload: data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: SET_SPOJ_USERNAME_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,

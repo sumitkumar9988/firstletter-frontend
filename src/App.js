@@ -8,8 +8,8 @@ import ChangePassword from './authPage/ChangePassword';
 import ForgetPassword from './authPage/ForgetPassword';
 import ResetPassword from './authPage/ResetPassword';
 import FourOFour from './extraPage/FourOFour';
-import Trail from './extraPage/Trail';
-import Trail2 from './extraPage/demo2';
+// import Trail from './extraPage/Trail';
+// import Trail2 from './extraPage/demo2';
 import About from './LandingPage/About';
 import Contact from './LandingPage/Contact';
 import ProfilePhoto from './authPage/ProfilePhoto';
@@ -17,12 +17,11 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="bg-black">
+    <div>
       <Router>
         <Switch>
-          <Route path="/trail" component={Trail} />
-          <Route path="/trail2" component={Trail2} />
-
+          {/* <Route path="/trail" component={Trail} />
+          <Route path="/trail2" component={Trail2} /> */}
           <Route path="/changepassword" component={ChangePassword} />
           <Route path="/resetPassword/:id" component={ResetPassword} />
           <Route path="/login" component={Login} />

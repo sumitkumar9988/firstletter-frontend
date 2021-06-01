@@ -79,6 +79,13 @@ const Index = ({ match, history }) => {
 
   return (
     <div>
+      {error && <Alert message={error} type="error" />}
+      {experienceError && <Alert message={experienceError} type="error" />}
+      {deleteExperienceError && <Alert message={deleteExperienceError} type="error" />}
+      {success && <Alert message={success} type="success" />}
+      {loadingExperience && <Loader />}
+      {loading && <Loader />}
+      {loadingDeletExperience && <Loader />}
       <div>
         <form className="container mx-auto bg-black shadow rounded">
           <div>

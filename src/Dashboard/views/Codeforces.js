@@ -32,15 +32,15 @@ function Index() {
   if (!user) {
     return null;
   } else {
-    if (!user.spojAccount) {
+    if (!user.codeforcesAccount) {
       return (
         <div className="bg-black min-h-screen">
           {CodeforcesUsernameError && <Alert message={CodeforcesUsernameError} type="error" />}
           {success && <Alert message={success} type="success" />}
           <div className="mt-28 w-11/12 mx-auto mb-4 my-6 md:w-2/3 shadow sm:px-10 sm:py-6 py-4 px-4 bg-white dark:bg-gray-800 rounded-md">
-            <p className="text-lg text-gray-800 dark:text-gray-100 font-semibold mb-3">Add Your Codechef Account</p>
+            <p className="text-lg text-gray-800 dark:text-gray-100 font-semibold mb-3">Add Your Codeforces Account</p>
             <label htmlFor="email" className="text-sm text-gray-600 dark:text-gray-400 font-normal">
-              Enter Your Codechef username
+              Enter Your Codeforces username
             </label>
             <div className="flex flex-col items-start sm:items-center sm:flex-row mt-4">
               <div className="relative w-full sm:w-2/3">
@@ -68,6 +68,8 @@ function Index() {
 
   return (
     <>
+      {CodeforcesUsernameLoading && <Loader />}
+      {loading && <Loader />}
       {CodeforcesDataLoading ? (
         <Loader />
       ) : error ? (
