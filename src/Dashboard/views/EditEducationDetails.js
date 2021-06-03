@@ -39,7 +39,6 @@ const Index = ({ match, history }) => {
   } = deleteEducation;
 
   const onChangePicture = (e) => {
-    console.log('picture: ', image);
     setImage(e.target.files[0]);
   };
 

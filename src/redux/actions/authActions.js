@@ -19,9 +19,9 @@ import {
   GET_ALL_USER_DETAILS_REQUEST,
   GET_ALL_USER_DETAILS_SUCCESS,
   GET_ALL_USER_DETAILS_FAILURE,
-  // FILL_BASIC_DETAILS_REQUEST,
-  // FILL_BASIC_DETAILS_SUCCESS,
-  // FILL_BASIC_DETAILS_FAILURE,
+  UPDATE_DETAILS_REQUEST,
+  UPDATE_DETAILS_SUCCESS,
+  UPDATE_DETAILS_FAILURE,
   // UPDATE_PROFILE_IMAGE_REQUEST,
   // UPDATE_PROFILE_IMAGE_SUCESS,
   // UPDATE_PROFILE_IMAGE_FAILURE,
@@ -175,6 +175,34 @@ export const userProfile = () => async (dispatch, getState) => {
     });
   }
 };
+
+export const updateProfileAction = (input) => async (dispatch, getState) => {
+  dispatch({ type: UPDATE_DETAILS_REQUEST });
+  try {
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.patch(`${baseURL}/`, input, config);
+
+    dispatch({
+      type: UPDATE_DETAILS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: UPDATE_DETAILS_FAILURE,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+    });
+  }
+};
+
 export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo');
   document.location.href = '/';

@@ -18,9 +18,9 @@ import {
   FORGET_PASSWORD_REQUEST,
   FORGET_PASSWORD_SUCCESS,
   FORGET_PASSWORD_FAILURE,
-  // FILL_BASIC_DETAILS_REQUEST,
-  // FILL_BASIC_DETAILS_SUCCESS,
-  // FILL_BASIC_DETAILS_FAILURE,
+  UPDATE_DETAILS_REQUEST,
+  UPDATE_DETAILS_SUCCESS,
+  UPDATE_DETAILS_FAILURE,
   // UPDATE_PROFILE_IMAGE_REQUEST,
   // UPDATE_PROFILE_IMAGE_SUCESS,
   // UPDATE_PROFILE_IMAGE_FAILURE,
@@ -106,6 +106,19 @@ export const getUserDetailsReducer = (state = { data: { user: {} } }, action) =>
     case GET_ALL_USER_DETAILS_SUCCESS:
       return { loading: false, user: action.payload.data.user };
     case GET_ALL_USER_DETAILS_FAILURE:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const updateUserDetailReducer = (state = {}, action) => {
+  switch (action.type) {
+    case UPDATE_DETAILS_REQUEST:
+      return { loading: true };
+    case UPDATE_DETAILS_SUCCESS:
+      return { loading: false, success: action.payload.message };
+    case UPDATE_DETAILS_FAILURE:
       return { loading: false, error: action.payload };
     default:
       return state;
