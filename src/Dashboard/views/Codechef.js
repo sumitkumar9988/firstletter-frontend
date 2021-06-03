@@ -88,11 +88,11 @@ function Index() {
               <div className="flex flex-col lg:flex-row mx-auto bg-white dark:bg-gray-800 shadow rounded">
                 <div className="w-full lg:w-1/2 px-12 flex flex-col items-center py-10">
                   <div className="w-24 h-24 mb-3 p-2 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                    <img
+                    {/* <img
                       className="w-full h-full overflow-hidden object-cover rounded-full"
                       src="https://tuk-cdn.s3.amazonaws.com/assets/components/grid_cards/gc_2.png"
                       alt="avatar"
-                    />
+                    /> */}
                   </div>
                   <h2 className="text-gray-800  text-xl tracking-normal font-medium mb-1">
                     {codechef?.user_details.name}

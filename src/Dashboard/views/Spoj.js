@@ -89,7 +89,7 @@ function Index() {
             <div className=" sm:w-1/2 w-full  flex flex-col items-center py-16 md:py-12 bg-gradient-to-r from-indigo-700 to-purple-500 rounded-lg">
               <div className="w-full flex items-center justify-center">
                 <div className="flex flex-col items-center">
-                  <img src="https://cdn.tuk.dev/assets/templates/olympus/profile.png" alt="profile" />
+                  {/* <img src="https://cdn.tuk.dev/assets/templates/olympus/profile.png" alt="profile" /> */}
                   <p className="mt-2 text-xs sm:text-sm md:text-base font-semibold text-center text-white">
                     {spoj?.username}
                   </p>

@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 const Profile = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
   return (
     <div className="min-h-screen  bg-black">
       <div className="absolute mx-auto bg-cover pt-12 right-0 transform mr-12 z-0 opacity-40">
@@ -18,28 +19,34 @@ const Profile = () => {
       </div>
       <div class=" overflow-hidden  h-full p-auto ">
         <div class="flex flex-col items-center justify-center w-full h-full mt-8 text-center">
-          <Link to="/home/programming/codechef">
+          <Link to="/home/me/basic">
             <p class="inline-block px-4 py-2 mx-2 text-2xl text-left font-semibold text-pink-500 hover:text-indigo-200">
               Basic
             </p>
           </Link>
-          <Link to="/home/programming/spoj">
-            <p class="inline-block  px-4 py-2 mx-2 text-2xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
-              Social Link
-            </p>
-          </Link>
-          <Link to="/home/programming/codeforces">
-            <p class="inline-block  px-4 py-2 mx-2 text-2xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
-              Change Password
-            </p>
-          </Link>
-
           <a
             href={`https://${userInfo.data.user.username}.firstletter.tech/`}
             class="inline-block  px-4 py-2 mx-2 text-2xl text-left font-semibold text-pink-500 hover:text-indigo-200 "
           >
             Your site
           </a>
+          <Link to="/home/me/link">
+            <p class="inline-block  px-4 py-2 mx-2 text-2xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
+              Social Link
+            </p>
+          </Link>
+
+          <a
+            href="/changepassword"
+            class="inline-block  px-4 py-2 mx-2 text-2xl text-left font-semibold text-pink-500 hover:text-indigo-200 "
+          >
+            Change Password
+          </a>
+          <Link to="/home/projects/github">
+            <p class="inline-block  px-4 py-2 mx-2 text-2xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
+              Change Github Username
+            </p>
+          </Link>
 
           <p class="inline-block pt-20  px-4 py-2 mx-2 text-1xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
             Contact Me if You face any problem
