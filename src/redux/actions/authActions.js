@@ -30,11 +30,9 @@ import {
 export const login = (input) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
-    console.log(input);
     let { data } = await axios.post(`${baseURL}/login`, input);
     dispatch({ type: LOGIN_SUCCESS, payload: data });
     localStorage.setItem('userInfo', JSON.stringify(data));
-    console.log(data);
   } catch (error) {
     dispatch({
       type: LOGIN_FAILURE,
@@ -51,7 +49,6 @@ export const signup = (input) => async (dispatch) => {
     dispatch({ type: LOGIN_SUCCESS, payload: data });
     localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
-    console.log(error);
     dispatch({
       type: SIGNUP_FAILURE,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -112,7 +109,6 @@ export const resetPasswords = (input, id) => async (dispatch) => {
     });
     localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
-    console.log(error);
     dispatch({
       type: RESET_PASSWORD_FAILURE,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -130,7 +126,6 @@ export const forgetPassword = (input) => async (dispatch) => {
     };
 
     const { data } = await axios.post(`${baseURL}/forgetpassword`, input, config);
-    console.log(data.message);
     dispatch({
       type: FORGET_PASSWORD_SUCCESS,
       payload: data.message,
@@ -209,7 +204,6 @@ export const updateSocialProfileAction = (input) => async (dispatch, getState) =
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    console.log(input.twitterAcount);
     const { data } = await axios.patch(`${baseURL}/social`, input, config);
 
     dispatch({

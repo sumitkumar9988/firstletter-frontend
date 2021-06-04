@@ -1,42 +1,44 @@
 import React, { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import Alert from '../extraPage/Alert';
-// import Loader from '../extraPage/Loader';
-import { signup } from '../redux/actions/authActions.js';
+import Alert from '../extraPage/Alert';
+import Loader from '../extraPage/Loader';
+import { changePassword } from '../redux/actions/authActions.js';
 
 const ChangePassword = ({ history, location }) => {
-  const [currentPassword, setCurrentPassword] = useState('');
+  const [passwordCurrent, setCurrentPassword] = useState('');
   const [password, setPassword] = useState('');
-  const [confimPassword, setConfimPassword] = useState('');
 
   const dispatch = useDispatch();
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
-  console.log('user', userInfo);
+  const userChangePassword = useSelector((state) => state.userChangePassword);
+  const { loading, success, error } = userChangePassword;
+
   useEffect(() => {
     if (!userInfo) {
       history.push('/login');
     }
+    if (success) {
+      history.push('/home');
+    }
   }, [history, userInfo]);
-
-  const data = {
-    currentPassword,
-    password,
-    confimPassword,
-  };
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(signup(data));
+    const data = {
+      passwordCurrent,
+      password,
+    };
+    dispatch(changePassword(data));
   };
 
   return (
     <div className="bg-gray-800 pt-9 h-screen ">
-      {/* {error && <Alert message={error} type="error" color="red" />}
-      {loading && <Loader />} */}
+      {error && <Alert message={error} type="error" color="red" />}
+      {loading && <Loader />}
       <div className="flex items-center justify-center  sm:px-6">
         <div className="w-full max-w-sm p-4 bg-gray-900 rounded-md shadow-md sm:p-6">
           <div className="flex items-center justify-center">
@@ -47,8 +49,7 @@ const ChangePassword = ({ history, location }) => {
               <span className="text-sm text-white">Current Password</span>
               <input
                 type="password"
-                id="currentPassword"
-                name="currentPassword"
+                value={passwordCurrent}
                 onChange={(e) => setCurrentPassword(e.target.value)}
                 className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
                 required
@@ -62,18 +63,6 @@ const ChangePassword = ({ history, location }) => {
                 id="password"
                 name="password"
                 onChange={(e) => setPassword(e.target.value)}
-                className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
-                required
-              />
-            </label>
-
-            <label for="password" className="block mt-3">
-              <span className="text-sm text-white">Confirm Password</span>
-              <input
-                type="password"
-                id="confimPassword"
-                name="confimPassword"
-                onChange={(e) => setConfimPassword(e.target.value)}
                 className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
                 required
               />

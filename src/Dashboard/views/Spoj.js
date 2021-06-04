@@ -26,7 +26,6 @@ function Index() {
     const input = {
       spojAccount: username,
     };
-    console.log('Hii', input);
     dispatch(setSPOJUsername(input));
   };
 

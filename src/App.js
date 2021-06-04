@@ -3,14 +3,12 @@ import LandingPage from './LandingPage/Index';
 import Dashboard from './Dashboard/Index';
 import Login from './authPage/Login';
 import Register from './authPage/Register';
-import EmailSent from './authPage/EmailSent';
 import ChangePassword from './authPage/ChangePassword';
 import ForgetPassword from './authPage/ForgetPassword';
 import ResetPassword from './authPage/ResetPassword';
 import FourOFour from './extraPage/FourOFour';
 import About from './LandingPage/View/About';
 import Contact from './LandingPage/View/Contact';
-import ProfilePhoto from './authPage/ProfilePhoto';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -22,9 +20,7 @@ function App() {
           <Route path="/resetPassword/:id" component={ResetPassword} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/emailsent" component={EmailSent} />
           <Route path="/forgetpassword" component={ForgetPassword} />
-          <Route path="/photo" component={ProfilePhoto} />
           <Route path="/home" component={Dashboard} />
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />

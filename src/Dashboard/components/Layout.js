@@ -17,7 +17,6 @@ export default function IndexPage({ children }) {
   }, [dispatch, userInfo]);
 
   const logoutHandler = () => {
-    console.log('logout');
     dispatch(logout());
   };
 

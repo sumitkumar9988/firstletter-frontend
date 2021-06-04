@@ -42,7 +42,6 @@ const Index = () => {
       dribbleAccount: dribbleAccount,
       InstaAccount: InstaAccount,
     };
-    console.log(data);
     window.scrollTo(0, 0);
   };
 

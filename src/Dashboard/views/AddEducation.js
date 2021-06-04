@@ -32,7 +32,6 @@ const Index = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    console.log(image);
     let data = new FormData();
     data.append('institute', institute);
     data.append('basicinfo', basicinfo);

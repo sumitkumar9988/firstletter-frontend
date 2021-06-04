@@ -103,7 +103,6 @@ export const getCodechefData = (state = { data: { codeChef: {} } }, action) => {
     case GET_CODECHEF_DATA_REQUEST:
       return { loading: true };
     case GET_CODECHEF_DATA_SUCCESS:
-      console.log('red', action.payload);
       return { loading: false, codechef: action.payload.data.codeChef };
     case GET_CODECHEF_DATA_FAIL:
       return { loading: false, error: action.payload };

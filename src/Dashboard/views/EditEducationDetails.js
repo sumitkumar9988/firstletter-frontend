@@ -57,7 +57,6 @@ const Index = ({ match, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(image);
 
     let data = new FormData();
     data.append('institute', institute);
@@ -70,14 +69,12 @@ const Index = ({ match, history }) => {
       data.append('image', image);
       // data.append('image', image);
     }
-    console.log('submit data', data);
     dispatch(updateEductionDetails(id, data));
     window.scrollTo(0, 0);
   };
 
   const clickMe = (parameter) => (event) => {
     event.preventDefault();
-    console.log(parameter);
     dispatch(deleteEducationDetail(parameter));
     history.push('/home/education');
   };
