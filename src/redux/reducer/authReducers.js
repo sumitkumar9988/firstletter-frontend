@@ -9,6 +9,7 @@ import {
   GET_ALL_USER_DETAILS_REQUEST,
   GET_ALL_USER_DETAILS_SUCCESS,
   GET_ALL_USER_DETAILS_FAILURE,
+  RESET_USER_DETAILS,
   CHANGE_PASSWORD_REQUEST,
   CHANGE_PASSWORD_SUCCESS,
   CHANGE_PASSWORD_FAILURE,
@@ -127,6 +128,8 @@ export const updateSocialProfileReducer = (state = {}, action) => {
       return { loading: false, success: action.payload.message };
     case UPDATE_SOCIAL_ACCOUNT_FAIL:
       return { loading: false, error: action.payload };
+    case RESET_USER_DETAILS:
+      return {};
     default:
       return state;
   }
