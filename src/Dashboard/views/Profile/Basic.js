@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userProfile, updateProfileAction } from './../../../redux/actions/authActions';
+import { RESET_USER_DETAILS } from './../../../redux/constant/authConstants';
 import FormData from 'form-data';
 import Alert from '../../../extraPage/Alert';
 import Loader from './../../components/Loader';
@@ -24,6 +25,7 @@ const Index = () => {
   const { loading: updateLoading, error: updateError, success } = updateProfile;
 
   useEffect(() => {
+    dispatch({ type: RESET_USER_DETAILS });
     dispatch(userProfile());
     if (user) {
       setUsername(user.username);

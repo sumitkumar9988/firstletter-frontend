@@ -25,7 +25,6 @@ function IndexPage({ location, history }) {
         code: code,
       };
       dispatch(saveGithubUsername(input));
-      console.log('done');
     }
   }, [code]);
 

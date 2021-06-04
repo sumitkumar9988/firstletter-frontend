@@ -17,10 +17,9 @@ import AddEducation from './views/AddEducation';
 import AddExperience from './views/AddExperience';
 import EditEducationDetails from './views/EditEducationDetails';
 import EditExperienceDetails from './views/EditExperienceDetails';
-import EducationFullDetails from './views/EducationFullDetails';
-import ExperienceFullDetails from './views/ExperienceFullDetails';
+// import EducationFullDetails from './views/EducationFullDetails';
+// import ExperienceFullDetails from './views/ExperienceFullDetails';
 import Basic from './views/Profile/Basic';
-import CpLink from './views/Profile/Cp';
 import SocialLink from './views/Profile/MoreDetails';
 import Github from './views/Github';
 
@@ -32,17 +31,17 @@ const Index = () => {
       <Router history={history}>
         <Layout>
           <Switch>
-            <Route path="/home/me/link/cp" component={CpLink} />
+            {/* <Route path="/home/me/link/cp" component={CpLink} /> */}
             <Route path="/home/me/basic" component={Basic} />
             <Route path="/home/me/link" component={SocialLink} />
             <Route path="/home/me" component={Profile} />
             <Route path="/home/education/edit/:id" component={EditEducationDetails} />
             <Route path="/home/education/new" component={AddEducation} />
-            <Route path="/home/education/:id" component={EducationFullDetails} />
+            {/* <Route path="/home/education/:id" component={EducationFullDetails} /> */}
             <Route path="/home/education" component={Education} />
             <Route path="/home/experience/new" component={AddExperience} />
             <Route path="/home/experience/edit/:id" component={EditExperienceDetails} />
-            <Route path="/home/experience/:id" component={ExperienceFullDetails} />
+            {/* <Route path="/home/experience/:id" component={ExperienceFullDetails} /> */}
             <Route path="/home/experience" component={Experience} />
             <Route path="/home/jobs" component={Jobs} />
             <Route path="/home/projects/github" component={Github} />

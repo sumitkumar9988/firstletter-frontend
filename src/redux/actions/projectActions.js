@@ -46,16 +46,13 @@ export const saveGithubUsername = (input) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    console.log('testing');
     const { data } = await axios.post(`${baseURL}/github/callback`, input, config);
-    console.log('success');
     await axios.get(`${baseURL}/project/refesh`, config);
     dispatch({
       type: SAVE_GITHUB_USERNAME_SUCCESS,
       payload: data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: SAVE_GITHUB_USERNAME_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -77,7 +74,6 @@ export const projectListData = (refesh) => async (dispatch, getState) => {
     };
     let response;
     if (refesh === true) {
-      console.log('refresh');
       response = await axios.get(`${baseURL}/project/refesh`, config);
     } else {
       response = await axios.get(`${baseURL}/project/`, config);
@@ -112,7 +108,6 @@ export const projectDetails = (id) => async (dispatch, getState) => {
       payload: data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: ALL_USER_PROJECTS_BY_ID_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -164,7 +159,6 @@ export const setCodechefUsername = (input) => async (dispatch, getState) => {
       payload: data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: SET_CODECHEF_USERNAME_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -190,7 +184,6 @@ export const getCodechefData = () => async (dispatch, getState) => {
       payload: data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: GET_CODECHEF_DATA_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -210,7 +203,6 @@ export const setSPOJUsername = (input) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    console.log(input);
     const { data } = await axios.post(`${baseURL}/spoj`, input, config);
 
     dispatch({
@@ -243,7 +235,6 @@ export const getSPOJData = () => async (dispatch, getState) => {
       payload: data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: GET_SPOJ_DATA_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -269,7 +260,6 @@ export const setCodeforcesUsername = (input) => async (dispatch, getState) => {
       payload: data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: SET_CODEFORCES_USERNAME_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -295,7 +285,6 @@ export const getCodeforcesData = () => async (dispatch, getState) => {
       payload: data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: GET_CODEFORCES_DATA_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,

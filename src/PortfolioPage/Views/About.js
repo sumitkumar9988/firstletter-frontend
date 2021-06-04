@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 import Contact from '../components/Contact';
 import Certificate from '../components/Certificate';
 
-const About = () => {
+const About = ({ subdomain }) => {
   return (
     <div className="bg-black">
       <PortfolioHeader />

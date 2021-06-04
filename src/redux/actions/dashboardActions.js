@@ -69,15 +69,12 @@ export const getAllUserEducation = () => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    console.log('Request');
     const { data } = await axios.get(`${baseURL}/education`, config);
-    console.log(data);
     dispatch({
       type: GET_ALL_EDUCATION_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: GET_ALL_EDUCATION_LIST_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -122,7 +119,6 @@ export const addNewEducation = (input) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    console.log(input);
     const { data } = await axios.post(`${baseURL}/education`, input, config);
 
     dispatch({
@@ -157,7 +153,6 @@ export const updateEductionDetails = (id, input) => async (dispatch, getState) =
       payload: data,
     });
   } catch (error) {
-    console.log(error);
     dispatch({
       type: UPDATE_EDUCATION_DETAILS_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,

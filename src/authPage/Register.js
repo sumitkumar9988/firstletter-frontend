@@ -37,7 +37,6 @@ const Register = ({ history }) => {
       email,
       password,
     };
-    console.log(data);
     dispatch(signup(data));
   };
 
