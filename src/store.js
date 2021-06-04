@@ -9,6 +9,7 @@ import {
   resetPasswordReducer,
   getUserDetailsReducer,
   updateUserDetailReducer,
+  updateSocialProfileReducer,
 } from './redux/reducer/authReducers';
 
 import {
@@ -71,6 +72,7 @@ const reducer = combineReducers({
   projectDetails: projectDetailsReducer,
   updateProject: updateProjectReducer,
   updateProfile: updateUserDetailReducer,
+  updateSocialProfile: updateSocialProfileReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;

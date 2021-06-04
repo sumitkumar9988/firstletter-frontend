@@ -42,21 +42,6 @@ const Profile = () => {
           >
             Change Password
           </a>
-          <Link to="/home/projects/github">
-            <p class="inline-block  px-4 py-2 mx-2 text-2xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
-              Change Github Username
-            </p>
-          </Link>
-
-          <p class="inline-block pt-20  px-4 py-2 mx-2 text-1xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
-            Contact Me if You face any problem
-          </p>
-          <p class="inline-block   px-4 py-2 mx-2 text-1xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
-            sumit.firstletter@gmail.com
-          </p>
-          <p class="inline-block   px-4  mx-2 text-1xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
-            +91 8968033002
-          </p>
         </div>
       </div>
     </div>

@@ -22,15 +22,9 @@ import {
   UPDATE_DETAILS_REQUEST,
   UPDATE_DETAILS_SUCCESS,
   UPDATE_DETAILS_FAILURE,
-  // UPDATE_PROFILE_IMAGE_REQUEST,
-  // UPDATE_PROFILE_IMAGE_SUCESS,
-  // UPDATE_PROFILE_IMAGE_FAILURE,
-  // UPDATE_USERNAME_REQUEST,
-  // UPDATE_USERNAME_SUCCESS,
-  // UPDATE_USERNAME_FAIL,
-  // UPDATE_SOCIAL_ACCOUNT_REQUEST,
-  // UPDATE_SOCIAL_ACCOUNT_SUCCESS,
-  // UPDATE_SOCIAL_ACCOUNT_FAIL,
+  UPDATE_SOCIAL_ACCOUNT_REQUEST,
+  UPDATE_SOCIAL_ACCOUNT_SUCCESS,
+  UPDATE_SOCIAL_ACCOUNT_FAIL,
 } from './../constant/authConstants';
 
 export const login = (input) => async (dispatch) => {
@@ -198,6 +192,33 @@ export const updateProfileAction = (input) => async (dispatch, getState) => {
   } catch (error) {
     dispatch({
       type: UPDATE_DETAILS_FAILURE,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+    });
+  }
+};
+
+export const updateSocialProfileAction = (input) => async (dispatch, getState) => {
+  dispatch({ type: UPDATE_SOCIAL_ACCOUNT_REQUEST });
+  try {
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    console.log(input.twitterAcount);
+    const { data } = await axios.patch(`${baseURL}/social`, input, config);
+
+    dispatch({
+      type: UPDATE_SOCIAL_ACCOUNT_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: UPDATE_SOCIAL_ACCOUNT_FAIL,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
     });
   }

@@ -17,11 +17,6 @@ const Index = (props) => {
       <Router>
         <Switch>
           <Route path="/about" component={About} />
-          <Route path="/codechef" component={Codechef} />
-          <Route path="/codeforces" component={Codeforces} />
-          <Route path="/achievement" component={Achievement} />
-          <Route path="/spoj" component={Spoj} />
-          <Route path="/Project/:id" component={ProjectDetails} />
           <Route exact path="/" component={Home} />
           <Route component={FourOFour} />
         </Switch>

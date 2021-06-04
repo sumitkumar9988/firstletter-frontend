@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { userProfile, updateProfileAction } from './../../../redux/actions/authActions';
+import { userProfile, updateSocialProfileAction } from './../../../redux/actions/authActions';
+import { Link } from 'react-router-dom';
 import Alert from '../../../extraPage/Alert';
 import Loader from './../../components/Loader';
 
@@ -16,8 +17,8 @@ const Index = () => {
   const userDetails = useSelector((state) => state.getUserDetails);
   const { loading, error, user } = userDetails;
 
-  const updateProfile = useSelector((state) => state.updateProfile);
-  const { loading: updateLoading, error: updateError, success } = updateProfile;
+  const updateSocialProfile = useSelector((state) => state.updateSocialProfile);
+  const { loading: updateLoading, error: updateError, success } = updateSocialProfile;
 
   useEffect(() => {
     dispatch(userProfile());
@@ -34,16 +35,14 @@ const Index = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     const data = {
-      twitterAcount,
-      facebookAccount,
-      linkedInAccount,
-      mediumAccount,
-      InstaAccount,
+      twitterAcount: twitterAcount,
+      facebookAccount: facebookAccount,
+      linkedInAccount: linkedInAccount,
+      mediumAccount: mediumAccount,
+      dribbleAccount: dribbleAccount,
+      InstaAccount: InstaAccount,
     };
-
     console.log(data);
-
-    dispatch(updateProfileAction(data));
     window.scrollTo(0, 0);
   };
 
@@ -143,6 +142,16 @@ const Index = () => {
               Save
             </button>
           </div>
+          <Link to="/home/projects/github">
+            <p class="inline-block  px-4 py-2 mx-2 text-xs text-left font-semibold text-pink-500 hover:text-indigo-200 ">
+              Change Github Username
+            </p>
+          </Link>
+          <Link to="/home/me/link/cp">
+            <p class="inline-block  px-4 py-2 mx-2 text-xs text-left font-semibold text-pink-500 hover:text-indigo-200 ">
+              Change all Your Compitative Programming Link
+            </p>
+          </Link>
         </div>
       </form>
       )

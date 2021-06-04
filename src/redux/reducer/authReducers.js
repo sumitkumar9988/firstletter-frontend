@@ -21,15 +21,9 @@ import {
   UPDATE_DETAILS_REQUEST,
   UPDATE_DETAILS_SUCCESS,
   UPDATE_DETAILS_FAILURE,
-  // UPDATE_PROFILE_IMAGE_REQUEST,
-  // UPDATE_PROFILE_IMAGE_SUCESS,
-  // UPDATE_PROFILE_IMAGE_FAILURE,
-  // UPDATE_USERNAME_REQUEST,
-  // UPDATE_USERNAME_SUCCESS,
-  // UPDATE_USERNAME_FAIL,
-  // UPDATE_SOCIAL_ACCOUNT_REQUEST,
-  // UPDATE_SOCIAL_ACCOUNT_SUCCESS,
-  // UPDATE_SOCIAL_ACCOUNT_FAIL,
+  UPDATE_SOCIAL_ACCOUNT_REQUEST,
+  UPDATE_SOCIAL_ACCOUNT_SUCCESS,
+  UPDATE_SOCIAL_ACCOUNT_FAIL,
 } from './../constant/authConstants';
 
 export const loginReducer = (state = {}, action) => {
@@ -119,6 +113,19 @@ export const updateUserDetailReducer = (state = {}, action) => {
     case UPDATE_DETAILS_SUCCESS:
       return { loading: false, success: action.payload.message };
     case UPDATE_DETAILS_FAILURE:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const updateSocialProfileReducer = (state = {}, action) => {
+  switch (action.type) {
+    case UPDATE_SOCIAL_ACCOUNT_REQUEST:
+      return { loading: true };
+    case UPDATE_SOCIAL_ACCOUNT_SUCCESS:
+      return { loading: false, success: action.payload.message };
+    case UPDATE_SOCIAL_ACCOUNT_FAIL:
       return { loading: false, error: action.payload };
     default:
       return state;

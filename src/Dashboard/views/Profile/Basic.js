@@ -9,7 +9,6 @@ const Index = () => {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [image, setImage] = useState();
-  // const [newImage, setNewImage] = useState();
   const [email, setEmail] = useState('');
   const [lookingForJob, setLookForJob] = useState('');
   const [gender, setGender] = useState('');
