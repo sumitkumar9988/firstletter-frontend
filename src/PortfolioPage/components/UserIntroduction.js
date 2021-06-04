@@ -1,5 +1,7 @@
 import React from 'react';
-const UserIntroduction = () => {
+const UserIntroduction = ({ subdomain }) => {
+  console.log('UserIntroduction', subdomain);
+
   return (
     <div>
       <div>
