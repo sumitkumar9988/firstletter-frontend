@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../extraPage/Alert';
 import Loader from '../extraPage/Loader';
 import { signup } from '../redux/actions/authActions.js';
-import logo from './../Asset/logo.png'
+import logo from './../Asset/logo.png';
 
 const Register = ({ history }) => {
   const [name, setName] = useState('');
@@ -15,60 +15,62 @@ const Register = ({ history }) => {
   const dispatch = useDispatch();
 
   const userSignup = useSelector((state) => state.userSignup);
-  const { loading, error, userInfo } = userSignup;
+  const { loading, error, success } = userSignup;
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo: user } = userLogin;
 
-  console.log('user', userInfo);
   useEffect(() => {
     if (user) {
       history.push('/home');
     }
-  }, [history, userInfo]);
-
-  const data = {
-    name,
-    username,
-    email,
-    password,
-  };
+    if (success) {
+      history.push('/home');
+    }
+  }, [history, success, user]);
 
   const submitHandler = (e) => {
     e.preventDefault();
+    const data = {
+      name,
+      username,
+      email,
+      password,
+    };
+    console.log(data);
     dispatch(signup(data));
   };
 
   return (
-    <div className="bg-black pt-9 h-screen ">
-      {error && <Alert message={error} type="error" color="red" />}
+    <div className="bg-black  pt-9 min-h-screen ">
+      {error && <Alert message={error} type="error" />}
       {loading && <Loader />}
       <div className="flex items-center justify-center  sm:px-6">
         <div className="w-full max-w-sm p-4 bg-gray-900 rounded-md shadow-md sm:p-6">
-              <img src={logo} className="h-24 mt-2 m-auto" alt="logo"></img>
+          <img src={logo} className="h-24 mt-2 m-auto" alt="logo"></img>
           <div className="flex items-center justify-center">
             <span className="text-xl font-medium text-white">Create Your Account</span>
           </div>
           <form className="mt-4">
             <label for="Name" className="block">
+              <label for="username" className="block mt-3">
+                <span className="text-sm text-white">Username</span>
+                <input
+                  type="text"
+                  id="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
+                  required
+                />
+              </label>
+
               <span className="text-sm text-white">Full Name</span>
               <input
                 type="text"
                 id="name"
-                name="name"
+                value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
-                required
-              />
-            </label>
-
-            <label for="username" className="block mt-3">
-              <span className="text-sm text-white">Username</span>
-              <input
-                type="text"
-                id="username"
-                onChange={(e) => setUsername(e.target.value)}
-                name="username"
                 className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
                 required
               />
@@ -79,7 +81,7 @@ const Register = ({ history }) => {
               <input
                 type="email"
                 id="email"
-                name="email"
+                value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
                 required
@@ -91,7 +93,7 @@ const Register = ({ history }) => {
               <input
                 type="password"
                 id="password"
-                name="password"
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="block w-full px-3 py-2 mt-1 text-black bg-gray-100 rounded-md focus:outline-none focus:shadow-outline focus:bg-gray-200"
                 required

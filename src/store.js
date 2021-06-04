@@ -8,8 +8,38 @@ import {
   forgetPasswordReducer,
   resetPasswordReducer,
   getUserDetailsReducer,
+  updateUserDetailReducer,
+  updateSocialProfileReducer,
 } from './redux/reducer/authReducers';
-import { getAllUserExperience, getAllUserCertificate, getAllUserEducation } from './redux/reducer/dashboardReducer';
+
+import {
+  getEducationListOfUser,
+  getEducationByid,
+  deleteEducation,
+  addNewEducation,
+  updateEducationById,
+  getAllUserCertificate,
+  addNewCertificate,
+  deleteCertificate,
+  getAllUserExperience,
+  getExperienceById,
+  deleteExperienceByID,
+  addNewExperience,
+  updateExperienceByID,
+} from './redux/reducer/dashboardReducer';
+
+import {
+  githubOAuth,
+  setCodchefUsername,
+  getCodechefData,
+  setSPOJUsername,
+  getSPOJData,
+  setCodeforcesUsername,
+  getCodeforcesData,
+  projectListReducer,
+  projectDetailsReducer,
+  updateProjectReducer,
+} from './redux/reducer/ProjectReducer';
 
 const reducer = combineReducers({
   userSignup: signupReducer,
@@ -20,7 +50,29 @@ const reducer = combineReducers({
   getUserDetails: getUserDetailsReducer,
   userAllExplist: getAllUserExperience,
   userAllCertificateList: getAllUserCertificate,
-  userEducationList: getAllUserEducation,
+  userEducationList: getEducationListOfUser,
+  userEducation: getEducationByid,
+  deleteEducation: deleteEducation,
+  postEducation: addNewEducation,
+  patchEduction: updateEducationById,
+  postCertficate: addNewCertificate,
+  delCertificate: deleteCertificate,
+  userExperienceID: getExperienceById,
+  deleteExperience: deleteExperienceByID,
+  postExperience: addNewExperience,
+  patchExperience: updateExperienceByID,
+  githubOAuth: githubOAuth,
+  codchefUsername: setCodchefUsername,
+  codechefData: getCodechefData,
+  SPOJUsername: setSPOJUsername,
+  SPOJData: getSPOJData,
+  codeforcesUsername: setCodeforcesUsername,
+  codeforcesData: getCodeforcesData,
+  projectList: projectListReducer,
+  projectDetails: projectDetailsReducer,
+  updateProject: updateProjectReducer,
+  updateProfile: updateUserDetailReducer,
+  updateSocialProfile: updateSocialProfileReducer,
 });
 
 const userInfoFromStorage = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')) : null;

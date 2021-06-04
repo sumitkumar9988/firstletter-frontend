@@ -19,18 +19,12 @@ import {
   GET_ALL_USER_DETAILS_REQUEST,
   GET_ALL_USER_DETAILS_SUCCESS,
   GET_ALL_USER_DETAILS_FAILURE,
-  // FILL_BASIC_DETAILS_REQUEST,
-  // FILL_BASIC_DETAILS_SUCCESS,
-  // FILL_BASIC_DETAILS_FAILURE,
-  // UPDATE_PROFILE_IMAGE_REQUEST,
-  // UPDATE_PROFILE_IMAGE_SUCESS,
-  // UPDATE_PROFILE_IMAGE_FAILURE,
-  // UPDATE_USERNAME_REQUEST,
-  // UPDATE_USERNAME_SUCCESS,
-  // UPDATE_USERNAME_FAIL,
-  // UPDATE_SOCIAL_ACCOUNT_REQUEST,
-  // UPDATE_SOCIAL_ACCOUNT_SUCCESS,
-  // UPDATE_SOCIAL_ACCOUNT_FAIL,
+  UPDATE_DETAILS_REQUEST,
+  UPDATE_DETAILS_SUCCESS,
+  UPDATE_DETAILS_FAILURE,
+  UPDATE_SOCIAL_ACCOUNT_REQUEST,
+  UPDATE_SOCIAL_ACCOUNT_SUCCESS,
+  UPDATE_SOCIAL_ACCOUNT_FAIL,
 } from './../constant/authConstants';
 
 export const login = (input) => async (dispatch) => {
@@ -54,8 +48,10 @@ export const signup = (input) => async (dispatch) => {
   try {
     let { data } = await axios.post(`${baseURL}/signup`, input);
     dispatch({ type: SIGNUP_SUCCESS, payload: data });
+    dispatch({ type: LOGIN_SUCCESS, payload: data });
     localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
+    console.log(error);
     dispatch({
       type: SIGNUP_FAILURE,
       payload: error.response && error.response.data.message ? error.response.data.message : error.message,
@@ -147,7 +143,7 @@ export const forgetPassword = (input) => async (dispatch) => {
   }
 };
 
-export const getAllUser = () => async (dispatch, getState) => {
+export const userProfile = () => async (dispatch, getState) => {
   dispatch({ type: GET_ALL_USER_DETAILS_REQUEST });
   try {
     const {
@@ -173,6 +169,61 @@ export const getAllUser = () => async (dispatch, getState) => {
     });
   }
 };
+
+export const updateProfileAction = (input) => async (dispatch, getState) => {
+  dispatch({ type: UPDATE_DETAILS_REQUEST });
+  try {
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+
+    const { data } = await axios.patch(`${baseURL}/`, input, config);
+
+    dispatch({
+      type: UPDATE_DETAILS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: UPDATE_DETAILS_FAILURE,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+    });
+  }
+};
+
+export const updateSocialProfileAction = (input) => async (dispatch, getState) => {
+  dispatch({ type: UPDATE_SOCIAL_ACCOUNT_REQUEST });
+  try {
+    const {
+      userLogin: { userInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    console.log(input.twitterAcount);
+    const { data } = await axios.patch(`${baseURL}/social`, input, config);
+
+    dispatch({
+      type: UPDATE_SOCIAL_ACCOUNT_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: UPDATE_SOCIAL_ACCOUNT_FAIL,
+      payload: error.response && error.response.data.message ? error.response.data.message : error.message,
+    });
+  }
+};
+
 export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo');
   document.location.href = '/';

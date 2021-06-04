@@ -1,5 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 function Index() {
+  const [email, setEmail] = useState('');
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      email,
+    };
+    console.log(data);
+  };
+
   return (
     <div className="pt-16 bg-black ">
       <div className="w-full bg-black py-16 relative overflow-hidden">
@@ -107,17 +117,19 @@ function Index() {
         </div>
         <div className="container mx-auto z-10 relative">
           <h1 className="xl:text-4xl lg:text-4xl text-center  text-white font-bold pb-8">
-            Sign up for product news and updates
+            Subscribe for product news and updates
           </h1>
           <div className="flex items-center mx-auto mt-8 justify-between xl:w-1/3 lg:w-1/3 md:w-1/3 lg:mx-auto w-10/12 border-b border-gray-400 z-10">
             <input
-              type="text"
+              type="email"
               placeholder="Enter Your Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="bg-transparent focus:outline-none text-white bg-black w-11/12 pb-4"
               id="email"
-              aria-label="email"
+              required
             />
-            <div className="pb-3 cursor-pointer">
+            <div className="pb-3 cursor-pointer" onClick={onSubmit}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="icon icon-tabler icon-tabler-arrow-narrow-right"

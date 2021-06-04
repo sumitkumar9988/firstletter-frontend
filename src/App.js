@@ -8,10 +8,8 @@ import ChangePassword from './authPage/ChangePassword';
 import ForgetPassword from './authPage/ForgetPassword';
 import ResetPassword from './authPage/ResetPassword';
 import FourOFour from './extraPage/FourOFour';
-import Trail from './extraPage/Trail';
-import Trail2 from './extraPage/demo2';
-import About from './LandingPage/About';
-import Contact from './LandingPage/Contact';
+import About from './LandingPage/View/About';
+import Contact from './LandingPage/View/Contact';
 import ProfilePhoto from './authPage/ProfilePhoto';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
@@ -20,9 +18,6 @@ function App() {
     <div>
       <Router>
         <Switch>
-          <Route path="/trail" component={Trail} />
-          <Route path="/trail2" component={Trail2} />
-
           <Route path="/changepassword" component={ChangePassword} />
           <Route path="/resetPassword/:id" component={ResetPassword} />
           <Route path="/login" component={Login} />
@@ -42,5 +37,3 @@ function App() {
 }
 
 export default App;
-
-
