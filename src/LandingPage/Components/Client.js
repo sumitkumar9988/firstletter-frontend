@@ -1,26 +1,27 @@
 import React from 'react';
 function Index() {
   return (
-    <section className="max-w-8xl mx-auto container pt-16 bg-black">
+    <section className="min-w-8xl mx-auto container pt-16 bg-black">
       <div className="flex flex-col md:flex-row">
-        <div className="flex flex-col w-full md:w-1/2 lg:w-6/12 px-4 md:px-8 justify-center">
+        <div className="flex flex-col w-full md:w-1/2  px-4 md:px-8 justify-center">
           <h3 className="text-xl md:text-2xl xl:text-4xl font-extrabold leading-tight text-gray-50 pt-6">
-            Beautiful Hand Crafted Library for busy devs
+            If you are looking to hire good talent with better experience?
           </h3>
-          <p className="text-sm md:text-base xl:text-xl font-light text-gray-50 xl:leading-normal pt-4">
-            Welcome to Web Design Library, the ultimate source of all sorts of info that you need in your professional
-            life. If you're new to Web Site Design.
+          <p className="text-sm md:text-base font-medium  text-gray-50  pt-4">
+            Hey we are working on a new hiring experience the ATS selects the applications that best suit the job
+            description and weeds out exceptional talent so with firstletter focus on talent and skills not on the
+            resume.
           </p>
-          <div className="flex mb-6 md:mb-8 md:mb-0 mt-12">
-            <button className="focus:outline-none bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-4 py-2 xl:px-8 xl:py-4 text-sm md:text-base xl:text-xl">
-              Get Started
-            </button>
-            <button className="ml-5 focus:outline-none bg-black transition duration-150 ease-in-out hover:bg-gray-200 rounded border border-indigo-600 text-indigo-600 px-4 py-2 xl:px-8 xl:py-4 text-sm md:text-base xl:text-xl">
-              Learn More
-            </button>
+          <div className="flex mb-6 md:mb-0 mt-12">
+            <a
+              href=""
+              className="ml-5 focus:outline-none bg-black transition duration-150 ease-in-out hover:bg-gray-200 rounded border border-indigo-600 text-indigo-600 px-4 py-2 xl:px-8 xl:py-4 text-sm md:text-base xl:text-xl"
+            >
+              Contact Us
+            </a>
           </div>
         </div>
-        <div className="lg:w-6/12 md:w-1/2 relative mx-4 md:mx-4 lg:ml-20 md:mr-0 pt-12 md:pt-0 md:pt-0">
+        <div className="lg:w-6/12 md:w-1/2 relative mx-4 md:mx-4 lg:ml-20 md:mr-0 pt-12  md:pt-0">
           <img
             className="mt-16 pr-20 relative z-10 rounded w-full"
             src="https://res.cloudinary.com/sumit9988/image/upload/v1622351314/cherry-563_tf7ljr.png"

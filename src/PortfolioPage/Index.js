@@ -1,12 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import About from './Views/About';
-import Codechef from './Views/Codechef';
-import Achievement from './Views/Achievement';
-import Codeforces from './Views/Codeforces';
 import Home from './Views/Home';
-import ProjectDetails from './Views/ProjectDetails';
-import Spoj from './Views/Spoj';
 import FourOFour from './../extraPage/FourOFour';
 
 const Index = (props) => {
