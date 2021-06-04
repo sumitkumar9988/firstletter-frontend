@@ -10,8 +10,8 @@ const Index = () => {
   const [username, setUsername] = useState('');
   const [image, setImage] = useState();
   const [email, setEmail] = useState('');
-  const [lookingForJob, setLookForJob] = useState('');
-  const [gender, setGender] = useState('');
+  // const [lookingForJob, setLookForJob] = useState('');
+  // const [gender, setGender] = useState('');
   const [location, setLocation] = useState('');
   const [bio, setBio] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
@@ -30,8 +30,8 @@ const Index = () => {
       setName(user.name);
       setImage(user.photo);
       setEmail(user.email);
-      setGender(user.gender);
-      setLookForJob(user.lookingForJob);
+      // setGender(user.gender);
+      // setLookForJob(user.lookingForJob);
       setLocation(user.location);
       setBio(user.bio);
       setMobileNumber(user.mobileNumber);
@@ -48,8 +48,8 @@ const Index = () => {
     data.append('name', name);
     data.append('username', username);
     data.append('email', email);
-    data.append('lookingForJob', lookingForJob);
-    data.append('gender', gender);
+    // data.append('lookingForJob', lookingForJob);
+    // data.append('gender', gender);
     data.append('location', location);
     data.append('bio', bio);
     data.append('mobileNumber', mobileNumber);
@@ -165,7 +165,7 @@ const Index = () => {
                   className="border border-gray-300 dark:border-gray-700 pl-3 py-3 shadow-sm rounded text-sm focus:outline-none focus:border-indigo-700 text-gray-800 bg-transparent dark:text-gray-100"
                 />
               </div>
-              <div className="mt-4 flex flex-col xl:w-2/6 lg:w-2/6 w-full">
+              {/* <div className="mt-4 flex flex-col xl:w-2/6 lg:w-2/6 w-full">
                 <label htmlFor="username" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
                   Gender
                 </label>
@@ -180,9 +180,9 @@ const Index = () => {
                   <option value="male">Male</option>
                   <option value="female">female</option>
                 </select>
-              </div>
+              </div> */}
 
-              <div className="mt-4 flex flex-col xl:w-2/6 lg:w-2/6 w-full">
+              {/* <div className="mt-4 flex flex-col xl:w-2/6 lg:w-2/6 w-full">
                 <label htmlFor="username" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">
                   Are You looking for job
                 </label>
@@ -196,7 +196,7 @@ const Index = () => {
                   <option value="true">true</option>
                   <option value="false">false</option>
                 </select>
-              </div>
+              </div> */}
 
               <div className="mt-8 flex flex-col xl:w-3/5 lg:w-3/5 w-full">
                 <label htmlFor="about" className="pb-2 text-sm font-bold text-gray-800 dark:text-gray-100">

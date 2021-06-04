@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ReactComponent as ProfileIllustation } from './../../Asset/Profile.svg';
-import { useSelector } from 'react-redux';
+import { userProfile } from './../../redux/actions/authActions';
+import { useSelector, useDispatch } from 'react-redux';
 
 const Profile = () => {
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
+  const dispatch = useDispatch();
+  const userDetails = useSelector((state) => state.getUserDetails);
+  const { loading, error, user } = userDetails;
+
+  useEffect(() => {
+    dispatch(userProfile());
+  }, []);
 
   return (
     <div className="min-h-screen  bg-black">
@@ -24,12 +30,15 @@ const Profile = () => {
               Basic
             </p>
           </Link>
-          <a
-            href={`https://${userInfo.data.user.username}.firstletter.tech/`}
-            class="inline-block  px-4 py-2 mx-2 text-2xl text-left font-semibold text-pink-500 hover:text-indigo-200 "
-          >
-            Your site
-          </a>
+          {user && (
+            <a
+              href={`https://${user.username}.firstletter.tech/`}
+              class="inline-block  px-4 py-2 mx-2 text-2xl text-left font-semibold text-pink-500 hover:text-indigo-200 "
+            >
+              Your site
+            </a>
+          )}
+
           <Link to="/home/me/link">
             <p class="inline-block  px-4 py-2 mx-2 text-2xl text-left font-semibold text-pink-500 hover:text-indigo-200 ">
               Social Link

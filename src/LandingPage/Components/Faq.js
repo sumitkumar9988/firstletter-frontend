@@ -24,7 +24,7 @@ export default function MyApp() {
             <div class="bg-white shadow rounded p-8">
               <div class="flex items-center justify-between">
                 <div>
-                  <h2 class="text-base font-semibold leading-none text-gray-800">Why should I use your service?</h2>
+                  <h2 class="text-base font-semibold leading-none text-gray-800">Is firstletter free?</h2>
                 </div>
                 <button
                   onClick={() => setBox1(!box1)}
@@ -73,10 +73,7 @@ export default function MyApp() {
               {box1 && (
                 <ul class="">
                   <li>
-                    <p class="text-base leading-normal text-gray-600 mt-4 lg:w-96">
-                      If you want to choose Pro or Business plan the you can use all payments. You can pay from Paypal,
-                      Payoneer, Master Card, Debit Card.
-                    </p>
+                    <p class="text-base leading-normal text-gray-600 mt-4 lg:w-96">Yes firstletter free .</p>
                   </li>
                 </ul>
               )}
@@ -84,7 +81,9 @@ export default function MyApp() {
             <div class="bg-white shadow rounded p-8 mt-8">
               <div class="flex items-center justify-between">
                 <div>
-                  <h2 class="text-base font-semibold leading-none text-gray-800">What payment method I can use?</h2>
+                  <h2 class="text-base font-semibold leading-none text-gray-800">
+                    Can i host my portfolio on custome domain?
+                  </h2>
                 </div>
                 <button
                   onClick={() => {
@@ -136,8 +135,7 @@ export default function MyApp() {
                 <ul>
                   <li>
                     <p class="text-base leading-normal text-gray-600 mt-4 lg:w-96">
-                      If you want to choose Pro or Business plan the you can use all payments. You can pay from Paypal,
-                      Payoneer, Master Card, Debit Card.
+                      Nope Not yet we are working on that Your portfolio is available in subdomin
                     </p>
                   </li>
                 </ul>
@@ -146,7 +144,9 @@ export default function MyApp() {
             <div class="bg-white shadow rounded p-8 mt-8">
               <div class="flex items-center justify-between">
                 <div>
-                  <h2 class="text-base font-semibold leading-none text-gray-800">Is your service safe to use?</h2>
+                  <h2 class="text-base font-semibold leading-none text-gray-800">
+                    How can i customize theme of my portfolio?
+                  </h2>
                 </div>
                 <button
                   onClick={() => {
@@ -198,8 +198,8 @@ export default function MyApp() {
                 <ul>
                   <li>
                     <p class="text-base leading-normal text-gray-600 mt-4 lg:w-96">
-                      If you want to choose Pro or Business plan the you can use all payments. You can pay from Paypal,
-                      Payoneer, Master Card, Debit Card.
+                      firstletter portfolio is only available in dark theme soon we are going to provide customize theme
+                      and template.
                     </p>
                   </li>
                 </ul>
@@ -208,7 +208,9 @@ export default function MyApp() {
             <div class="bg-white shadow rounded p-8 mt-8">
               <div class="flex items-center justify-between">
                 <div>
-                  <h2 class="text-base font-semibold leading-none text-gray-800">How to recover password?</h2>
+                  <h2 class="text-base font-semibold leading-none text-gray-800">
+                    How can i apply job through firstletter?
+                  </h2>
                 </div>
                 <button
                   onClick={() => setBox4(!box4)}
@@ -258,8 +260,8 @@ export default function MyApp() {
                 <ul>
                   <li>
                     <p class="text-base leading-normal text-gray-600 mt-4 lg:w-96">
-                      If you want to choose Pro or Business plan the you can use all payments. You can pay from Paypal,
-                      Payoneer, Master Card, Debit Card.
+                      We will notified when job available through email and you have to enter your subdomain to apply
+                      job you dont need resume
                     </p>
                   </li>
                 </ul>

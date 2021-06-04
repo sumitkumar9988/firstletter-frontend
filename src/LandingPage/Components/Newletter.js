@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import { homeURL } from './../../utils/url';
 
 function Index() {
   const [email, setEmail] = useState('');
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
     const data = {
       email,
     };
-    console.log(data);
+    await axios.post(`${homeURL}/newsletter`, data);
+    setEmail('');
   };
 
   return (

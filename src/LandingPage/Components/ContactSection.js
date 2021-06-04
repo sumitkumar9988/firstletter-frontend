@@ -1,5 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
+import { homeURL } from './../../utils/url';
+
 function Index() {
+  const [from, setFrom] = useState('');
+  const [name, setName] = useState('');
+  const [message, setMessage] = useState('');
+  // const [to, setTo] = useState('');
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      from,
+      name,
+      message,
+      to: 'sumit.firstletter@gmail.com',
+    };
+    axios
+      .post(`${homeURL}/sendEmail`, data)
+      .then((res) => {
+        setMessage('');
+        setName('');
+        setFrom('');
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="container mx-auto pt-16">
       <div className="lg:flex">
@@ -30,7 +55,7 @@ function Index() {
                   <path d="M15 3a6 6 0 0 1 6 6" />
                 </svg>
               </div>
-              <p className="pl-4 text-white text-base">+1 (308) 321 321</p>
+              <p className="pl-4 text-white text-base">+91 8968033002</p>
             </div>
             <div className="flex items-center">
               <div>
@@ -51,15 +76,12 @@ function Index() {
                   <polyline points="3 7 12 13 21 7" />
                 </svg>
               </div>
-              <p className="pl-4 text-white text-base">Info@alphas.com</p>
+              <p className="pl-4 text-white text-base">sumit.firstletter@gmail.com</p>
             </div>
-            <p className="text-lg text-white pt-10 tracking-wide">
-              545, Street 11, Block F <br />
-              Dean Boulevard, Ohio
-            </p>
-            <a href="javascript:void(0)">
+
+            {/* <a href="javascript:void(0)">
               <p className="text-white pt-16 font-bold tracking-wide underline">View Job Openings</p>
-            </a>
+            </a> */}
           </div>
         </div>
         <div className="xl:w-3/5 lg:w-3/5 bg-black h-full pt-5 pb-5 xl:pr-5 xl:pl-0 rounded-tr rounded-br">
@@ -76,8 +98,8 @@ function Index() {
                   </label>
                   <input
                     required
-                    id="full_name"
-                    name="full_name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     type="text"
                     className="focus:outline-none focus:border  focus:border-indigo-700 font-normal w-64 h-10 flex items-center pl-3 text-sm  rounded "
                     placeholder
@@ -94,29 +116,9 @@ function Index() {
                   </label>
                   <input
                     required
-                    id="email"
-                    name="email"
+                    value={from}
+                    onChange={(e) => setFrom(e.target.value)}
                     type="email"
-                    className="focus:outline-none focus:border focus:border-indigo-700 font-normal w-64 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
-                    placeholder
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="flex w-full flex-wrap">
-              <div className="w-2/4 max-w-xs">
-                <div className="flex flex-col">
-                  <label
-                    htmlFor="phone"
-                    className="text-gray-50 text-sm font-semibold leading-tight tracking-normal mb-2"
-                  >
-                    Phone
-                  </label>
-                  <input
-                    required
-                    id="phone"
-                    name="phone"
-                    type="tel"
                     className="focus:outline-none focus:border focus:border-indigo-700 font-normal w-64 h-10 flex items-center pl-3 text-sm border-gray-300 rounded border"
                     placeholder
                   />
@@ -130,15 +132,15 @@ function Index() {
                 </label>
                 <textarea
                   placeholder
-                  name="message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
                   className="border-gray-300 border mb-4 rounded py-2 text-sm outline-none resize-none px-3 focus:border focus:border-indigo-700"
                   rows={8}
-                  id="message"
-                  defaultValue={''}
                 />
               </div>
               <button
                 type="submit"
+                onClick={onSubmit}
                 className="focus:outline-none bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-8 py-3 text-sm leading-6"
               >
                 Submit
