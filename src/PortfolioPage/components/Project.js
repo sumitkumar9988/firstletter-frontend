@@ -1,6 +1,6 @@
 import React from 'react';
-
-const Project = () => {
+import moment from 'moment';
+const Project = ({ project }) => {
   return (
     <div>
       <div class="pb-1 text-center text-gray-700 bg-black bg-cover">
@@ -9,69 +9,28 @@ const Project = () => {
             Awesome <span class="inline-block text-indigo-500">Project</span>
           </h2>
           <p class="mt-5 text-xl text-white text-left opacity-75 sm:text-center">
-            Et excepteur labore in eiusmod irure.Dolore cupidatat enim tempor excepteur eiusmod pariatur sit commodo
-            cupidatat.
+            These are the Awesome Project i build for more detail check out my project
           </p>
         </div>
         <div class="my-12 ">
           <div class="max-w-xl px-4 mb-10 mx-auto sm:px-6 lg:max-w-screen-xl lg:px-8">
             <div class="lg:grid  lg:grid-cols-2 lg:gap-10">
-              <div class="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-white rounded-lg shadow-2xl hover:scale-105">
-                <img
-                  class="h-56 rounded-t-lg  object-cover"
-                  alt="article "
-                  src="https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=967&amp;q=80"
-                />
-                <div class="px-6 pt-8 mb-2 text-xl font-bold">
-                  <span>Introduction to HTML</span>
-                </div>
-                <div class="px-6 pt-2 ">
-                  <small>John Doe | 2020-10-06</small>
-                  <div class="overflow-hidden h-40 ...">HTML Introduction for beginner.</div>
-                </div>
-              </div>
-              <div class="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-white rounded-lg shadow-2xl hover:scale-105">
-                <img
-                  class="h-56 rounded-t-lg  object-cover"
-                  alt="article "
-                  src="https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=967&amp;q=80"
-                />
-                <div class="px-6 pt-8 mb-2 text-xl font-bold">
-                  <span>Introduction to HTML</span>
-                </div>
-                <div class="px-6 pt-2 ">
-                  <small>John Doe | 2020-10-06</small>
-                  <div class="overflow-hidden h-40 ...">HTML Introduction for beginner.</div>
-                </div>
-              </div>
-              <div class="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-white rounded-lg shadow-2xl hover:scale-105">
-                <img
-                  class="h-56 rounded-t-lg  object-cover"
-                  alt="article "
-                  src="https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=967&amp;q=80"
-                />
-                <div class="px-6 pt-8 mb-2 text-xl font-bold">
-                  <span>Introduction to HTML</span>
-                </div>
-                <div class="px-6 pt-2 ">
-                  <small>John Doe | 2020-10-06</small>
-                  <div class="overflow-hidden h-40 ...">HTML Introduction for beginner.</div>
-                </div>
-              </div>
-              <div class="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-white rounded-lg shadow-2xl hover:scale-105">
-                <img
-                  class="h-56 rounded-t-lg  object-cover"
-                  alt="article "
-                  src="https://images.unsplash.com/photo-1472437774355-71ab6752b434?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=967&amp;q=80"
-                />
-                <div class="px-6 pt-8 mb-2 text-xl font-bold">
-                  <span>Introduction to HTML</span>
-                </div>
-                <div class="px-6 pt-2 ">
-                  <small>John Doe | 2020-10-06</small>
-                  <div class="overflow-hidden h-40 ...">HTML Introduction for beginner.</div>
-                </div>
-              </div>
+              {project &&
+                project.map((item) => (
+                  <a
+                    href={item.DemoUrl}
+                    class="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-indigo-300 rounded-lg shadow-2xl hover:scale-105"
+                  >
+                    <img class="h-56 rounded-t-lg  object-cover" alt="article " src={item?.projectLogo} />
+                    <div class="px-6 pt-8 mb-2 text-xl font-bold">
+                      <span>{item?.name}</span>
+                    </div>
+                    <div class="px-6 pt-2 ">
+                      <small>{moment(item?.updated_at).format('MM-DD-YYYY')}</small>
+                      <div class="overflow-hidden h-40 ...">{item?.description}</div>
+                    </div>
+                  </a>
+                ))}
             </div>
           </div>
         </div>

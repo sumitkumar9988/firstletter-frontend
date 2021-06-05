@@ -8,14 +8,20 @@ const NavBar = () => {
         <div className="flex-col w-full h-full overflow-hidden bg-black rounded-lg select-none">
           <div className="flex flex-col items-center justify-center w-full h-full mt-12 text-center ">
             <Link to="/">
-              <a className="inline-block px-4 py-2 mx-2 font-medium text-left text-blue-500 hover:text-indigo-200">
+              <a className="inline-block px-4 py-4 mx-2 text-3xl font-bold text-left text-blue-500 hover:text-indigo-200">
                 Home
               </a>
             </Link>
 
             <Link to="/about">
-              <a className="inline-block  px-4 py-2 mx-2 font-medium text-left text-blue-500 hover:text-indigo-200 ">
+              <a className="inline-block  px-4 py-4 mx-2 text-3xl font-bold  text-left text-blue-500 hover:text-indigo-200 ">
                 About
+              </a>
+            </Link>
+
+            <Link to="/achievement">
+              <a className="inline-block  px-4 py-4 mx-2 text-3xl font-bold  text-left text-blue-500 hover:text-indigo-200 ">
+                Achievement
               </a>
             </Link>
           </div>
