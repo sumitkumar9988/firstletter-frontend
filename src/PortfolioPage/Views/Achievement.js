@@ -5,6 +5,8 @@ import axios from 'axios';
 import Loader from './../../extraPage/Loader';
 import { portfolioURL } from './../../utils/url';
 import Footer from './../components/Footer';
+import Error from './../components/Error';
+
 const Achievement = ({ subdomain }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
@@ -20,6 +22,7 @@ const Achievement = ({ subdomain }) => {
       })
       .catch((err) => {
         setError(err);
+        setLoading(false);
       });
 
     axios
@@ -37,7 +40,7 @@ const Achievement = ({ subdomain }) => {
       {loading ? (
         <Loader />
       ) : error ? (
-        <p>error.message</p>
+        <Error error={error} />
       ) : (
         <div className="bg-black">
           <Header user={user} />
