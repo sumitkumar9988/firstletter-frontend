@@ -5,7 +5,7 @@ import { getAllUserEducation } from '../../redux/actions/dashboardActions';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../../extraPage/Alert';
 // import Loader from './../components/Loader';
-import  PlusLogo  from '../../Asset/plus.png';
+import PlusLogo from '../../Asset/plus.png';
 function IndexPage() {
   const dispatch = useDispatch();
 
@@ -17,7 +17,7 @@ function IndexPage() {
   }, [dispatch]);
 
   return (
-    <div className="pb-1 text-center text-gray-700 bg-black bg-cover">
+    <div className="pb-1 text-center min-h-screen text-gray-700 bg-black bg-cover">
       {error && <Alert className="mt-2" message={error} type="error" />}
       {/* {loading && <Loader />} */}
       <div className="container relative max-w-2xl px-5 pt-12 mx-auto sm:py-12 lg:px-0">

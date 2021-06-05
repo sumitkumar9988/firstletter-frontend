@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PlusLogo from '../../Asset/plus.png';
 import { Link } from 'react-router-dom';
 import openInNewTab from './../utils/OpenInNewTab';
-import moment from 'moment'
+import moment from 'moment';
 // import Loader from '../components/Loader'
 import Alert from './../components/Error';
 function IndexPage() {
@@ -22,7 +22,7 @@ function IndexPage() {
   }, [dispatch]);
 
   return (
-    <div className="pb-1 text-center text-gray-700 bg-black bg-cover">
+    <div className="pb-1 text-center text-gray-700 min-h-screen bg-black bg-cover">
       {error && <Alert className="mt-2" message={error} type="error" />}
       {/* {loading && <Loader/>} */}
       <div className="container relative max-w-2xl px-5 pt-12 mx-auto sm:py-12 lg:px-0">
@@ -50,7 +50,8 @@ function IndexPage() {
                       </div>
                       <div className="px-6 pt-2 text-blue-50">
                         <small>
-                          From:- {moment(item.startDate).format('DD-MM-YYYY')} | {moment(item.endDate).format('DD-MM-YYYY') } For:- {item.duration}
+                          From:- {moment(item.startDate).format('DD-MM-YYYY')} |{' '}
+                          {moment(item.endDate).format('DD-MM-YYYY')} For:- {item.duration}
                         </small>
                         <div className="overflow-hidden h-40 ...">{item.responsibilities}</div>
                       </div>
