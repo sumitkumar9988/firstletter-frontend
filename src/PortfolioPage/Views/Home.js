@@ -21,7 +21,7 @@ const Index = ({ subdomain }) => {
         setLoading(false);
       })
       .catch((err) => {
-        setError(err);
+        err.response && error.response.data.message ? setError(error.response.data) : setError(err);
         setLoading(false);
       });
 

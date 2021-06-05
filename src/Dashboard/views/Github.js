@@ -5,6 +5,7 @@ import { userProfile } from './../../redux/actions/authActions';
 import { saveGithubUsername } from './../../redux/actions/projectActions';
 import Alert from '../../extraPage/Alert';
 import queryString from 'query-string';
+
 function IndexPage({ location, history }) {
   const dispatch = useDispatch();
 
@@ -38,7 +39,7 @@ function IndexPage({ location, history }) {
               <a
                 aria-label="Continue with github"
                 role="button"
-                href="https://github.com/login/oauth/authorize?client_id=111bd0d934cf6a744198"
+                href={`https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_CLIENT_ID}`}
                 className=" bg-white  focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-50 py-3.5 px-4 border rounded-lg border-gray-400 flex items-center w-full mt-4"
               >
                 <p className="text-base  font-medium ml-4 text-gray-900">Select All Your Project</p>
