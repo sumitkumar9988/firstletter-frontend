@@ -1,15 +1,16 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = ({ user }) => {
   return (
     <div>
       <section className="text-gray-700 bg-black body-font">
         <div className="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row">
           <p className="text-xl font-black leading-none text-gray-50 select-none logo">
-            Sumit<span className="text-indigo-600">.</span>
+            {user?.name}
+            <span className="text-indigo-600">.</span>
           </p>
           <span className="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
-            <p className="text-gray-400 hover:text-gray-500">
+            <a href={user?.InstaAccount} className="text-gray-400 hover:text-gray-500">
               <span className="sr-only">Facebook</span>
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path
@@ -18,9 +19,26 @@ const Footer = () => {
                   clip-rule="evenodd"
                 ></path>
               </svg>
-            </p>
+            </a>
 
-            <p className="text-gray-400 hover:text-gray-500">
+            <a href={user?.linkedInAccount} className="text-gray-400 hover:text-gray-500">
+              <span className="sr-only">LinkedIn</span>
+              <svg
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm-2 8c0 .557-.447 1.008-1 1.008s-1-.45-1-1.008c0-.557.447-1.008 1-1.008s1 .452 1 1.008zm0 2h-2v6h2v-6zm3 0h-2v6h2v-2.861c0-1.722 2.002-1.881 2.002 0v2.861h1.998v-3.359c0-3.284-3.128-3.164-4-1.548v-1.093z" />
+              </svg>
+            </a>
+
+            <a href={user?.facebookAccount} className="text-gray-400 hover:text-gray-500">
               <span className="sr-only">Instagram</span>
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path
@@ -29,16 +47,16 @@ const Footer = () => {
                   clip-rule="evenodd"
                 ></path>
               </svg>
-            </p>
+            </a>
 
-            <p className="text-gray-400 hover:text-gray-500">
+            <a href={user?.twitterAcount} className="text-gray-400 hover:text-gray-500">
               <span className="sr-only">Twitter</span>
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path>
               </svg>
-            </p>
+            </a>
 
-            <p className="text-gray-400 hover:text-gray-500">
+            <a href={`https://github.com/${user?.gitHubAccount}`} className="text-gray-400 hover:text-gray-500">
               <span className="sr-only">GitHub</span>
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path
@@ -47,9 +65,9 @@ const Footer = () => {
                   clip-rule="evenodd"
                 ></path>
               </svg>
-            </p>
+            </a>
 
-            <p className="text-gray-400 hover:text-gray-500">
+            <a href={user?.dribbleAccount} className="text-gray-400 hover:text-gray-500">
               <span className="sr-only">Dribbble</span>
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path
@@ -58,10 +76,16 @@ const Footer = () => {
                   clip-rule="evenodd"
                 ></path>
               </svg>
-            </p>
+            </a>
+
+            <a href={user?.dribbleAccount} className="text-gray-400 hover:text-gray-500">
+              <span className="sr-only">Dribbble</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
           </span>
         </div>
-        <p className="text-white text-center pb-5">Build by Firstletter.tech</p>
       </section>
     </div>
   );

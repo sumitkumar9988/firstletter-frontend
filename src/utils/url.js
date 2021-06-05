@@ -7,11 +7,11 @@ let baseURL, homeURL, portfolioURL;
 if (process.env.NODE_ENV === 'production') {
   baseURL = 'https://www.sumitk.site/api/v1/user';
   homeURL = 'https://www.sumitk.site/api/v1/home';
-  portfolioURL = 'https://www.sumitk.site/api/v1';
+  portfolioURL = 'https://www.sumitk.site/api/v1/profile';
 } else {
   baseURL = 'http://localhost:4000/api/v1/user';
   homeURL = 'http://localhost:4000/api/v1/home';
-  portfolioURL = 'http://localhost:4000/api/v1';
+  portfolioURL = 'http://localhost:4000/api/v1/profile';
 }
 
 export { baseURL, homeURL, portfolioURL };

@@ -3,7 +3,7 @@ import { ReactComponent as Headeropen } from './../../Asset/Image/headeropen.svg
 import { ReactComponent as Headerclose } from './../../Asset/Image/headerclose.svg';
 import Nav from './NavBar';
 
-const Header = () => {
+const Header = ({ user }) => {
   const [open, setOpen] = useState(false);
 
   const toggle = (e) => {
@@ -18,7 +18,7 @@ const Header = () => {
           <div className="relative flex flex-wrap items-center justify-between w-full h-24 mx-auto font-medium ">
             <p className="w-1/4 py-4 pl-6 pr-4  ">
               <span className="p-1 text-xl font-black leading-none text-white select-none">
-                <span>Sumit</span>
+                <span>{user?.name.replace(/ .*/, '')}</span>
                 <span className="text-indigo-300">.</span>
               </span>
             </p>

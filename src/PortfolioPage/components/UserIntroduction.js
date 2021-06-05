@@ -1,7 +1,5 @@
 import React from 'react';
-const UserIntroduction = ({ subdomain }) => {
-  console.log('UserIntroduction', subdomain);
-
+const UserIntroduction = ({ user }) => {
   return (
     <div>
       <div>
@@ -12,14 +10,10 @@ const UserIntroduction = ({ subdomain }) => {
                 <span className="inline md:block">Hi 👋 I am </span>
                 <p className="relative mt-2 text-transparent md:inline-block bg-clip-text bg-gradient-to-br from-blue-500 to-purple-500">
                   {' '}
-                  Sumit Kumar
+                  {user?.name}
                 </p>
               </h1>
-              <div class="mx-auto mt-5 text-gray-100 md:mt-12 md:max-w-lg md:text-center lg:text-lg">
-                Enim est nisi mollit Lorem excepteur amet do sunt. Enim est nisi mollit Lorem excepteur amet do sunt.
-                Enim est nisi mollit Lorem excepteur amet do sunt. Enim est nisi mollit Lorem excepteur amet do sunt.
-                Enim est nisi mollit Lorem excepteur amet do sunt.
-              </div>
+              <div class="mx-auto mt-5 text-gray-100 md:mt-12 md:max-w-lg md:text-center lg:text-lg">{user?.bio}</div>
 
               <div className="flex flex-col items-center mt-12 text-center">
                 <span className="relative inline-flex w-full rounded-full shadow-sm md:w-auto">
