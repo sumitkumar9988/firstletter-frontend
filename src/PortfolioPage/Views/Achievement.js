@@ -21,7 +21,7 @@ const Achievement = ({ subdomain }) => {
         setLoading(false);
       })
       .catch((err) => {
-        err.response && error.response.data.message ? setError(error.response.data) : setError(err);
+        err.response && err.response.data.message ? setError(err.response.data) : setError(err);
         setLoading(false);
       });
 
