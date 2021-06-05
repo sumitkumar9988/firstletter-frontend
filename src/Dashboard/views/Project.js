@@ -148,5 +148,3 @@ function IndexPage({}) {
 }
 
 export default IndexPage;
-
-// href={'//' + item.website}
