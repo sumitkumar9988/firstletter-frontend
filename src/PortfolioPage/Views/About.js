@@ -8,13 +8,13 @@ import Education from '../components/Education';
 import Experience from '../components/Experience';
 import Footer from '../components/Footer';
 import Contact from '../components/Contact';
-import Certificate from '../components/Certificate';
 
 const About = ({ subdomain }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
   const [user, setUser] = useState();
-  const [project, setProject] = useState();
+  const [education, setEducation] = useState();
+  const [experience, setExperience] = useState();
 
   useEffect(() => {
     axios
@@ -28,30 +28,21 @@ const About = ({ subdomain }) => {
       });
 
     axios
-      .get(`${portfolioURL}/${subdomain}/project`)
+      .get(`${portfolioURL}/${subdomain}/education`)
       .then(({ data }) => {
-        setProject(data.project);
+        setEducation(data.education);
       })
       .catch((err) => {
-        setError(err);
+        console.log(err);
       });
 
     axios
-      .get(`${portfolioURL}/${subdomain}/project`)
+      .get(`${portfolioURL}/${subdomain}/experience`)
       .then(({ data }) => {
-        setProject(data.project);
+        setExperience(data.experience);
       })
       .catch((err) => {
-        setError(err);
-      });
-
-    axios
-      .get(`${portfolioURL}/${subdomain}/project`)
-      .then(({ data }) => {
-        setProject(data.project);
-      })
-      .catch((err) => {
-        setError(err);
+        console.log(err);
       });
   }, [subdomain]);
 
@@ -64,10 +55,9 @@ const About = ({ subdomain }) => {
       ) : (
         <div className="bg-black">
           <PortfolioHeader user={user} />
-          <UserIntroduction user={user} />
-          <Education />
-          <Experience />
-          <Certificate />
+          <UserIntroduction user={user} btittle="Know More" />
+          {education && <Education education={education} />}
+          {experience && <Experience experience={experience} />}
           <Contact user={user} />
           <Footer user={user} />
         </div>

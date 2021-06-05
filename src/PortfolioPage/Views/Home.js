@@ -29,7 +29,7 @@ const Index = ({ subdomain }) => {
         setProject(data.project);
       })
       .catch((err) => {
-        setError(err);
+        console.log(err);
       });
   }, [subdomain]);
 
@@ -42,7 +42,7 @@ const Index = ({ subdomain }) => {
       ) : (
         <div className="bg-black">
           <PortfolioHeader user={user} />
-          <UserIntroduction user={user} />
+          <UserIntroduction user={user} btittle="Check out my Project" />
           {project && <Project project={project} />}
           <Footer user={user} />
         </div>

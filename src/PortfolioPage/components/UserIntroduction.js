@@ -1,5 +1,5 @@
 import React from 'react';
-const UserIntroduction = ({ user }) => {
+const UserIntroduction = ({ user, btittle }) => {
   return (
     <div>
       <div>
@@ -17,11 +17,8 @@ const UserIntroduction = ({ user }) => {
 
               <div className="flex flex-col items-center mt-12 text-center">
                 <span className="relative inline-flex w-full rounded-full shadow-sm md:w-auto">
-                  <button
-                    type="button"
-                    className="inline-flex items-center justify-center w-full px-8 py-4 text-base font-bold leading-6 text-white transition duration-150 ease-in-out bg-purple-500 border border-transparent rounded-full md:w-auto hover:bg-purple-700 focus:outline-none focus:border-purple-700 focus:shadow-outline-indigo active:bg-purple-700"
-                  >
-                    Check out my Project
+                  <button className="inline-flex items-center justify-center w-full px-8 py-4 text-base font-bold leading-6 text-white transition duration-150 ease-in-out bg-purple-500 border border-transparent rounded-full md:w-auto hover:bg-purple-700 focus:outline-none focus:border-purple-700 focus:shadow-outline-indigo active:bg-purple-700">
+                    {btittle}
                   </button>
                   <span className="" id=""></span>
                 </span>

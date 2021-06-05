@@ -18,6 +18,12 @@ const NavBar = () => {
                 About
               </a>
             </Link>
+
+            <Link to="/achievement">
+              <a className="inline-block  px-4 py-4 mx-2 text-3xl font-bold  text-left text-blue-500 hover:text-indigo-200 ">
+                Achievement
+              </a>
+            </Link>
           </div>
           )
         </div>
