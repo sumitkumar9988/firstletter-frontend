@@ -5,6 +5,7 @@ import { portfolioURL } from './../../utils/url';
 import PortfolioHeader from '../components/Header';
 import UserIntroduction from '../components/UserIntroduction';
 import Footer from '../components/Footer';
+import Error from './../components/Error';
 import Project from './../components/Project';
 const Index = ({ subdomain }) => {
   const [loading, setLoading] = useState(true);
@@ -21,6 +22,7 @@ const Index = ({ subdomain }) => {
       })
       .catch((err) => {
         setError(err);
+        setLoading(false);
       });
 
     axios
@@ -38,7 +40,7 @@ const Index = ({ subdomain }) => {
       {loading ? (
         <Loader />
       ) : error ? (
-        <p>error.message</p>
+        <Error error={error} />
       ) : (
         <div className="bg-black">
           <PortfolioHeader user={user} />

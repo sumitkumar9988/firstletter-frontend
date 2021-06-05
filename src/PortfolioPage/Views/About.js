@@ -8,6 +8,7 @@ import Education from '../components/Education';
 import Experience from '../components/Experience';
 import Footer from '../components/Footer';
 import Contact from '../components/Contact';
+import Error from './../components/Error';
 
 const About = ({ subdomain }) => {
   const [loading, setLoading] = useState(true);
@@ -25,6 +26,7 @@ const About = ({ subdomain }) => {
       })
       .catch((err) => {
         setError(err);
+        setLoading(false);
       });
 
     axios
@@ -51,7 +53,7 @@ const About = ({ subdomain }) => {
       {loading ? (
         <Loader />
       ) : error ? (
-        <p>error.message</p>
+        <Error error={error} />
       ) : (
         <div className="bg-black">
           <PortfolioHeader user={user} />
