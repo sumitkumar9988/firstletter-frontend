@@ -7,6 +7,7 @@ import FormData from 'form-data';
 import Loader from './../components/Loader';
 import Alert from '../../extraPage/Alert';
 import { addNewExperience } from './../../redux/actions/dashboardActions';
+import ReactGA from 'react-ga';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const Index = () => {
@@ -29,11 +30,20 @@ const Index = () => {
   };
 
   useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();
+    ReactGA.event({
+      category: 'User',
+      action: 'New Experience Add',
+    });
     let data = new FormData();
     data.append('jobTitle', jobTitle);
     data.append('responsibilities', responsibilities);

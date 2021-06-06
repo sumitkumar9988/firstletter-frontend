@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userProfile } from './../../redux/actions/authActions';
 import { setCodechefUsername, getCodechefData } from './../../redux/actions/projectActions';
+import ReactGA from 'react-ga';
 import Alert from '../../extraPage/Alert';
 import Loader from './../components/Loader';
 
@@ -18,12 +19,21 @@ function Index() {
   const { loading: codechefLoading, error: codechefError, codechef } = codechefData;
 
   useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
+  useEffect(() => {
     dispatch(userProfile());
     dispatch(getCodechefData());
   }, [dispatch]);
 
   const handler = (e) => {
     e.preventDefault();
+    ReactGA.event({
+      category: 'User',
+      action: 'Codechef Account Added',
+    });
     const input = {
       codeChefUsername: username,
     };

@@ -7,6 +7,7 @@ import FormData from 'form-data';
 import Loader from './../components/Loader';
 import Alert from '../../extraPage/Alert';
 import { addNewEducation } from './../../redux/actions/dashboardActions';
+import ReactGA from 'react-ga';
 
 const Index = () => {
   const [institute, setinstitute] = useState('');
@@ -27,11 +28,20 @@ const Index = () => {
   };
 
   useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   const submitHandler = async (e) => {
     e.preventDefault();
+    ReactGA.event({
+      category: 'User',
+      action: 'New Education Add',
+    });
     let data = new FormData();
     data.append('institute', institute);
     data.append('basicinfo', basicinfo);

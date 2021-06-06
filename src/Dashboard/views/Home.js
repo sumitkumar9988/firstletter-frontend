@@ -4,11 +4,17 @@ import Comp2 from './../components/HomeComp2';
 import Comp3 from './../components/HomeComp3';
 import { useDispatch, useSelector } from 'react-redux';
 import { userProfile } from './../../redux/actions/authActions';
+import ReactGA from 'react-ga';
 
 const Index = () => {
   const dispatch = useDispatch();
   const userDetails = useSelector((state) => state.getUserDetails);
   const { loading, error, user } = userDetails;
+
+  useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     dispatch(userProfile());

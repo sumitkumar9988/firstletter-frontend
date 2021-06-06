@@ -7,6 +7,8 @@ import openInNewTab from './../utils/OpenInNewTab';
 import moment from 'moment';
 // import Loader from '../components/Loader'
 import Alert from './../components/Error';
+import ReactGA from 'react-ga';
+
 function IndexPage() {
   const dispatch = useDispatch();
 
@@ -16,6 +18,11 @@ function IndexPage() {
     error,
     experiences,
   } = experienceList;
+
+  useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     dispatch(getAllUserExperience());

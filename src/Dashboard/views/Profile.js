@@ -3,11 +3,17 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as ProfileIllustation } from './../../Asset/Profile.svg';
 import { userProfile } from './../../redux/actions/authActions';
 import { useSelector, useDispatch } from 'react-redux';
+import ReactGA from 'react-ga';
 
 const Profile = () => {
   const dispatch = useDispatch();
   const userDetails = useSelector((state) => state.getUserDetails);
   const { loading, error, user } = userDetails;
+
+  useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     dispatch(userProfile());

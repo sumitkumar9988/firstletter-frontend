@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ReactGA from 'react-ga';
 import { userProfile } from './../../redux/actions/authActions';
 import { setSPOJUsername, getSPOJData } from './../../redux/actions/projectActions';
 import Alert from '../../extraPage/Alert';
@@ -16,6 +17,11 @@ function Index() {
 
   const SPOJData = useSelector((state) => state.SPOJData);
   const { loading: SPOJDataLoading, error: SPOJDataError, spoj } = SPOJData;
+
+  useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     dispatch(userProfile());

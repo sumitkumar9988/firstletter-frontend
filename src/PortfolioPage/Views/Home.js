@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import ReactGA from 'react-ga';
 import Loader from './../../extraPage/Loader';
 import { portfolioURL } from './../../utils/url';
 import PortfolioHeader from '../components/Header';
@@ -12,6 +13,11 @@ const Index = ({ subdomain }) => {
   const [error, setError] = useState();
   const [user, setUser] = useState();
   const [project, setProject] = useState();
+
+  useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     axios
