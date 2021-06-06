@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import PortfolioPage from './PortfolioPage/Index';
 import { Provider } from 'react-redux';
 import store from './store';
+import ReactGA from 'react-ga';
+ReactGA.initialize('UA-198799173-1');
 
 const parsedData = window.location.host.split('.');
 

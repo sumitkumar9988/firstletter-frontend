@@ -1,6 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import ReactGA from 'react-ga';
+
 import DeveloperImage from './../../Asset/developer.png';
 function Index() {
+  useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
   return (
     <div className=" overflow-y-hidden">
       <div className="w-full bg-black sm:pt-16 sm:pb-32 pt-10 pb-10">

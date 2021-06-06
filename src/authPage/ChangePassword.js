@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import ReactGA from 'react-ga';
 import Alert from '../extraPage/Alert';
 import Loader from '../extraPage/Loader';
 import { changePassword } from '../redux/actions/authActions.js';
@@ -16,6 +17,11 @@ const ChangePassword = ({ history, location }) => {
 
   const userChangePassword = useSelector((state) => state.userChangePassword);
   const { loading, success, error } = userChangePassword;
+
+  useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     if (!userInfo) {

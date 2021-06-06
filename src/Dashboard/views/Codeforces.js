@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userProfile } from './../../redux/actions/authActions';
+import ReactGA from 'react-ga';
+
 import { setCodeforcesUsername, getCodeforcesData } from './../../redux/actions/projectActions';
 import Alert from '../../extraPage/Alert';
 import Loader from './../components/Loader';
@@ -16,6 +18,11 @@ function Index() {
 
   const codeforcesData = useSelector((state) => state.codeforcesData);
   const { loading: CodeforcesDataLoading, error: CodeforcesDataError, codeforces } = codeforcesData;
+
+  useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     dispatch(userProfile());

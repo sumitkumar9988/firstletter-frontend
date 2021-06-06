@@ -6,11 +6,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../../extraPage/Alert';
 // import Loader from './../components/Loader';
 import PlusLogo from '../../Asset/plus.png';
+import ReactGA from 'react-ga';
+
 function IndexPage() {
   const dispatch = useDispatch();
 
   const educationList = useSelector((state) => state.userEducationList);
   const { error, educations } = educationList;
+
+  useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   useEffect(() => {
     dispatch(getAllUserEducation());

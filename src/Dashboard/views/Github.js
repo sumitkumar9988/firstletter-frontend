@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { userProfile } from './../../redux/actions/authActions';
 import { saveGithubUsername } from './../../redux/actions/projectActions';
 import Alert from '../../extraPage/Alert';
+import ReactGA from 'react-ga';
 import queryString from 'query-string';
 
 function IndexPage({ location, history }) {
@@ -25,6 +26,10 @@ function IndexPage({ location, history }) {
       const input = {
         code: code,
       };
+      ReactGA.event({
+        category: 'User',
+        action: 'New GitHub Account Added',
+      });
       dispatch(saveGithubUsername(input));
     }
   }, [code]);

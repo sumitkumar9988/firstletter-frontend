@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactGA from 'react-ga';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../extraPage/Alert';
@@ -21,6 +22,11 @@ const Register = ({ history }) => {
   const { userInfo: user } = userLogin;
 
   useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
+  useEffect(() => {
     if (user) {
       history.push('/home');
     }
@@ -31,6 +37,10 @@ const Register = ({ history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    ReactGA.event({
+      category: 'User',
+      action: 'Account Created',
+    });
     const data = {
       name,
       username,

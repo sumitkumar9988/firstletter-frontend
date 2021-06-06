@@ -4,6 +4,7 @@ import { getAllUserCertificate, deleteCertificate } from '../../redux/actions/da
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../components/Error';
 import Loader from './../components/Loader';
+import ReactGA from 'react-ga';
 
 function IndexPage() {
   const dispatch = useDispatch();
@@ -18,11 +19,10 @@ function IndexPage() {
   const delCertificate = useSelector((state) => state.delCertificate);
   const { loading: deleteCertificateLoading, error: certificateDeleteError, success } = delCertificate;
 
-  console.log(deleteCertificateLoading);
-  console.log(certificateDeleteError);
-  console.log(success);
-
-  console.log(certificates);
+  useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
   useEffect(() => {
     dispatch(getAllUserCertificate());
     if (success) {

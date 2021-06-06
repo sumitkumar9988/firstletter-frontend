@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userProfile } from './../../redux/actions/authActions';
 import { projectListData, projectDetails, updateProjectDetails } from './../../redux/actions/projectActions';
 import moment from 'moment';
+import ReactGA from 'react-ga';
 import Loader from './../components/Loader';
 import Alert from '../../extraPage/Alert';
 import Toggle from './../components/ToggleButton';
@@ -23,6 +24,11 @@ function IndexPage({}) {
   const { updateLoading, updateError, success } = updateProject;
 
   useEffect(() => {
+    ReactGA.initialize('UA-198799173-1');
+    ReactGA.pageview(window.location.pathname + window.location.search);
+  }, []);
+
+  useEffect(() => {
     dispatch(userProfile());
     dispatch(projectListData());
     if (success) {
@@ -37,6 +43,10 @@ function IndexPage({}) {
 
   const toggleShow = (parameter, id) => (event) => {
     event.preventDefault();
+    ReactGA.event({
+      category: 'User',
+      action: 'New Project Added',
+    });
     const data = {
       included: parameter,
     };
