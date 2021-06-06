@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LandingPage from './LandingPage/Index';
 import Dashboard from './Dashboard/Index';
 import Login from './authPage/Login';
