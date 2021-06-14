@@ -7,6 +7,7 @@ import PortfolioPage from './PortfolioPage/Index';
 import { Provider } from 'react-redux';
 import store from './store';
 import ReactGA from 'react-ga';
+import { Redirect } from 'react-router-dom';
 ReactGA.initialize('UA-198799173-1');
 
 const parsedData = window.location.host.split('.');
@@ -14,6 +15,9 @@ const parsedData = window.location.host.split('.');
 if (parsedData.length >= 3) {
   const subDomain = parsedData[0];
   console.log('subdomin', subDomain);
+  if (subDomain === 'www') {
+    <Redirect to="https://firstletter.tech" />;
+  }
   ReactDOM.render(<PortfolioPage subDomain={subDomain} />, document.getElementById('root'));
 } else {
   ReactDOM.render(

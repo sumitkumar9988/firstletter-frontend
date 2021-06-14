@@ -44,7 +44,7 @@ function IndexPage({ location, history }) {
               <a
                 aria-label="Continue with github"
                 role="button"
-                href="https://github.com/login/oauth/authorize?client_id=66cfc66a4b84d65fe880"
+                href="https://github.com/login/oauth/authorize?client_id=7befdbe2c69ddcb7658f"
                 className=" bg-white  focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-50 py-3.5 px-4 border rounded-lg border-gray-400 flex items-center w-full mt-4"
               >
                 <p className="text-base  font-medium ml-4 text-gray-900">Select All Your Project</p>
@@ -81,7 +81,7 @@ function IndexPage({ location, history }) {
               <a
                 aria-label="Continue with github"
                 role="button"
-                href="https://github.com/login/oauth/authorize?client_id=66cfc66a4b84d65fe880"
+                href="https://github.com/login/oauth/authorize?client_id=7befdbe2c69ddcb7658f"
                 className=" bg-white  focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-50 py-3.5 px-4 border rounded-lg border-gray-400 flex items-center w-full mt-4"
               >
                 <svg width={21} height={20} viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
