@@ -16,7 +16,7 @@ if (parsedData.length >= 3) {
   const subDomain = parsedData[0];
   console.log('subdomin', subDomain);
   if (subDomain === 'www') {
-    <Redirect to="https://firstletter.tech" />;
+    window.location.assign('https://firstletter.tech');
   }
   ReactDOM.render(<PortfolioPage subDomain={subDomain} />, document.getElementById('root'));
 } else {
