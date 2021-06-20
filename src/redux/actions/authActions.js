@@ -27,10 +27,10 @@ import {
   UPDATE_SOCIAL_ACCOUNT_FAIL,
 } from './../constant/authConstants';
 
-export const login = (input) => async (dispatch) => {
+export const login = (input, path = 'login') => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
-    let { data } = await axios.post(`${baseURL}/login`, input);
+    let { data } = await axios.post(`${baseURL}/${path}`, input);
     dispatch({ type: LOGIN_SUCCESS, payload: data });
     localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
@@ -41,10 +41,10 @@ export const login = (input) => async (dispatch) => {
   }
 };
 
-export const signup = (input) => async (dispatch) => {
+export const signup = (input, path = 'signup') => async (dispatch) => {
   dispatch({ type: SIGNUP_REQUEST });
   try {
-    let { data } = await axios.post(`${baseURL}/signup`, input);
+    let { data } = await axios.post(`${baseURL}/${path}`, input);
     dispatch({ type: SIGNUP_SUCCESS, payload: data });
     dispatch({ type: LOGIN_SUCCESS, payload: data });
     localStorage.setItem('userInfo', JSON.stringify(data));

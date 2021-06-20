@@ -28,9 +28,6 @@ export default function IndexPage({ children }) {
           <div className="flex   flex-no-wrap ">
             <div className="  w-64 absolute lg:relative bg-gray-900 shadow min-h-screen flex-col justify-between hidden lg:flex pb-12">
               <div className="px-8">
-                <div className="h-20 w-full flex items-center ">
-                  <Logo />
-                </div>
                 <ul className="mt-12 fixed">
                   <Link to="/home">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
@@ -97,9 +94,6 @@ export default function IndexPage({ children }) {
                 <div className="flex flex-col justify-between h-full ">
                   <div className="">
                     <div className="flex items-center justify-between px-8">
-                      <div className="h-16 w-full flex items-center">
-                        <Logo />
-                      </div>
                       <div
                         id="closeSideBar"
                         className="flex  items-center justify-center h-10 w-10"
