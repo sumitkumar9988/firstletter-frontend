@@ -5,7 +5,7 @@ import GoogleLogin from 'react-google-login';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../extraPage/Alert';
 import Loader from '../extraPage/Loader';
-import Username from './Username';
+import { google_clientID } from './../utils/url';
 import { signup } from '../redux/actions/authActions.js';
 import logo from './../Asset/logo2.png';
 
@@ -14,6 +14,8 @@ const Register = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const [tokenID, setTokenID] = useState('');
+  const [usernameScreen, setUsernameScreen] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -23,7 +25,34 @@ const Register = ({ history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo: user } = userLogin;
 
-  const responseGoogle = (response) => {
+  const onSucussGoogleResponse = (response) => {
+    console.log(response);
+    setTokenID(response.tokenId);
+    setUsernameScreen(true);
+  };
+
+  const registerUserWithGoogle = (e) => {
+    e.preventDefault();
+    ReactGA.event({
+      category: 'User',
+      action: 'Account Created',
+    });
+
+    console.log(tokenID);
+    console.log(username);
+    const inputData = {
+      tokenID: tokenID,
+      username: username,
+    };
+    dispatch(signup(inputData, 'signupGoogleOauth'));
+  };
+
+  const flipUsernameScreen = (e) => {
+    e.preventDefault();
+    setUsernameScreen(false);
+  };
+
+  const onFailGoogleResponse = (response) => {
     console.log(response);
   };
 
@@ -60,7 +89,50 @@ const Register = ({ history }) => {
     <div className="bg-black  pt-9 min-h-screen ">
       {error && <Alert message={error} type="error" />}
       {loading && <Loader />}
-      <Username name="sumit" />
+
+      {usernameScreen ? (
+        <div>
+          <div>
+            <div className="h-screen">
+              <div className="relative">
+                <div className="absolute   inset-y-0 right-0 mr-8">
+                  <button onClick={flipUsernameScreen} className="focus:outline-none text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-14 w-14"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-center py-24   ">
+                <div className="md:w-80 max-w-xs rounded shadow-lg p-6   bg-white">
+                  <h1 className=" text-gray-800 font-bold text-lg">Enter Your Username</h1>
+                  <p className="pb-4 text-sm pt-4 font-normal   text-gray-600">
+                    Your username must me unique doent not contain any space or any spacial character
+                  </p>
+                  <input
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="text-base font-medium leading-6  text-gray-800 w-full  bg-gray-100 rounded-lg flex items-center justify-between p-4"
+                  ></input>
+                  <button
+                    onClick={registerUserWithGoogle}
+                    className="text-base font-medium leading-6 text-center  text-gray-800 w-full mt-4 bg-blue-400 rounded-lg flex items-center justify-between p-4"
+                  >
+                    Create Your Account
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
 
       <div className="flex items-center justify-center  sm:px-6">
         <div className="w-full max-w-sm p-4 bg-gray-900 rounded-md shadow-md sm:p-6">
@@ -71,7 +143,7 @@ const Register = ({ history }) => {
 
           <div className="flex items-center justify-center">
             <GoogleLogin
-              clientId="71989194000-m7ktsm5s0chvj9uguohasu2qufpn36v2.apps.googleusercontent.com"
+              clientId={google_clientID}
               render={(renderProps) => (
                 // eslint-disable-next-line jsx-a11y/no-redundant-roles
                 <button
@@ -103,8 +175,8 @@ const Register = ({ history }) => {
                 </button>
               )}
               buttonText="Login"
-              onSuccess={responseGoogle}
-              onFailure={responseGoogle}
+              onSuccess={onSucussGoogleResponse}
+              onFailure={onFailGoogleResponse}
               cookiePolicy={'single_host_origin'}
             />
           </div>

@@ -7,6 +7,7 @@ import Loader from '../extraPage/Loader';
 import GoogleLogin from 'react-google-login';
 import { login } from '../redux/actions/authActions.js';
 import logo from './../Asset/logo2.png';
+import { google_clientID } from './../utils/url';
 
 const Login = ({ history }) => {
   const [email, setEmail] = useState('');
@@ -32,7 +33,15 @@ const Login = ({ history }) => {
     const data = {
       tokenID: response.tokenId,
     };
+    ReactGA.event({
+      category: 'User',
+      action: 'User Login',
+    });
     dispatch(login(data, 'goAuthLogin'));
+  };
+
+  const onfailGoogleResponse = (response) => {
+    console.log(response);
   };
 
   const submitHandler = (e) => {
@@ -62,7 +71,7 @@ const Login = ({ history }) => {
 
           <div className="flex items-center justify-center">
             <GoogleLogin
-              clientId="71989194000-m7ktsm5s0chvj9uguohasu2qufpn36v2.apps.googleusercontent.com"
+              clientId={google_clientID}
               render={(renderProps) => (
                 // eslint-disable-next-line jsx-a11y/no-redundant-roles
                 <button
@@ -95,7 +104,7 @@ const Login = ({ history }) => {
               )}
               buttonText="Login"
               onSuccess={responseGoogle}
-              onFailure={responseGoogle}
+              onFailure={onfailGoogleResponse}
               cookiePolicy={'single_host_origin'}
             />
           </div>
