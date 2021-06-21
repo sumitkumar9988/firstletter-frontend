@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import ReactGA from 'react-ga';
 import { Link } from 'react-router-dom';
+import GoogleLogin from 'react-google-login';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '../extraPage/Alert';
 import Loader from '../extraPage/Loader';
+import { google_clientID } from './../utils/url';
 import { signup } from '../redux/actions/authActions.js';
-import logo from './../Asset/logo.png';
+import logo from './../Asset/logo2.png';
 
 const Register = ({ history }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
+  const [tokenID, setTokenID] = useState('');
+  const [usernameScreen, setUsernameScreen] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -20,6 +24,37 @@ const Register = ({ history }) => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo: user } = userLogin;
+
+  const onSucussGoogleResponse = (response) => {
+    console.log(response);
+    setTokenID(response.tokenId);
+    setUsernameScreen(true);
+  };
+
+  const registerUserWithGoogle = (e) => {
+    e.preventDefault();
+    ReactGA.event({
+      category: 'User',
+      action: 'Account Created',
+    });
+
+    console.log(tokenID);
+    console.log(username);
+    const inputData = {
+      tokenID: tokenID,
+      username: username,
+    };
+    dispatch(signup(inputData, 'signupGoogleOauth'));
+  };
+
+  const flipUsernameScreen = (e) => {
+    e.preventDefault();
+    setUsernameScreen(false);
+  };
+
+  const onFailGoogleResponse = (response) => {
+    console.log(response);
+  };
 
   useEffect(() => {
     ReactGA.initialize('UA-198799173-1');
@@ -54,11 +89,99 @@ const Register = ({ history }) => {
     <div className="bg-black  pt-9 min-h-screen ">
       {error && <Alert message={error} type="error" />}
       {loading && <Loader />}
+
+      {usernameScreen ? (
+        <div>
+          <div>
+            <div className="h-screen">
+              <div className="relative">
+                <div className="absolute   inset-y-0 right-0 mr-8">
+                  <button onClick={flipUsernameScreen} className="focus:outline-none text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="h-14 w-14"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-center py-24   ">
+                <div className="md:w-80 max-w-xs rounded shadow-lg p-6   bg-white">
+                  <h1 className=" text-gray-800 font-bold text-lg">Enter Your Username</h1>
+                  <p className="pb-4 text-sm pt-4 font-normal   text-gray-600">
+                    Your username must me unique doent not contain any space or any spacial character
+                  </p>
+                  <input
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="text-base font-medium leading-6  text-gray-800 w-full  bg-gray-100 rounded-lg flex items-center justify-between p-4"
+                  ></input>
+                  <button
+                    onClick={registerUserWithGoogle}
+                    className="text-base font-medium leading-6 text-center  text-gray-800 w-full mt-4 bg-blue-400 rounded-lg flex items-center justify-between p-4"
+                  >
+                    Create Your Account
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
       <div className="flex items-center justify-center  sm:px-6">
         <div className="w-full max-w-sm p-4 bg-gray-900 rounded-md shadow-md sm:p-6">
           <img src={logo} className="h-24 mt-2 m-auto" alt="logo"></img>
           <div className="flex items-center justify-center">
             <span className="text-xl font-medium text-white">Create Your Account</span>
+          </div>
+
+          <div className="flex items-center justify-center">
+            <GoogleLogin
+              clientId={google_clientID}
+              render={(renderProps) => (
+                // eslint-disable-next-line jsx-a11y/no-redundant-roles
+                <button
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
+                  aria-label="Continue with google"
+                  role="button"
+                  className="focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-gray-700 py-3.5 px-4 border rounded-lg border-gray-50 flex items-center w-full mt-10"
+                >
+                  <svg width={19} height={20} viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M18.9892 10.1871C18.9892 9.36767 18.9246 8.76973 18.7847 8.14966H9.68848V11.848H15.0277C14.9201 12.767 14.3388 14.1512 13.047 15.0812L13.0289 15.205L15.905 17.4969L16.1042 17.5173C17.9342 15.7789 18.9892 13.221 18.9892 10.1871Z"
+                      fill="#4285F4"
+                    />
+                    <path
+                      d="M9.68813 19.9314C12.3039 19.9314 14.4999 19.0455 16.1039 17.5174L13.0467 15.0813C12.2286 15.6682 11.1306 16.0779 9.68813 16.0779C7.12612 16.0779 4.95165 14.3395 4.17651 11.9366L4.06289 11.9465L1.07231 14.3273L1.0332 14.4391C2.62638 17.6946 5.89889 19.9314 9.68813 19.9314Z"
+                      fill="#34A853"
+                    />
+                    <path
+                      d="M4.17667 11.9366C3.97215 11.3165 3.85378 10.6521 3.85378 9.96562C3.85378 9.27905 3.97215 8.6147 4.16591 7.99463L4.1605 7.86257L1.13246 5.44363L1.03339 5.49211C0.37677 6.84302 0 8.36005 0 9.96562C0 11.5712 0.37677 13.0881 1.03339 14.4391L4.17667 11.9366Z"
+                      fill="#FBBC05"
+                    />
+                    <path
+                      d="M9.68807 3.85336C11.5073 3.85336 12.7344 4.66168 13.4342 5.33718L16.1684 2.59107C14.4892 0.985496 12.3039 0 9.68807 0C5.89885 0 2.62637 2.23672 1.0332 5.49214L4.16573 7.99466C4.95162 5.59183 7.12608 3.85336 9.68807 3.85336Z"
+                      fill="#EB4335"
+                    />
+                  </svg>
+                  <p className="text-base font-medium ml-4 text-gray-50">Continue with Google</p>
+                </button>
+              )}
+              buttonText="Login"
+              onSuccess={onSucussGoogleResponse}
+              onFailure={onFailGoogleResponse}
+              cookiePolicy={'single_host_origin'}
+            />
+          </div>
+          <div className="flex items-center justify-center pt-8">
+            <span className="text-base font-medium text-white">Or</span>
           </div>
           <form className="mt-4">
             <label for="Name" className="block">

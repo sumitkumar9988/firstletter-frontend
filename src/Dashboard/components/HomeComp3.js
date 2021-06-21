@@ -9,52 +9,61 @@ export default function IndexPage() {
         </div>
         <div className="py-10 px-6 flex flex-wrap justify-between">
           <div className="xl:w-1/4 sm:w-2/5 w-full mb-12 cursor-pointer">
-            <div className="flex flex-col items-center">
-              <div className="mb-3 h-20 w-20">
-                <img
-                  src="https://res.cloudinary.com/sumit9988/image/upload/v1622406272/25231_c7rvx4.png"
-                  alt
-                  className="h-full w-full object-cover rounded"
-                />
+            <Link to="/home/projects">
+              <div className="flex flex-col items-center">
+                <div className="mb-3 h-20 w-20">
+                  <img
+                    src="https://res.cloudinary.com/sumit9988/image/upload/v1622406272/25231_c7rvx4.png"
+                    alt="Github logo"
+                    className="h-full w-full object-cover rounded"
+                  />
+                </div>
+                <p className="text-sm mb-1 text-gray-800 dark:text-gray-100">Github</p>
               </div>
-              <p className="text-sm mb-1 text-gray-800 dark:text-gray-100">Github</p>
-            </div>
+            </Link>
+          </div>
+
+          <div className="xl:w-1/4 sm:w-2/5 w-full mb-12 cursor-pointer">
+            <Link to="/home/programming/codechef">
+              <div className="flex flex-col items-center">
+                <div className="mb-3 h-20 w-20">
+                  <img
+                    src="https://res.cloudinary.com/sumit9988/image/upload/v1622406222/811b20a47eac52b10c90ab82e0628e21_cswov0.png"
+                    alt="codechef logo"
+                    className="h-full w-full object-cover rounded"
+                  />
+                </div>
+                <p className="text-sm mb-1 text-gray-800 dark:text-gray-100">Codechef</p>
+              </div>
+            </Link>
           </div>
           <div className="xl:w-1/4 sm:w-2/5 w-full mb-12 cursor-pointer">
-            <div className="flex flex-col items-center">
-              <div className="mb-3 h-20 w-20">
-                <img
-                  src="https://res.cloudinary.com/sumit9988/image/upload/v1622406222/811b20a47eac52b10c90ab82e0628e21_cswov0.png"
-                  alt
-                  className="h-full w-full object-cover rounded"
-                />
+            <Link to="/home/programming/spoj">
+              <div className="flex flex-col items-center">
+                <div className="mb-3 h-20 w-20">
+                  <img
+                    src="https://res.cloudinary.com/sumit9988/image/upload/v1622406131/download_cyf4bc.jpg"
+                    alt="SPOJ lOGI"
+                    className="h-full w-full object-cover rounded"
+                  />
+                </div>
+                <p className="text-sm mb-1 text-gray-800 dark:text-gray-100">SPOJ</p>
               </div>
-              <p className="text-sm mb-1 text-gray-800 dark:text-gray-100">Codechef</p>
-            </div>
+            </Link>
           </div>
           <div className="xl:w-1/4 sm:w-2/5 w-full mb-12 cursor-pointer">
-            <div className="flex flex-col items-center">
-              <div className="mb-3 h-20 w-20">
-                <img
-                  src="https://res.cloudinary.com/sumit9988/image/upload/v1622406131/download_cyf4bc.jpg"
-                  alt
-                  className="h-full w-full object-cover rounded"
-                />
+            <Link to="/home/programming/codeforces">
+              <div className="flex flex-col items-center">
+                <div className="mb-3 h-20 w-20">
+                  <img
+                    src="https://res.cloudinary.com/sumit9988/image/upload/v1622406032/dataset-card_ejfwpo.png"
+                    alt="codeforces logo"
+                    className="h-full w-full object-cover rounded"
+                  />
+                </div>
+                <p className="text-sm mb-1 text-gray-800 dark:text-gray-100">Codeforces</p>
               </div>
-              <p className="text-sm mb-1 text-gray-800 dark:text-gray-100">SPOJ</p>
-            </div>
-          </div>
-          <div className="xl:w-1/4 sm:w-2/5 w-full mb-12 cursor-pointer">
-            <div className="flex flex-col items-center">
-              <div className="mb-3 h-20 w-20">
-                <img
-                  src="https://res.cloudinary.com/sumit9988/image/upload/v1622406032/dataset-card_ejfwpo.png"
-                  alt
-                  className="h-full w-full object-cover rounded"
-                />
-              </div>
-              <p className="text-sm mb-1 text-gray-800 dark:text-gray-100">Codeforces</p>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
