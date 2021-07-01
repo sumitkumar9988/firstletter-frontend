@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { userProfile, updateProfileAction } from './../../../redux/actions/authActions';
 import { RESET_USER_DETAILS } from './../../../redux/constant/authConstants';
+import uploadImage from './../../../utils/uploadImageToAWS';
 import FormData from 'form-data';
 import Alert from '../../../extraPage/Alert';
 import Loader from './../../components/Loader';
@@ -16,6 +17,7 @@ const Index = () => {
   const [location, setLocation] = useState('');
   const [bio, setBio] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
+  const [imageLoading, setimageLoading] = useState(false);
 
   const dispatch = useDispatch();
   const userDetails = useSelector((state) => state.getUserDetails);
@@ -41,7 +43,9 @@ const Index = () => {
   }, [dispatch]);
 
   const onChangePicture = (e) => {
-    setImage(e.target.files[0]);
+    e.preventDefault();
+    setimageLoading(true);
+    uploadImage(e.target.files[0], setImage, setimageLoading);
   };
 
   const submitHandler = (e) => {
@@ -64,6 +68,7 @@ const Index = () => {
   return (
     <div>
       {loading && <Loader />}
+      {imageLoading && <Loader />}
       {updateLoading && <Loader />}
       {error && <Alert message={error} type="error" />}
       {updateError && <Alert message={updateError} type="error" />}
@@ -81,7 +86,7 @@ const Index = () => {
                   />
 
                   <label
-                    for="image"
+                    for="image-upload-id"
                     className="bg-red-400 dark:bg-gray-800 h-6 w-6 rounded-full flex items-center justify-center right-0 absolute cursor-pointer text-gray-600 dark:text-gray-400"
                   >
                     <svg
@@ -102,7 +107,7 @@ const Index = () => {
                       <line x1={16} y1={5} x2={19} y2={8} />
                     </svg>
 
-                    <input type="file" onClick={onChangePicture} id="image" accept="image/*" hidden />
+                    <input type="file" onChange={onChangePicture} id="image-upload-id" accept="image/*" hidden />
                   </label>
                 </div>
               </div>

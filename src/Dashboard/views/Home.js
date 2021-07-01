@@ -24,7 +24,7 @@ const Index = () => {
     <>
       <div className="min-h- mt-4">
         <Comp2 />
-        <Comp3 />
+        {/* <Comp3 /> */}
         <Comp1 />
       </div>
     </>

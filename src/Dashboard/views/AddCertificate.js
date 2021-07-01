@@ -7,6 +7,7 @@ import FormData from 'form-data';
 import Loader from './../components/Loader';
 import Alert from '../../extraPage/Alert';
 import 'react-datepicker/dist/react-datepicker.css';
+import uploadImage from './../../utils/uploadImageToAWS';
 import { addCertificate } from './../../redux/actions/dashboardActions';
 import ReactGA from 'react-ga';
 
@@ -17,6 +18,7 @@ const Index = () => {
   const [url, setUrl] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   const [learning, setLearning] = useState('');
+  const [imageLoading, setimageLoading] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -24,7 +26,9 @@ const Index = () => {
   const { loading, error, success } = postCertficate;
 
   const onChangePicture = (e) => {
-    setImage(e.target.files[0]);
+    e.preventDefault();
+    setimageLoading(true);
+    uploadImage(e.target.files[0], setImage, setimageLoading);
   };
 
   useEffect(() => {
@@ -47,9 +51,7 @@ const Index = () => {
     data.append('Organization', Organization);
     data.append('startDate', moment(startDate).format('YYYY-MM-DD'));
     data.append('learning', learning);
-    if (image !== null) {
-      data.append('image', image);
-    }
+    data.append('image', image);
     dispatch(addCertificate(data));
     window.scrollTo(0, 0);
   };
@@ -59,6 +61,7 @@ const Index = () => {
       {error && <Alert message={error} type="error" />}
       {success && <Alert message={success} type="success" />}
       {loading && <Loader />}
+      {imageLoading && <Loader />}
       <div>
         <form className="container mx-auto bg-black shadow rounded">
           <div>
@@ -170,15 +173,21 @@ const Index = () => {
                           or
                         </p>
                         <label
-                          htmlFor="image"
+                          htmlFor="image-upload-id"
                           className="cursor-pointer text-base font-normal tracking-normal text-indigo-500 dark:text-indigo-600 text-center"
                         >
                           {' '}
                           browse{' '}
                         </label>
-                        <input type="file" className="hidden" id="image" onChange={onChangePicture} accept="image/*" />
+                        <input
+                          type="file"
+                          className="hidden"
+                          id="image-upload-id"
+                          onChange={onChangePicture}
+                          accept="image/*"
+                        />
                         <div className="flex justify-between items-center pt-1 text-green-400">
-                          <p className="text-xs">{image && image.name}</p>
+                          <p className="text-xs">{image}</p>
                         </div>
                       </div>
                     </div>

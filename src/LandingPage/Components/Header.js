@@ -23,7 +23,7 @@ const Header = () => {
             </p>
             {open ? <Nav /> : null}
             <div
-              class="absolute right-0 z-50 flex flex-col items-end w-10 h-10 p-2 mr-4 rounded-full cursor-pointer  bg-white hover:bg-opacity-90"
+              class="fixed right-0 z-50 flex flex-col mr-4 items-end w-10 h-10 p-2 md:mr-16 rounded-full cursor-pointer  bg-white hover:bg-opacity-90"
               onClick={toggle}
             >
               {open ? null : <Headeropen />}

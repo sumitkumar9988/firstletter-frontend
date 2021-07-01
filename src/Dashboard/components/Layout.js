@@ -28,53 +28,53 @@ export default function IndexPage({ children }) {
           <div className="flex   flex-no-wrap ">
             <div className="  w-64 absolute lg:relative bg-gray-900 shadow min-h-screen flex-col justify-between hidden lg:flex pb-12">
               <div className="px-8">
-                <ul className="mt-12 fixed">
+                <ul className="mt-40 fixed">
                   <Link to="/home">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-base">Dashboard</span>
+                        <span className="text-lg font-bold">Dashboard</span>
                       </div>
                     </li>
                   </Link>
                   <Link to="/home/education">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-base">Education</span>
+                        <span className="text-lg font-bold">Education</span>
                       </div>
                     </li>
                   </Link>
                   <Link to="/home/experience">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-base">Experience</span>
+                        <span className="text-lg font-bold">Experience</span>
                       </div>
                     </li>
                   </Link>
                   <Link to="/home/certificate">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-base">Certificate</span>
+                        <span className="text-lg font-bold">Certificate</span>
                       </div>
                     </li>
                   </Link>
                   <Link to="/home/projects">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-base">Projects</span>
+                        <span className="text-lg font-bold">Project</span>
                       </div>
                     </li>
                   </Link>
-                  <Link to="/home/programming">
+                  {/* <Link to="/home/programming">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-base">Compitative Programming</span>
+                        <span className="text-lg font-bold">Compitative Programming</span>
                       </div>
                     </li>
-                  </Link>
+                  </Link> */}
                   <Link to="/home/jobs">
                     <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                       <div className="flex items-center">
-                        <span className="text-base">Jobs</span>
+                        <span className="text-lg font-bold">Jobs</span>
                       </div>
                     </li>
                   </Link>
@@ -120,51 +120,51 @@ export default function IndexPage({ children }) {
                     <div className="px-8 ">
                       <ul className="mt-12">
                         <Link to="/home">
-                          <li className="flex w-full justify-between text-indigo-500 cursor-pointer items-center mb-6">
+                          <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                             <div className="flex items-center">
-                              <span className="xl:text-base md:text-2xl text-base ml-2">Dashboard</span>
+                              <span className="xl:text-base md:text-2xl text-base text-lg font-bold">Dashboard</span>
                             </div>
                           </li>
                         </Link>
                         <Link to="/home/education">
                           <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                             <div className="flex items-center">
-                              <span className="xl:text-base md:text-2xl text-base ml-2">Education</span>
+                              <span className="xl:text-base md:text-2xl text-lg font-bold">Education</span>
                             </div>
                           </li>
                         </Link>
                         <Link to="/home/experience">
                           <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                             <div className="flex items-center">
-                              <span className="xl:text-base md:text-2xl text-base ml-2">Experience</span>
+                              <span className="xl:text-base md:text-2xl text-lg font-bold">Experience</span>
                             </div>
                           </li>
                         </Link>
                         <Link to="/home/projects">
                           <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                             <div className="flex items-center">
-                              <span className="xl:text-base md:text-2xl text-base ml-2">Projects</span>
+                              <span className="xl:text-base md:text-2xl text-lg font-bold">Project</span>
                             </div>
                           </li>
                         </Link>
                         <Link to="/home/certificate">
                           <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                             <div className="flex items-center">
-                              <span className="xl:text-base md:text-2xl text-base ml-2">Certificate</span>
+                              <span className="xl:text-base md:text-2xl text-lg font-bold">Certificate</span>
                             </div>
                           </li>
                         </Link>
-                        <Link to="/home/programming">
+                        {/* <Link to="/home/programming">
                           <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                             <div className="flex items-center">
-                              <span className="xl:text-base md:text-2xl text-base ml-2">Compitative Programming</span>
+                              <span className="xl:text-base md:text-2xl text-lg font-bold">Compitative Programming</span>
                             </div>
                           </li>
-                        </Link>
+                        </Link> */}
                         <Link to="/home/jobs">
                           <li className="flex w-full justify-between text-white hover:text-indigo-500 cursor-pointer items-center mb-6">
                             <div className="flex items-center">
-                              <span className="xl:text-base md:text-2xl text-base ml-2">Jobs</span>
+                              <span className="xl:text-base md:text-2xl text-lg font-bold">Jobs</span>
                             </div>
                           </li>
                         </Link>
@@ -177,7 +177,7 @@ export default function IndexPage({ children }) {
                         <Link to="/home/me">
                           <div className="flex items-center">
                             <img alt="profile-pic" src={userInfo.data.user.photo} className="w-8 h-8 rounded-md" />
-                            <p className="md:text-xl text-gray-50 text-base leading-4 ml-2">
+                            <p className="md:text-xl text-gray-50 text-lg font-bold leading-4 ml-2">
                               {userInfo ? userInfo.data.user.name : null}
                             </p>
                           </div>
@@ -240,7 +240,7 @@ export default function IndexPage({ children }) {
                                     <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                                   </svg>
                                   <Link to="/home/me">
-                                    <span className="text-base ml-1">My Profile</span>
+                                    <span className="text-lg font-bold ml-1">My Profile</span>
                                   </Link>
                                 </div>
                               </li>
@@ -262,7 +262,7 @@ export default function IndexPage({ children }) {
                                     <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
                                     <path d="M7 12h14l-3 -3m0 6l3 -3" />
                                   </svg>
-                                  <span onClick={logoutHandler} className="text-base ml-2">
+                                  <span onClick={logoutHandler} className="text-lg font-bold ml-1">
                                     Sign out
                                   </span>
                                 </div>
@@ -281,7 +281,9 @@ export default function IndexPage({ children }) {
                           </div>
                         </div>
 
-                        <p className="text-gray-50 text-base mx-3">{userInfo ? userInfo.data.user.name : null}</p>
+                        <p className="text-gray-50 text-lg font-bold mx-3">
+                          {userInfo ? userInfo.data.user.name : null}
+                        </p>
                         <div className="cursor-pointer text-gray-50">
                           <svg
                             aria-haspopup="true"
