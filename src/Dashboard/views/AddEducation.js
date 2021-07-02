@@ -6,6 +6,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import FormData from 'form-data';
 import Loader from './../components/Loader';
 import Alert from '../../extraPage/Alert';
+import uploadImage from './../../utils/uploadImageToAWS';
 import { addNewEducation } from './../../redux/actions/dashboardActions';
 import ReactGA from 'react-ga';
 
@@ -17,6 +18,7 @@ const Index = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [grade, setGrade] = useState(null);
+  const [imageLoading, setimageLoading] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -24,7 +26,9 @@ const Index = () => {
   const { loading, error, success } = addEducation;
 
   const onChangePicture = (e) => {
-    setImage(e.target.files[0]);
+    e.preventDefault();
+    setimageLoading(true);
+    uploadImage(e.target.files[0], setImage, setimageLoading);
   };
 
   useEffect(() => {
@@ -62,6 +66,7 @@ const Index = () => {
         {error && <Alert message={error} type="error" />}
         {success && <Alert message={success} type="success" />}
         {loading && <Loader />}
+        {imageLoading && <Loader />}
 
         <form className="container mx-auto bg-black shadow rounded">
           <div>
@@ -199,7 +204,7 @@ const Index = () => {
                         </label>
                         <input type="file" className="hidden" id="image" onChange={onChangePicture} accept="image/*" />
                         <div className="flex justify-between items-center pt-1 text-green-400">
-                          <p className="text-xs">{image && image.name}</p>
+                          <p className="text-xs">{image}</p>
                         </div>
                       </div>
                     </div>
