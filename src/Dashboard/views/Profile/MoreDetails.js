@@ -19,6 +19,7 @@ const Index = () => {
 
   const updateSocialProfile = useSelector((state) => state.updateSocialProfile);
   const { loading: updateLoading, error: updateError, success } = updateSocialProfile;
+  console.log(success);
 
   useEffect(() => {
     dispatch(userProfile());
@@ -42,13 +43,14 @@ const Index = () => {
       dribbleAccount: dribbleAccount,
       InstaAccount: InstaAccount,
     };
+    dispatch(updateSocialProfileAction(data));
     window.scrollTo(0, 0);
   };
 
   return (
     <div>
       {loading && <Loader />}
-      {updateLoading && <Loader />}
+      {/* {updateLoading && <Loader />} */}
       {error && <Alert message={error} type="error" />}
       {updateError && <Alert message={updateError} type="error" />}
       {success && <Alert message={success} type="success" />}
@@ -144,11 +146,6 @@ const Index = () => {
           <Link to="/home/projects/github">
             <p class="inline-block  px-4 py-2 mx-2 text-xs text-left font-semibold text-pink-500 hover:text-indigo-200 ">
               Change Github Username
-            </p>
-          </Link>
-          <Link to="/home/me/link/cp">
-            <p class="inline-block  px-4 py-2 mx-2 text-xs text-left font-semibold text-pink-500 hover:text-indigo-200 ">
-              Change all Your Compitative Programming Link
             </p>
           </Link>
         </div>
