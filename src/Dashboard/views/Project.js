@@ -4,8 +4,10 @@ import { userProfile } from './../../redux/actions/authActions';
 import { projectListData, projectDetails, updateProjectDetails } from './../../redux/actions/projectActions';
 import moment from 'moment';
 import ReactGA from 'react-ga';
+import { github_url } from './../../utils/url';
 import Loader from './../components/Loader';
 import Alert from '../../extraPage/Alert';
+import ProjectCard from './../components/ProjectCard';
 import Toggle from './../components/ToggleButton';
 
 function IndexPage({}) {
@@ -68,12 +70,11 @@ function IndexPage({}) {
                 Your <span className="inline-block text-pink-400">Project</span>
               </h2>
             </div>
-            //
             <div className=" text-center  w-1/3 m-auto">
               <a
                 aria-label="Continue with github"
                 role="button"
-                href="https://github.com/login/oauth/authorize?client_id=7befdbe2c69ddcb7658f"
+                href={github_url}
                 className=" bg-white  focus:outline-none  focus:ring-2 focus:ring-offset-1 focus:ring-gray-50 py-3.5 px-4 border rounded-lg border-gray-400 flex items-center w-full mt-4"
               >
                 <svg width={21} height={20} viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -93,6 +94,8 @@ function IndexPage({}) {
 
   return (
     <div className="bg-black min-h-screen">
+      {updateLoading && <Loader />}
+      {projectLoading && <Loader />}
       {loading ? (
         <Loader />
       ) : error ? (
@@ -128,24 +131,15 @@ function IndexPage({}) {
                 {projects &&
                   projects.map((project) => {
                     return (
-                      <div className="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-gradient-to-r from-pink-500 to-red-500   rounded-lg shadow-2xl hover:scale-105">
-                        <img className="h-56 rounded-t-lg  object-cover" alt="logo " src={project.projectLogo} />
-                        <div className="" onClick={toggleShow(!project.included, project._id)}>
-                          <Toggle checked={project.included} />
-                        </div>
-                        <div className="px-6 pt-8 mb-2 text-xl text-red-50 font-bold">
-                          <span>{project.name}</span>
-                        </div>
-                        <div className="px-6  mb-2 text-lg text-red-50 ">
-                          {/* <a target="_blank" rel="noopener noreferrer">
-                            item.organization
-                          </a> */}
-                        </div>
-                        <div className="px-6 pt-2 text-blue-50">
-                          <small>update on:- {moment(project.updated_at).format('DD-MM-YYYY')}</small>
-                          <div className="overflow-hidden h-40 ...">{project.description}</div>
-                        </div>
-                      </div>
+                      <ProjectCard
+                        included={project.included}
+                        id={project._id}
+                        name={project.name}
+                        updated_at={project.updated_at}
+                        description={project.description}
+                        projectLogo={project.projectLogo}
+                        toggleShow={toggleShow}
+                      />
                     );
                   })}
               </div>
@@ -158,3 +152,22 @@ function IndexPage({}) {
 }
 
 export default IndexPage;
+
+// <div className="flex mb-12 flex-col overflow-hidden transition duration-500 ease-in-out transform bg-gradient-to-r from-pink-500 to-red-500   rounded-lg shadow-2xl hover:scale-105">
+//   <img className="h-56 rounded-t-lg  object-cover" alt="logo " src={project.projectLogo} />
+//   <div className="" onClick={toggleShow(!project.included, project._id)}>
+//     <Toggle checked={project.included} />
+//   </div>
+//   <div className="px-6 pt-8 mb-2 text-xl text-red-50 font-bold">
+//     <span>{project.name}</span>
+//   </div>
+//   <div className="px-6  mb-2 text-lg text-red-50 ">
+//     {/* <a target="_blank" rel="noopener noreferrer">
+//       item.organization
+//     </a> */}
+//   </div>
+//   <div className="px-6 pt-2 text-blue-50">
+//     <small>update on:- {moment(project.updated_at).format('DD-MM-YYYY')}</small>
+//     <div className="overflow-hidden h-40 ...">{project.description}</div>
+//   </div>
+// </div>

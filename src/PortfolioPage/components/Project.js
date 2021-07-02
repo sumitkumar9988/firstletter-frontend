@@ -4,14 +4,16 @@ const Project = ({ project }) => {
   return (
     <div>
       <div class="pb-1 text-center text-gray-700 bg-black bg-cover">
-        <div class="container relative max-w-2xl px-5 pt-12 mx-auto sm:py-12 lg:px-0">
-          <h2 class="mb-10 text-4xl font-extrabold leading-10 tracking-tight text-left text-gray-50 sm:text-5xl sm:leading-none md:text-6xl sm:text-center">
-            Awesome <span class="inline-block text-indigo-500">Project</span>
-          </h2>
-          <p class="mt-5 text-xl text-white text-left opacity-75 sm:text-center">
-            These are the Awesome Project i build for more detail check out my project
-          </p>
-        </div>
+        {project.length === 0 ? null : (
+          <div class="container relative max-w-2xl px-5 pt-12 mx-auto sm:py-12 lg:px-0">
+            <h2 class="mb-10 text-4xl font-extrabold leading-10 tracking-tight text-left text-gray-50 sm:text-5xl sm:leading-none md:text-6xl sm:text-center">
+              Awesome <span class="inline-block text-indigo-500">Project</span>
+            </h2>
+            <p class="mt-5 text-xl text-white text-left opacity-75 sm:text-center">
+              These are the Awesome Project i build for more detail check out my project
+            </p>
+          </div>
+        )}
         <div class="my-12 ">
           <div class="max-w-xl px-4 mb-10 mx-auto sm:px-6 lg:max-w-screen-xl lg:px-8">
             <div class="lg:grid  lg:grid-cols-2 lg:gap-10">

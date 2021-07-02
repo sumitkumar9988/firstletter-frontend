@@ -9,26 +9,26 @@ export default function IndexPage() {
     <>
       <div className="mx-auto container mt-0 lg:my-16 my-5 px-4 lg:px-0">
         <div className="lg:flex items-center justify-center mt-4 lg:mt-32">
-          <div className="lg:w-1/2 h-1/3">
+          {/* <div className="lg:w-1/2 h-1/3">
             <img
               src="https://res.cloudinary.com/sumit9988/image/upload/v1624192057/homes_bdfnam.jpg"
               alt="intro screen"
               className="w-full h-full"
             />
-          </div>
-          <div className="mt-4  lg:mt-0 py-12 px-8 lg:px-12 bg-white lg:w-2/5 lg:-ml-12  f-f-l">
-            <div className="md:w-80 rounded  p-6  bg-white">
+          </div> */}
+          <div className="mt-4  lg:mt-0 py-12 px-4 lg:px-8 bg-white lg:w-2/5 lg:-ml-12  f-f-l">
+            <div className="md:w-80 rounded  p-2  bg-white">
               <h1 className="text-lg font-bold leading-none  dark:text-gray-100 text-gray-800 ">
                 Your website is ready
               </h1>
-              <p className="text-sm leading-5 pt-6   dark:text-gray-100 text-gray-600">
+              <p className="text-sm leading-5 pt-2   dark:text-gray-100 text-gray-600">
                 Share the link with people you want to give access to{' '}
               </p>
               <p className=" text-xs font-semibold py-4 leading-4 text-indigo-700 uppercase">Your link</p>
               <div className>
                 <div className="flex items-center h-full justify-between text-sm font-semibold leading-6 bg-gray-100  rounded h-12 w-full">
                   <div>
-                    <p className="pl-4 text-base font-medium leading-tight  dark:text-gray-100 text-gray-800">
+                    <p className="pl-2 text-base font-medium leading-tight  dark:text-gray-100 text-gray-800">
                       {`https://${userInfo.data.user.username}.firstletter.tech/`}
                     </p>
                   </div>
@@ -60,22 +60,4 @@ export default function IndexPage() {
       </div>
     </>
   );
-}
-
-{
-  /* <div className="mt-4  lg:mt-0 py-12 px-8 lg:px-12 bg-blue-500 lg:w-2/5 lg:-ml-12 text-white f-f-l">
-<div className="lg:text-4xl text-2xl font-normal leading-9 pb-6 f-f-d-s">
-  Hey !👋 {userInfo.data.user.name}
-</div>
-
-<div className="pb-6 leading-6  text-base lg:text-base ">
-  Your website is Ready share with your friend and peers and Don't forget to add Your Details
-</div>
-<a
-  href={`https://${userInfo.data.user.username}.firstletter.tech/`}
-  className="border-b border-white lg:text-2xl text-base leading-6 f-f-l font-bold"
->
-  Visit Now
-</a>
-</div> */
 }
